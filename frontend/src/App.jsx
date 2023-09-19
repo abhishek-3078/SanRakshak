@@ -4,10 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import NavSide from './components/NavSide';
 import Navbar from './components/Navbar';
-import MissingPeopleDash from './components/MissingPeopleDash';
-import UserMap from './components/UserMap';
-import ImportantInfo from './components/ImportantInfo';
-
+import ImportantInfoBox from './components/ImportantInfoBox';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -20,10 +17,8 @@ function App() {
           </section>
           <section className='flex'>
               <NavSide></NavSide>
-              <div className='flex flex-col'>
-                <ImportantInfo></ImportantInfo>
-                  {/* <MissingPeopleDash /> */}
-                  {/* <UserMap /> */}
+              <div className='flex justify-center w-full mt-3'>
+                  <ImportantInfoBox></ImportantInfoBox>
               </div>
           </section>
       </div>

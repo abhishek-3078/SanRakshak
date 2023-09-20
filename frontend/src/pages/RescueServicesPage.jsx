@@ -8,7 +8,7 @@ function RescueServices(){
         <>
           <section className="flex flex-col">
                 <div>
-                    <Navbar></Navbar>
+                    <Navbar color="#F56868"></Navbar>
                 </div>
                 <div className="flex">
                     <div>

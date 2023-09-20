@@ -27,7 +27,7 @@ function App() {
     </Routes>
     </Router>
     </div>
-    // <RescueServicesPage></RescueServicesPage>
+    // <SignUp/>
   )
 }
 

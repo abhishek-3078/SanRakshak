@@ -4,7 +4,7 @@ const User=require('../models/user')
 router.get("/login/success", (req, res) => {
 	console.log(req.session)
 	console.log("user",req.user)
-	if (req.session && req.session.passport.user) {
+	if (req.session && req.user) {
         console.log("checked",req.user)
 		res.status(200).json({
 			error: false,

@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import NavSide from './components/NavSide';
 import Navbar from './components/Navbar';
+import SignUp from './components/SignUp';
 import Login from './Login';
 import ImportantInfoBox from './components/ImportantInfoBox';
 import RescueServicesPage from './pages/RescueServicesPage';
@@ -22,15 +23,14 @@ function App() {
     <Router>
     <Routes>
       <Route path="/login" element={<Login/>}></Route>
+      <Route path="/signup" element={<SignUp/>}></Route>
       <Route path="/" element={<Home/>}/>
       <Route path="/dashboard" element={<RescueServicesPage/>}/>
       <Route path="/addShelter" element={<AddShelterPage/>}/>
     </Routes>
     </Router>
     </div>
-    
-    // <RescueServicesPage></RescueServicesPage>
-    
+    // <SignUp/>
   )
 }
 

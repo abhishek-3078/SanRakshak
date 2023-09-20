@@ -5,22 +5,11 @@ const router=new express.Router()
 const jwt = require('jsonwebtoken');
 const passport = require("passport");
 router.get('/user/getUser',async (req,res)=>{
-    const token=req.headers.authorization
-
-    console.log("token: " , token ,typeof(token));
-    if(token == "null") {
-        return res.status(401).send()
-    }
+    console.log("get user:",req.user)
+    if(!req.user) return res.status(401).send({message:"Unauthorized User"})
     try{
-        const {email:Email,exp}=jwt.verify(token,process.env.KEY)
-        if(new Date().getTime()/1000 > exp){
-            return res.status(401).send({message:"token expired"})
-        }
-    
-        // console.log(exp,Email,new Date().getTime())
-        const data= await User.findOne({email:Email})
-
-        res.status(200).send({username:data.username,fullname:data.fullname,email:data.email})
+        const user=req.user;
+        res.status(200).send(user)
     }catch(e){
         console.log("hello erroe");
         return res.status(401).send({message:e.message});

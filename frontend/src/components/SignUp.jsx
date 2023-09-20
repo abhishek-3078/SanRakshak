@@ -34,6 +34,7 @@ function App() {
                     className="w-11/12 mx-auto p-1 outline-0"
                     type="text"
                     placeholder="First Name"
+                    name="firstName"
                   ></input>
                 </div>
                 <div className="border-solid border-2 border-black py-2 rounded-sm">
@@ -41,6 +42,7 @@ function App() {
                     className="w-11/12 mx-auto p-1 outline-0"
                     type="text"
                     placeholder="Last Name"
+                    name="lastName"
                   ></input>
                 </div>
                 <div className="border-solid border-2 border-black py-2 col-span-2 rounded-sm">
@@ -48,6 +50,7 @@ function App() {
                     className="w-11/12 mx-auto p-1 outline-0"
                     type="email"
                     placeholder="Email"
+                    name="email"
                   ></input>
                 </div>
                 <div className="border-solid border-2 border-black py-2 col-span-2 rounded-sm">
@@ -55,6 +58,7 @@ function App() {
                     className="w-11/12 mx-auto p-1 outline-0"
                     type="password"
                     placeholder="Password"
+                    name="password"
                   ></input>
                 </div>
                 <div className="border-solid border-2 border-black py-2 col-span-2 rounded-sm">
@@ -62,6 +66,7 @@ function App() {
                     className="w-11/12 mx-auto p-1 outline-0"
                     type="password"
                     placeholder="Confirm Password"
+                    name="confirmPassword"
                   ></input>
                 </div>
               </div>

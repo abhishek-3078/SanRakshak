@@ -4,23 +4,14 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import NavSide from './components/NavSide';
 import Navbar from './components/Navbar';
+import SignUp from './components/SignUp';
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <div className='bg-white text-blue-400 '>
-          <section>
-              <Navbar></Navbar>
-          </section>
-          <section className='flex'>
-              <NavSide></NavSide>
-              <div>
-                  
-              </div>
-          </section>
-      </div>
+    
     </>
   )
 }

@@ -5,15 +5,14 @@ import './App.css'
 import NavSide from './components/NavSide';
 import Navbar from './components/Navbar';
 import Login from './Login';
+import ImportantInfoBox from './components/ImportantInfoBox';
+import RescueServicesPage from './pages/RescueServicesPage';
+
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div className='bg-white text-blue-400 '>
-         <Login/>
-      </div>
-    </>
+    <RescueServicesPage></RescueServicesPage>
   )
 }
 

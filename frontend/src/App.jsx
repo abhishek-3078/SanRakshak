@@ -7,21 +7,26 @@ import Navbar from './components/Navbar';
 import Login from './Login';
 import ImportantInfoBox from './components/ImportantInfoBox';
 import RescueServicesPage from './pages/RescueServicesPage';
-import NewNavSide from './components/NewNavSide';
-import ShelterForm from './components/ShelterForm';
-import HomeNavbar from './components/HomeNavbar';
+import Home from './pages/Home';
+import {Route,BrowserRouter as Router,Routes} from "react-router-dom";
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
+
+    <div>
+      
+    <Router>
+    <Routes>
+      <Route path="/login" element={<Login/>}></Route>
+      <Route path="/" element={<Home/>}/>
+      <Route path="/dashboard" element={<RescueServicesPage/>}/>
+    </Routes>
+    </Router>
+    </div>
+    
     // <RescueServicesPage></RescueServicesPage>
-    <>
-      {/* <Navbar color="#6A8BFF"></Navbar> */}
-     {/* <NewNavSide></NewNavSide> */}
-      {/* <ShelterForm></ShelterForm> */}
-      <HomeNavbar color="#6A8BFF"></HomeNavbar>
-    </>
   )
 }
 

@@ -5,6 +5,8 @@ import './App.css'
 import NavSide from './components/NavSide';
 import Navbar from './components/Navbar';
 import ImportantInfoBox from './components/ImportantInfoBox';
+import UserMap from './components/UserMap'
+import MissingPeopleDash from './components/MissingPeopleDash';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -17,8 +19,12 @@ function App() {
           </section>
           <section className='flex'>
               <NavSide></NavSide>
-              <div className='flex justify-center w-full mt-3'>
+              <div className='flex flex-col justify-center items-center w-full mt-3'>
                   <ImportantInfoBox></ImportantInfoBox>
+                  <div className="flex w-full justify-center">
+                    <UserMap />
+                    <MissingPeopleDash />
+                  </div> 
               </div>
           </section>
       </div>

@@ -9,6 +9,9 @@ import ImportantInfoBox from './components/ImportantInfoBox';
 import RescueServicesPage from './pages/RescueServicesPage';
 import Home from './pages/Home';
 import {Route,BrowserRouter as Router,Routes} from "react-router-dom";
+import ShelterForm from './components/ShelterForm'
+import AddLocationOnMap from './components/AddLocationOnMap';
+import AddShelterPage from './pages/AddShelterPage';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -16,17 +19,18 @@ function App() {
   return (
 
     <div>
-      
     <Router>
     <Routes>
       <Route path="/login" element={<Login/>}></Route>
       <Route path="/" element={<Home/>}/>
       <Route path="/dashboard" element={<RescueServicesPage/>}/>
+      <Route path="/addShelter" element={<AddShelterPage/>}/>
     </Routes>
     </Router>
     </div>
     
     // <RescueServicesPage></RescueServicesPage>
+    
   )
 }
 

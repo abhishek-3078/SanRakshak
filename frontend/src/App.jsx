@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import NavSide from './components/NavSide';
 import Navbar from './components/Navbar';
+import Login from './Login';
 import ImportantInfoBox from './components/ImportantInfoBox';
 import RescueServicesPage from './pages/RescueServicesPage';
 import NewNavSide from './components/NewNavSide';

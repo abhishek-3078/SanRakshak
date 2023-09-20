@@ -37,8 +37,8 @@ const NewsItem = (props) => {
             </div>
 
 
-            <div className="newsItemDetail">
-                <div className="newsBody">
+            <div className="newsItemDetail overflow-auto">
+                <div className="newsBody overflow-auto">
                     Contains detail about the news, the person went missing on the evening of the 29th at Jamnanagar. She is 6 years old and has a ponytail a the back of her head.
                 </div>
             </div>
@@ -48,7 +48,7 @@ const NewsItem = (props) => {
 
 const MissingPeopleDash = () => {
   return (<>
-    <div className="newsboxUser">
+    <div className="newsboxUser w-[50%] ">
         <div className="newsboxUserHeading">
             <h1>News/Missing People</h1>
         </div>
@@ -60,8 +60,6 @@ const MissingPeopleDash = () => {
             <NewsItem title={title} text={text} link={link}></NewsItem>
             <NewsItem title={title} text={text} link={link}></NewsItem>
             <NewsItem title={title} text={text} link={link}></NewsItem>
-
-
 
             {/* <MissingPersonItem title={title} text={text} link={link}/> */}
         </div>

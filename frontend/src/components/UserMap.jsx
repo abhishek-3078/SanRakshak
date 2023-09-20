@@ -2,7 +2,7 @@ import React from 'react'
 
 const UserMap = () => {
   return (
-    <div className="w-[50%] border-[#C5C5C5] border-solid border-[2px] h-[80vh] flex flex-col justify-center rounded-[9px]">
+    <div className="w-[100%] border-[#C5C5C5] border-solid border-[2px] h-[100vh] flex flex-col justify-center rounded-[9px]">
         <div className="flex">
             <h1 className="text-[25px] mx-5 font-[500] pt-[3px]">Find Nearest Rescue Services</h1>
         </div>

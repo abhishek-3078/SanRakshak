@@ -15,6 +15,7 @@ const cors=require('cors')
 // const { findByIdAndUpdate, findByIdAndDelete } = require('./models/user')
 
 const app=express() 
+app.set("trust proxy",1) 
 app.use(cors({
     origin: "http://localhost:5173",
     methods: "GET,POST,PUT,DELETE",
@@ -25,7 +26,8 @@ app.use(
 	cookieSession({
 		name: "session",
 		keys: ["cyberwolve"],
-		maxAge: 24 * 60 * 60 * 100,
+		maxAge: 24 * 60 * 60 * 100
+        
 	})
 );
 

@@ -1,5 +1,5 @@
 const User=require("../models/user")
-export const auth=async(req,res,next)=>{
+const auth=async(req,res,next)=>{
   try{    
       const token=req.header('Authorization')
       const decoded=jwt.verify(token,process.env.JWT_SECRET)
@@ -14,3 +14,4 @@ export const auth=async(req,res,next)=>{
       res.status(401).send({error:"Please authenticate."})
   }
 }
+module.exports=auth

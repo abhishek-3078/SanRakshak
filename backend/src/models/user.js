@@ -45,9 +45,6 @@ const userSchema=new mongoose.Schema({
     profileUrl:{
         type:String
     },
-    provider:{
-        type:String
-    },
     subject:{
         type:String
     }

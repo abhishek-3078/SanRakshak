@@ -14,9 +14,9 @@ const cors=require('cors')
 // const { findByIdAndUpdate, findByIdAndDelete } = require('./models/user')
 
 const app=express() 
-app.set("trust proxy",1) 
+const allowedOrigins=["http://localhost:5173","https://sanrakshak.onrender.com/"]
 app.use(cors({
-    origin: "https://sanrakshak.onrender.com",
+    origin: allowedOrigins,
     methods: "GET,POST,PUT,DELETE",
     credentials: true,
 }))

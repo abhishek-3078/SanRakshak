@@ -34,7 +34,7 @@ router.post('/user/signup',async(req,res)=>{
 // router.post('/user/login',passport.authenticate('local',{failureRedirect:"/auth/login/failed",successRedirect:process.env.CLIENT_URL}));
 router.post('/user/login',async(req,res)=>{
     let userData=req.body
-    console.log(userData)
+    console.log("login data:",userData)
     try{
         try{
 
@@ -42,7 +42,7 @@ router.post('/user/login',async(req,res)=>{
             const token=await user.generateAuthToken()
             res.send({user,token})
         }catch(e){
-            res.status(400).send("error"+ e)
+            res.status(400).send({Error:e.message})
         }
     }catch(e){
         res.status(403).send({success:false,message:e.message})

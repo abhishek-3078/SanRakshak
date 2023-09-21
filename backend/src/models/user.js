@@ -85,6 +85,7 @@ userSchema.methods.toJSON=function(){
     const userObject=user.toObject()
     delete userObject.password
     delete userObject["_id"]
+    delete userObject["__v"]
     return userObject
 }
 userSchema.methods.generateAuthToken=async function(){

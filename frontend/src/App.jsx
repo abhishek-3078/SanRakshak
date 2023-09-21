@@ -4,16 +4,9 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import NavSide from './components/NavSide';
 import Navbar from './components/Navbar';
-import SignUp from './components/SignUp';
-import Login from './Login';
 import ImportantInfoBox from './components/ImportantInfoBox';
-import RescueServicesPage from './pages/RescueServicesPage';
-import Home from './pages/Home';
-import {Route,BrowserRouter as Router,Routes} from "react-router-dom";
-import ShelterForm from './components/ShelterForm'
-import AddLocationOnMap from './components/AddLocationOnMap';
-import AddShelterPage from './pages/AddShelterPage';
-import UserAlert from './pages/UserAlert';
+import UserMap from './components/UserMap'
+import MissingPeopleDash from './components/MissingPeopleDash';
 
 function App() {
   const [count, setCount] = useState(0)

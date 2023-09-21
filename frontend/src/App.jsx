@@ -5,46 +5,29 @@ import './App.css'
 import NavSide from './components/NavSide';
 import Navbar from './components/Navbar';
 import ImportantInfoBox from './components/ImportantInfoBox';
-import RescueServicesPage from './pages/RescueServicesPage';
-import ShelterDetailBox, { MainDisplayFunction } from './components/ShelterDetailBox';
-import ShelterDetailPopUpBox from './components/ShelterDetailPopUpBox';
-
-
-
-
-
+import UserMap from './components/UserMap'
+import MissingPeopleDash from './components/MissingPeopleDash';
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-
-      {/* <RescueServicesPage /> */}
-
-      {/* <ShelterDetailBox /> */}
-
-
-      {/* <ShelterDetailPopUpBox id="12213059" name="Jamnagar Medical Shelter 2148" coordinator={"Archit Chetan Chhajed"} area="Near Bedi Road, Jamnagar, Gujarat" dateOfCreation={"19/03/2004"} type={"Medical Aid Shelter"} resources={[
-            {
-                resource_id: 1,
-                resource_name: "insulin",
-                resource_qty: "300 injections"
-            },
-            {
-                resource_id: 1,
-                resource_name: "insulin",
-                resource_qty: "300 injections"
-            }
-        ]}/>*/}
-
-
-        <MainDisplayFunction></MainDisplayFunction>
-
-
-
-      
-
+      <div className=''>
+          <section>
+              <Navbar></Navbar>
+          </section>
+          <section className='flex'>
+              <NavSide></NavSide>
+              <div className='flex flex-col justify-center items-center w-full mt-3'>
+                  <ImportantInfoBox></ImportantInfoBox>
+                  <div className="flex w-full justify-center">
+                    <UserMap />
+                    <MissingPeopleDash />
+                  </div> 
+              </div>
+          </section>
+      </div>
     </>
   )
 }

@@ -80,15 +80,13 @@ userSchema.statics.findByCredentials=async(email,password)=>{
 //     delete userObject.tokens
 //     return userObject
 // }
-// userSchema.methods.toJSON=function(){
-//     const user=this
-//     const userObject=user.toObject()
-//     delete userObject.password
-//     delete userObject.tokens
-//     // userObject.avatar=undefined
-//     delete userObject.avatar
-//     return userObject
-// }
+userSchema.methods.toJSON=function(){
+    const user=this
+    const userObject=user.toObject()
+    delete userObject.password
+    delete userObject["_id"]
+    return userObject
+}
 userSchema.methods.generateAuthToken=async function(){
     const user =this
     token = jwt.sign({_id:user._id.toString()},process.env.JWT_SECRET,{expiresIn:60*60})

@@ -3,8 +3,9 @@ import Navbar from '../components/Navbar'
 import HomeNavbar from '../components/HomeNavbar'
 import { API } from '../constant'
 
+
 const Home = () => {
-  
+
   return (
     <div className='h'>
        <HomeNavbar color="#6A8BFF"/>

@@ -13,6 +13,7 @@ import {Route,BrowserRouter as Router,Routes} from "react-router-dom";
 import ShelterForm from './components/ShelterForm'
 import AddLocationOnMap from './components/AddLocationOnMap';
 import AddShelterPage from './pages/AddShelterPage';
+import UserAlert from './pages/UserAlert';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -24,6 +25,7 @@ function App() {
     <Routes>
       <Route path="/login" element={<Login/>}></Route>
       <Route path="/signup" element={<SignUp/>}></Route>
+      <Route path="/Alerts" element={<UserAlert/>}></Route>
       <Route path="/" element={<Home/>}/>
       <Route path="/dashboard" element={<RescueServicesPage/>}/>
       <Route path="/addShelter" element={<AddShelterPage/>}/>

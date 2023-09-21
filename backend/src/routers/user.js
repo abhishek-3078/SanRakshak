@@ -5,7 +5,7 @@ const router=new express.Router()
 const jwt = require('jsonwebtoken');
 const passport = require("passport");
 
-router.get('/user/getUser',auth,async (req,res)=>{
+router.get('/user',auth,async (req,res)=>{
     console.log("get user:",req.user)
     try{
         const user=req.user;

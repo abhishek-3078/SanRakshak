@@ -4,7 +4,7 @@ require('dotenv').config()
 require('./db/mongoose')
 // const authRoute = require("./routers/auth");
 // const passport = require("passport");
-const bodyParser = require('body-parser');
+// const bodyParser = require('body-parser');
 
 
 // const cookieSession = require("cookie-session");
@@ -14,8 +14,9 @@ const cors=require('cors')
 // const { findByIdAndUpdate, findByIdAndDelete } = require('./models/user')
 
 const app=express() 
+const allowedOrigins=["http://localhost:5173","https://sanrakshak.onrender.com/"]
 app.use(cors({
-    origin: "https://sanrakshak.onrender.com",
+    origin: allowedOrigins,
     methods: "GET,POST,PUT,DELETE",
     credentials: true,
 }))

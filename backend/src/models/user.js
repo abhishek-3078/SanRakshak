@@ -45,9 +45,6 @@ const userSchema=new mongoose.Schema({
     profileUrl:{
         type:String
     },
-    provider:{
-        type:String
-    },
     subject:{
         type:String
     }
@@ -83,20 +80,18 @@ userSchema.statics.findByCredentials=async(email,password)=>{
 //     delete userObject.tokens
 //     return userObject
 // }
-// userSchema.methods.toJSON=function(){
-//     const user=this
-//     const userObject=user.toObject()
-//     delete userObject.password
-//     delete userObject.tokens
-//     // userObject.avatar=undefined
-//     delete userObject.avatar
-//     return userObject
-// }
+userSchema.methods.toJSON=function(){
+    const user=this
+    const userObject=user.toObject()
+    delete userObject.password
+    delete userObject["_id"]
+    return userObject
+}
 userSchema.methods.generateAuthToken=async function(){
     const user =this
-    token = jwt.sign({_id:user._id.toString()},process.env.JWT_SECRET)
-    user.tokens=user.tokens.concat({token})
-    await user.save()
+    token = jwt.sign({_id:user._id.toString()},process.env.JWT_SECRET,{expiresIn:60*60})
+    // user.tokens=user.tokens.concat({token})
+    // await user.save()
     return token
 }
 //arrow function dont support this keyword
@@ -109,7 +104,7 @@ userSchema.pre('save',async function(next){
 })
 //delete user tasks when user is removed
 // userSchema.pre('remove',async function(next){
-//     const user=this
+//     const usera=this
 //     await Task.deleteMany({owner:user._id})
 //     next()
 // })

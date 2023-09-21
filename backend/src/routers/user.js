@@ -4,9 +4,9 @@ const auth=require('../middleware/auth')
 const router=new express.Router()
 const jwt = require('jsonwebtoken');
 const passport = require("passport");
-router.get('/user/getUser',async (req,res)=>{
+
+router.get('/user/getUser',auth,async (req,res)=>{
     console.log("get user:",req.user)
-    if(!req.user) return res.status(401).send({message:"Unauthorized User"})
     try{
         const user=req.user;
         res.status(200).send(user)
@@ -48,19 +48,19 @@ router.post('/user/login',async(req,res)=>{
         res.status(403).send({success:false,message:e.message})
     }
 })
-router.post('/user/logout',(req,res)=>{
-    console.log("ask for logout",req.session)
-    req.logout()
-    res.send({message:"hello"})
+// router.post('/user/logout',(req,res)=>{
+//     console.log("ask for logout",req.session)
+//     req.logout()
+//     res.send({message:"hello"})
     
 // })
 
-router.get('/user/logout',(req,res)=>{
+router.get('/user/logout',auth,(req,res)=>{
     try{
         console.log("hello");
         res.send({success:true,message:"successfully logout"})
     }catch(e){
-        console.log(e)
+        res.status(403).send({message:e.message})
     }
 })
 

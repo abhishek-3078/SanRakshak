@@ -4,7 +4,7 @@ require('dotenv').config()
 require('./db/mongoose')
 // const authRoute = require("./routers/auth");
 // const passport = require("passport");
-const bodyParser = require('body-parser');
+// const bodyParser = require('body-parser');
 
 
 // const cookieSession = require("cookie-session");

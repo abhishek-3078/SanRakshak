@@ -1,33 +1,48 @@
 import { useState } from "react";
 
-function NewFieldList(){
-    const initialFieldList = [[
+const initialFieldList = [[
         <div className="flex">
-            <input className="border-2  w-60 mt-2 rounded-lg border-[grey] border-solid px-1" type="text" name="resource_name"/>
-            <input className="border-2  w-60 mt-2 rounded-lg border-[grey] border-solid px-1" type="text" name="resource_qty"/>
+            <input className="border-[1px]  w-60 rounded-l-lg border-[grey] border-solid px-1" type="text" name="resource_name"/>
+            <input className="border-[1px]  w-60 rounded-r-lg border-[grey] border-solid px-1" type="number" name="resource_qty"/>
         </div>
     ],
     [
         <div className="flex">
-            <input className="border-2  w-60 mt-2 rounded-lg border-[grey] border-solid px-1" type="text" name="resource_name"/>
-            <input className="border-2  w-60 mt-2 rounded-lg border-[grey] border-solid px-1" type="text" name="resource_qty"/>
+            <input className="border-[1px]  w-60 rounded-l-lg border-[grey] border-solid px-1" type="text" name="resource_name"/>
+            <input className="border-[1px]  w-60 rounded-r-lg border-[grey] border-solid px-1" type="number" name="resource_qty"/>
         </div>
     ]
-    ]
-    const [fieldList,setFieldList] = useState( initialFieldList );
-
+];
+function NewFieldList({fieldList}){
     return(
         <>
-
+            {fieldList.map((ele)=>{
+                return ele;
+            })}
         </>
     )
 }
 
+
+
 function ShelterForm(){
+    const [fieldList,setFieldList] = useState( initialFieldList );
+
+    function handleAddNewField(e){
+        e.preventDefault();
+        e.stopPropagation();
+        setFieldList([...fieldList,
+        <div className="flex">
+            <input className="border-[1px]  w-60 rounded-l-lg border-[grey] border-solid px-1" type="text" name="resource_name"/>
+            <input className="border-[1px]  w-60 rounded-r-lg border-[grey] border-solid px-1" type="number" name="resource_qty"/>
+        </div>
+        ])
+    }
+
     return(
-        <div className="border-2 border-solid border-[grey] w-[40vw] rounded-xl h-[90vh] px-5 py-2">
+        <div className="border-2 border-solid border-[grey] w-[40vw] rounded-xl h-[90vh] px-5 py-2 overflow-auto">
             <div>
-                <h1 className="text-[25px] font-bold">
+                <h1 className="text-[25px] font-bold font-serif">
                     Shelter Details
                 </h1>
                 <p>
@@ -50,13 +65,21 @@ function ShelterForm(){
                         <input className="border-2  w-60 mt-2 rounded-lg border-[grey] border-solid px-1" type="text" name="shelterCordinator"/>
                     </div>
                 </div>
-                <div className="flex flex-col w-full border-2 vorder-solid border-green-700 my-3">
-                    <label className="block font-[500]" htmlFor="resources">Resources Allocated</label>
+                <div className="flex flex-col w-full  my-3">
+                    <label className="block font-[500] my-2" htmlFor="resources">Resources Allocated</label>
                     <div>
-
+                        <div className="flex bg-[#6A8BFF] rounded-t-lg text-white">
+                            <div className="w-1/2 text-center">
+                                Name
+                            </div>
+                            <div className="w-1/2 text-center">
+                                Amount
+                            </div>
+                        </div>
                     </div>
+                    <NewFieldList fieldList={fieldList}></NewFieldList>
                     <div className="w-full">
-                        <button className="w-28 h-7 float-right border-2 border-solid border-blue-500 font-bold bg-[#6A8BFF] text-white text-[14px] shadow-lg shadow-black">
+                        <button onClick={handleAddNewField} className="w-28 h-7 mt-2 float-right border-2 border-solid border-blue-500 font-bold bg-[#6A8BFF] text-white text-[14px] shadow-lg shadow-black">
                             Add Field <img className="w-3 h-3 inline text-center invert-[1]" src="https://cdn-icons-png.flaticon.com/128/1237/1237946.png" alt="" />
                         </button>
                     </div>

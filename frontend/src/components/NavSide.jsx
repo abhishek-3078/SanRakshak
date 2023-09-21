@@ -2,7 +2,7 @@ import ButtonTransparent from "./ButtonTransparent";
 function NavSide() {
     return (
         <div className="bg-[#F56868] w-[15vw] h-full">
-            <ul className="flex flex-col w-full pt-5">
+            <ul className="flex flex-col w-full pt-5 ">
                 <li className="flex ml-2 space-x-5 my-5">
                     <img className="w-6 h-6 invert-[1]" src="https://cdn-icons-png.flaticon.com/128/3524/3524878.png" alt="" />
                     <ButtonTransparent>Dashboard</ButtonTransparent>

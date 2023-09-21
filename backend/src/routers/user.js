@@ -53,15 +53,15 @@ router.post('/user/logout',(req,res)=>{
     req.logout()
     res.send({message:"hello"})
     
-})
-// router.get('/user/logout',(req,res)=>{
-//     try{
-//         console.log("hello");
-//         res.send({success:true,message:"successfully logout"})
-//     }catch(e){
-//         console.log(e)
-//     }
-   
 // })
+
+router.get('/user/logout',(req,res)=>{
+    try{
+        console.log("hello");
+        res.send({success:true,message:"successfully logout"})
+    }catch(e){
+        console.log(e)
+    }
+})
 
 module.exports=router

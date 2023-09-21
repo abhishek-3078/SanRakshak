@@ -4,33 +4,31 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import NavSide from './components/NavSide';
 import Navbar from './components/Navbar';
-import SignUp from './components/SignUp';
-import Login from './Login';
 import ImportantInfoBox from './components/ImportantInfoBox';
-import RescueServicesPage from './pages/RescueServicesPage';
-import Home from './pages/Home';
-import {Route,BrowserRouter as Router,Routes} from "react-router-dom";
-import ShelterForm from './components/ShelterForm'
-import AddLocationOnMap from './components/AddLocationOnMap';
-import AddShelterPage from './pages/AddShelterPage';
+import UserMap from './components/UserMap'
+import MissingPeopleDash from './components/MissingPeopleDash';
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-
-    <div>
-    <Router>
-    <Routes>
-      <Route path="/login" element={<Login/>}></Route>
-      <Route path="/signup" element={<SignUp/>}></Route>
-      <Route path="/" element={<Home/>}/>
-      <Route path="/dashboard" element={<RescueServicesPage/>}/>
-      <Route path="/addShelter" element={<AddShelterPage/>}/>
-    </Routes>
-    </Router>
-    </div>
-    // <SignUp/>
+    <>
+      <div className=''>
+          <section>
+              <Navbar></Navbar>
+          </section>
+          <section className='flex'>
+              <NavSide></NavSide>
+              <div className='flex flex-col justify-center items-center w-full mt-3'>
+                  <ImportantInfoBox></ImportantInfoBox>
+                  <div className="flex w-full justify-center">
+                    <UserMap />
+                    <MissingPeopleDash />
+                  </div> 
+              </div>
+          </section>
+      </div>
+    </>
   )
 }
 

@@ -1,9 +1,9 @@
 import React from "react";
-
+import { API } from "./constant";
 import { FcGoogle, FcUnlock } from "react-icons/fc";
 const Login = () => {
     async function handleClick(){
-        window.open("http://localhost:3000/auth/google/callback","_self")
+        window.open(`${API}/auth/google/callback`,"_self")
     //     const res=await fetch("http://localhost:3000/auth/google/callback",{
     //     method: "GET",
     //   credentials: "include"})
@@ -14,7 +14,7 @@ const Login = () => {
     }
     async function handleCheck(){
         // window.open("http://localhost:3000/auth/google/callback","_self")
-        const res=await fetch("http://localhost:3000/auth/login/success",{
+        const res=await fetch(`${API}/auth/login/success`,{
             credentials:"include"
         })
         const data=await res.json()
@@ -23,7 +23,8 @@ const Login = () => {
         
     }
     async function handleLogin(){
-        const res=await fetch("http://localhost:3000/user/login",{
+        
+        const res=await fetch(`${API}/user/login`,{
             method:"POST",
             headers: {
                 "Content-Type": "application/json"
@@ -37,7 +38,8 @@ const Login = () => {
         
     }
     async function handleLogout(){
-        const res=await fetch("http://localhost:3000/user/logout",{
+        
+        const res=await fetch(`${API}/user/logout`,{
             method:"POST",
             credentials:"include",
             headers: {

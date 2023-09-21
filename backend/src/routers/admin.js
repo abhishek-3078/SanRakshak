@@ -1,27 +1,27 @@
 const express=require('express')
-const User=require('../models/user')
-const {auth}=require('../middleware/auth')
+const Admin=require('../models/admin')
+const {adminAuth}=require('../middleware/auth')
 const router=new express.Router()
 const jwt = require('jsonwebtoken');
 const passport = require("passport");
 
-router.get('/user',auth,async (req,res)=>{
+router.get('/',adminAuth,async (req,res)=>{
     console.log("get user:",req.user)
     try{
         const user=req.user;
         res.status(200).send(user)
     }catch(e){
-        console.log("hello erroe");
+        console.log("hello error");
         return res.status(401).send({message:e.message});
 
     }
 })
 
-router.post('/user/signup',async(req,res)=>{
+router.post('/signup',async(req,res)=>{
 
-    const user=new User(req.body)
-    console.log(user)
+    const user=new Admin(req.body)
     try{ 
+    console.log(user)
     await user.save()
     // sendWelcomeEmail(user.email,user.name)
     const token=await user.generateAuthToken()
@@ -31,11 +31,20 @@ router.post('/user/signup',async(req,res)=>{
     }
     
 })
+router.post('/signup2',async(req,res)=>{
+    const admin=await Admin.findOne({})
+    if(!admin) return res.status(400).send()
+    try{
+        
+    }catch(e){
+
+    }
+})
 // router.post('/user/login',passport.authenticate('local',{failureRedirect:"/auth/login/failed",successRedirect:process.env.CLIENT_URL}));
-router.post('/user/login',async(req,res)=>{
+router.post('/login',async(req,res)=>{
     let userData=req.body
     console.log("login data:",userData)
-    try{
+
         try{
 
             const user=await User.findByCredentials(req.body.email,req.body.password)
@@ -44,9 +53,7 @@ router.post('/user/login',async(req,res)=>{
         }catch(e){
             res.status(400).send({Error:e.message})
         }
-    }catch(e){
-        res.status(403).send({success:false,message:e.message})
-    }
+    
 })
 // router.post('/user/logout',(req,res)=>{
 //     console.log("ask for logout",req.session)
@@ -55,7 +62,7 @@ router.post('/user/login',async(req,res)=>{
     
 // })
 
-router.post('/user/logout',auth,(req,res)=>{
+router.post('/logout',adminAuth,(req,res)=>{
     try{
         console.log("hello");
         res.send({success:true,message:"successfully logout"})

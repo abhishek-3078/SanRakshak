@@ -4,7 +4,7 @@ const User=require('../models/user')
 router.get("/login/success", (req, res) => {
 	console.log(req.session)
 	console.log("user",req.user)
-	if (req.session && req.session.passport.user) {
+	if (req.session && req.user) {
         console.log("checked",req.user)
 		res.status(200).json({
 			error: false,
@@ -36,7 +36,8 @@ router.get(
 router.get("/logout", (req, res) => {
 	console.log(req.session)
 	req.logout();
-	res.redirect(process.env.CLIENT_URL);
+	res.send({message:"done"})
+	// res.redirect(process.env.CLIENT_URL);
 });
 
 module.exports = router;

@@ -27,7 +27,7 @@ passport.use(
 						subject:sub
 					})
 					console.log("hello:",user)
-					// await user.save()
+					await user.save()
 				}
 				callback(null, user);
 			}catch(e){

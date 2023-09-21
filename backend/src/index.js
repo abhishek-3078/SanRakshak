@@ -2,36 +2,37 @@ const express=require('express')
 const jwt=require('jsonwebtoken')
 require('dotenv').config()
 require('./db/mongoose')
-const authRoute = require("./routers/auth");
-const passport = require("passport");
-const passportStrategy = require("./passport");
-const bodyParser = require('body-parser');
+// const authRoute = require("./routers/auth");
+// const passport = require("passport");
+// const bodyParser = require('body-parser');
 
 
-const cookieSession = require("cookie-session");
+// const cookieSession = require("cookie-session");
 const userRouter=require('./routers/user')
+const adminRouter=require('./routers/admin')
 const cors=require('cors')
 // const taskRouter=require('./routers/task')
 // const { findByIdAndUpdate, findByIdAndDelete } = require('./models/user')
 
 const app=express() 
+const allowedOrigins=["http://localhost:5173","https://sanrakshak.onrender.com/"]
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: allowedOrigins,
     methods: "GET,POST,PUT,DELETE",
     credentials: true,
 }))
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(
-	cookieSession({
-		name: "session",
-		keys: ["cyberwolve"],
-		maxAge: 24 * 60 * 60 * 100,
-	})
-);
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(
+// 	cookieSession({
+// 		name: "session",
+// 		keys: ["cyberwolve"],
+// 		maxAge: 24 * 60 * 60 * 100,
+// 	})
+// );
 
 
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 app.use(express.json()) 
 app.use(express.urlencoded({ extended: true }))
@@ -42,7 +43,8 @@ app.get("/",(req,res)=>{
 })
 
 app.use(userRouter)
-app.use("/auth", authRoute)
+app.use("/admin",adminRouter)
+// app.use("/auth", authRoute)
 
 
   

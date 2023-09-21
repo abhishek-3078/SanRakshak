@@ -16,17 +16,19 @@ function App() {
 
   return (
 
-    <div>
+    // <div>
       
-    <Router>
-    <Routes>
-      <Route path="/login" element={<Login/>}></Route>
-      <Route path="/" element={<Home/>}/>
-      <Route path="/dashboard" element={<RescueServicesPage/>}/>
-    </Routes>
-    </Router>
-    </div>
-    // <SignUp/>
+    // <Router>
+    // <Routes>
+    //   <Route path="/login" element={<Login/>}></Route>
+    //   <Route path="/" element={<Home/>}/>
+    //   <Route path="/dashboard" element={<RescueServicesPage/>}/>
+    // </Routes>
+    // </Router>
+    // </div>
+    /* <RescueServicesPage></RescueServicesPage> */
+    <SignUp/>
+    
   )
 }
 

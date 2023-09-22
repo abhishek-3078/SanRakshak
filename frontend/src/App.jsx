@@ -1,23 +1,27 @@
 import { useState } from 'react'
 import './App.css'
-import Login from './Login';
-import SignUp from './components/SignUp';
-import UserAlert from './pages/UserAlert';
-import Home from './pages/Home';
 import RescueServicesPage from './pages/RescueServicesPage';
 import AddShelterPage from './pages/AddShelterPage';
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 import OrgRegister from './components/OrgRegister';
 import OrgLogin from './components/OrgLogin';
 
+import BurgerContext from './contexts/BurgerContext';
+import Login from './Login'
+import UserAlert from './pages/UserAlert'
+
+import UserMap from './components/UserMap'
+import MissingPeopleDash from './components/MissingPeopleDash';
+import SignUp from './components/SignUp'
+import Home from './pages/Home'
+// import {BrowserRouter as Router , Routes,Route} from 'react-router-dom';
+import AdminAddress from './components/AdminAddress';
 function App() {
   const [count, setCount] = useState(0)
   return (
-
     <div>
-    <Router>
-    <Routes>
-      
+    {/* <Router>
+    <Routes> 
       <Route path="/login" element={<Login/>}></Route>
       <Route path="/signup" element={<SignUp/>}></Route>
       <Route path="/alerts" element={<UserAlert/>}></Route>
@@ -27,8 +31,10 @@ function App() {
       <Route path="/OrgRegister" element={<OrgRegister/>}/>
       <Route path="/OrgLogin" element={<OrgLogin/>}/>
       
+
     </Routes>
-    </Router>
+    </Router>  */}
+    <AdminAddress/>
     </div>
     // <SignUp/>
   )

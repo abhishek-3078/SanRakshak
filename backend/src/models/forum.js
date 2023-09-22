@@ -15,7 +15,6 @@ const communityForumSchema = new mongoose.Schema({
     createdAt: { type: Date, default: Date.now },
     replies: [replySchema], // Top-level replies
   });
-  
 const CommunityForumPost = mongoose.model('CommunityForumPost', communityForumSchema);
 
 module.exports = CommunityForumPost;

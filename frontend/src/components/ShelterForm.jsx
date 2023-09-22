@@ -54,10 +54,10 @@ function ShelterForm(){
                     <div>     
                         <label className="block font-[500] " htmlFor="shelterType">Type</label>
                         <select className="border-2 border-solid border-[#C5C5C5] w-32 mt-2 rounded-lg" name="shelterType" id="shelterType">
-                            <option value="volvo">Volvo</option>
-                            <option value="saab">Saab</option>
-                            <option value="opel">Opel</option>
-                            <option value="audi">Audi</option>
+                            <option value="volvo">Food Shelter</option>
+                            <option value="saab">Medicine</option>
+                            <option value="opel">Home</option>
+                            <option value="audi">Rescue</option>
                         </select>
                     </div>
                     <div>

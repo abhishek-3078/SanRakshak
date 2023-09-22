@@ -1,4 +1,4 @@
-const Admin = require("../models/admin")
+const {Admin} = require("../models/admin")
 const User=require("../models/user")
 const jwt=require("jsonwebtoken")
 const auth=async(req,res,next)=>{
@@ -24,7 +24,7 @@ const adminAuth=async(req,res,next)=>{
       console.log(token)
       const decoded=jwt.verify(token,process.env.JWT_SECRET)
       console.log(decoded)
-      const user=await Admin.findOne({_id:decoded._id})
+      const user=await Admin.findOne({_id:decoded._id}).populate('shelters')
       if(!user){
           throw new Error()
       }

@@ -1,7 +1,56 @@
-import {FcGoogle} from 'react-icons/fc';
+import { FcGoogle } from 'react-icons/fc';
 import img from "../assets/main_bg3.jpg";
+import { API } from '../constant.js';
+import { useState } from 'react';
 
 function App() {
+
+  console.log("This is my ", API);
+
+  const [SignUpData, SetSignUpData] = useState({
+    email: "",
+    password: "",
+  })
+
+  const handleInput = (e) => {
+    console.log(e.target.name);
+    var tempData = SignUpData;
+    tempData[e.target.name] = e.target.value;
+    SetSignUpData(tempData);
+    console.log(SignUpData);
+  }
+
+  const LogUser = async () => {
+    console.log("Hello");
+    try {
+      console.log("Yaha pahuch gayaa");
+      const response = await fetch(`${API}/user/login`, {
+        method: "POST",
+        headers: {
+          'Content-Type': "application/json"
+        },
+        body: JSON.stringify(SignUpData)
+      });
+      console.log("vgv:", response)
+      if (response.ok) {
+        const data = await response.json()
+        localStorage.setItem("idToken", data.token);
+        console.log(data.token);
+        console.log(data);
+        // window.location.href = '/Home';
+      }
+      else {
+        throw new Error('Network response was not ok');
+      }
+    }
+    catch (error) {
+      alert(error);
+      console.log("This is the erroe", error);
+    }
+  }
+
+
+
   return (
     <div className="flex bg-gradient-to-r from-red-500 to-red-400 rounded-2xl items-center h-full md:h-screen md:w-screen  m-auto">
         <div className="w-11/12 md:w-9/12 py-0 px-0 md:py-10 md:px-8 bg-white rounded-xl mx-auto flex shadow-lg flex-col my-5 md:my-auto items-center relative md:flex-row">

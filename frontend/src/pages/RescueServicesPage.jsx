@@ -1,10 +1,11 @@
-import { useEffect } from "react";
+import { useState,useEffect } from "react";
 import { API } from "../constant";
 import ImportantInfoBox from "../components/ImportantInfoBox";
 import NavSide from "../components/NavSide";
 import Navbar from "../components/Navbar"
 import UserMap from "../components/UserMap"
 import MissingPeopleDash from "../components/MissingPeopleDash";
+import BurgerContext from "../contexts/BurgerContext";
 
 function RescueServices(){
     useEffect(()=>{
@@ -18,11 +19,18 @@ function RescueServices(){
         }
         getUser()
       },[])
+
+      const [isBurgerOn,setIsBurgerOn] = useState(true);
+
+      function handleBurgerClick(isBur){
+          setIsBurgerOn(isBur);
+      }
     return(
         <>
+        <BurgerContext.Provider value={isBurgerOn}>
           <section className="flex flex-col">
                 <div>
-                    <Navbar color="#F56868"></Navbar>
+                    <Navbar handleBurgerClick={handleBurgerClick} color="#F56868"></Navbar>
                 </div>
                 <div className="flex">
                     <div>
@@ -41,6 +49,7 @@ function RescueServices(){
                     </div>
                 </div>
           </section>
+          </BurgerContext.Provider>
         </>
     )
 }

@@ -8,7 +8,7 @@ const passport = require("passport");
 router.get('/',adminAuth,async (req,res)=>{
     console.log("get admin:",req.user)
     try{
-        const user=req.user;
+        const user=req.user;a
         res.status(200).send(user)
     }catch(e){
         console.log("hello error");

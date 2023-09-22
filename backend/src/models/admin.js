@@ -46,7 +46,7 @@ const shelterSchema = new mongoose.Schema({
     }],
     disaster: { type: mongoose.Schema.Types.ObjectId, ref: 'Disaster' }
   });
-  
+const Shelter=mongoose.model('shelter',shelterSchema)
 const adminSchema=new mongoose.Schema({
     name:{
         type:String,
@@ -101,7 +101,7 @@ const adminSchema=new mongoose.Schema({
           }
          
     },
-    shelters:[shelterSchema],
+    shelters:[{ type: mongoose.Schema.Types.ObjectId, ref: 'shelter' }],
     profileUrl:{
         type:String
     },
@@ -179,7 +179,7 @@ adminSchema.pre('save',async function(next){
 //     next()
 // })
 const Admin=mongoose.model('admin',adminSchema)
-const Shelter=mongoose.model('shelter',shelterSchema)
+
 const newAdminData = {
 
     email: 'admin@example.com',

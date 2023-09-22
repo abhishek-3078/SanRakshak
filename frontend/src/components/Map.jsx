@@ -27,7 +27,7 @@ const Map = () => {
         const { AdvancedMarkerElement } = await loader.importLibrary("marker");
         const map = new Map(document.getElementById("map"), {
           center: { lat: 29.9476, lng: 76.8227 },
-          zoom: 14,
+          zoom: 4,
           mapId: "4504f8b37365c3d0",
         });
         const markerPositions = [

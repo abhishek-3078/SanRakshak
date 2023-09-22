@@ -12,22 +12,14 @@ const Map = () => {
           version: "weekly",
           libraries: ["places"],
         });
-        const mapOptions = {
-          center: {
-            lat: 28.7,
-            lng: 77.1,
-          },
-          zoom: 4,
-        };
-
-
 
         // Request needed libraries.
-        const { Map } = await loader.importLibrary("maps");
+        const { Map,InfoWindow } = await loader.importLibrary("maps");
         const { AdvancedMarkerElement } = await loader.importLibrary("marker");
         const map = new Map(document.getElementById("map"), {
           center: { lat: 29.9476, lng: 76.8227 },
-          zoom: 14,
+          zoom: 4,
+          disableDoubleClickZoom:true,
           mapId: "4504f8b37365c3d0",
         });
         const markerPositions = [
@@ -41,17 +33,44 @@ const Map = () => {
         //   map,
         //   position: { lat: 37.4239163, lng: -122.0947209 },
         // });
-        markerPositions.forEach((position) => {
-            const marker = new AdvancedMarkerElement({
-              position: position,
-              map: map,
+        const infoWindow = new InfoWindow();
+        const draggableMarker = new AdvancedMarkerElement({
+          map,
+          position: { lat: 28.6129, lng: 77.1 },
+          gmpDraggable: true,
+          title: "This marker is draggable.",
+        });
+        draggableMarker.addListener("dragend", (event) => {
+          const position = draggableMarker.position;
+          // alert("hello")
+          console.log("hllo",position,position.lat)
+          // infoWindow.close();
+          infoWindow.setContent(
+            `
+            <div style="padding:10px">
+            Pin dropped at: ${position.lat} , ${position.lng}
+            </div>`
+          );
+          infoWindow.open(draggableMarker.map, draggableMarker);
+        });
+
+
+
+
+        // markerPositions.forEach((position) => {
+        //     const marker = new AdvancedMarkerElement({
+        //       position: position,
+        //       map: map,
              
-            })});
+        //     })});
+        //     var geocoder = new loader.Geocoder();
+        
+
     }
       
     //   initMap();
     // }
-      // fun();
+      fun();
     
       //   loader
       //   .importLibrary('maps')

@@ -16,6 +16,11 @@ import Login from './Login'
 import SignUp from './components/SignUp'
 import UserAlert from './pages/UserAlert'
 
+import UserMap from './components/UserMap'
+import MissingPeopleDash from './components/MissingPeopleDash';
+import SignUp from './components/SignUp'
+import Home from './pages/Home'
+import {BrowserRouter as Router , Routes,Route} from 'react-router-dom';
 function App() {
   const [count, setCount] = useState(0)
   return (

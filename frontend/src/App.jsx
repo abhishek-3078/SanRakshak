@@ -12,23 +12,20 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div className=''>
-          <section>
-              <Navbar></Navbar>
-          </section>
-          <section className='flex'>
-              <NavSide></NavSide>
-              <div className='flex flex-col justify-center items-center w-full mt-3'>
-                  <ImportantInfoBox></ImportantInfoBox>
-                  <div className="flex w-full justify-center">
-                    <UserMap />
-                    <MissingPeopleDash />
-                  </div> 
-              </div>
-          </section>
-      </div>
-    </>
+
+    <div>
+    <Router>
+    <Routes>
+      <Route path="/login" element={<Login/>}></Route>
+      <Route path="/signup" element={<SignUp/>}></Route>
+      <Route path="/Alerts" element={<UserAlert/>}></Route>
+      <Route path="/" element={<Home/>}/>
+      <Route path="/dashboard" element={<RescueServicesPage/>}/>
+      <Route path="/addShelter" element={<AddShelterPage/>}/>
+    </Routes>
+    </Router>
+    </div>
+    // <SignUp/>
   )
 }
 

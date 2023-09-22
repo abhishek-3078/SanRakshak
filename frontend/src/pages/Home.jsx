@@ -4,8 +4,9 @@ import HomeNavbar from '../components/HomeNavbar'
 import { API } from '../constant'
 import Map from '../components/Map'
 
+
 const Home = () => {
-  
+
   return (
     <div className='h'>
        <HomeNavbar color="#6A8BFF"/>

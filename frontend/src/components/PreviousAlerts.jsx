@@ -4,7 +4,7 @@ import PreviousAlertBox from "./PreviousAlertBox";
 const PreviousAlerts = () => {
     return (
         <>
-            <div className=" border p-2 overflow-auto h-[80vh]">
+            <div className=" border p-2 overflow-auto h-[95vh]">
                 <p className="font-semibold text-3xl ">Previous Alerts</p>
                 <PreviousAlertBox />
                 <PreviousAlertBox />

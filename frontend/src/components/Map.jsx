@@ -51,7 +51,7 @@ const Map = () => {
       
     //   initMap();
     // }
-      fun();
+      // fun();
     
       //   loader
       //   .importLibrary('maps')

@@ -12,7 +12,8 @@ import Map from "../components/LocationSelectorMap";
 function AddShelterPage() {
     const [isBurgerOn, setIsBurgerOn] = useState(false);
 
-    function handleBurgerClick(isBur) {
+    function handleBurgerClick(isBur)
+    {
         setIsBurgerOn(isBur);
     }
 

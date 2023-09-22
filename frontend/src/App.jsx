@@ -18,12 +18,16 @@ import Home from './pages/Home'
 import AdminAddress from './components/AdminAddress';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
+import AreasOfFocus from './components/AreasOfFocus';
+import RescueAgencyDashBoard from './pages/RescueAgencyDashBoard';
+import CommunityForumPage from './pages/CommunityForumPage';
+import InfoBox from './pages/InfoBox';
 function App() {
   const [count, setCount] = useState(0)
   return (
     <div>
-    {/* <Router>
-    <Routes> 
+    <Router>
+    {/* <Routes> 
       <Route path="/login" element={<Login/>}></Route>
       <Route path="/signup" element={<SignUp/>}></Route>
       <Route path="/alerts" element={<UserAlert/>}></Route>
@@ -34,10 +38,18 @@ function App() {
       <Route path="/OrgLogin" element={<OrgLogin/>}/>
       
 
-    </Routes>
+    </Routes> */}
+
+    {/* <RescueAgencyDashBoard/> */}
+
+    {/* <AddShelterPage/> */}
+    {/* <CommunityForumPage/> */}
+    <InfoBox/>
     </Router> 
-    <Footer/> */}
-    <HomePage/>
+    <Footer/>
+    {/* <HomePage/> */}
+    {/* <AreasOfFocus/> */}
+  
     </div>
     // <SignUp/>
   )

@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import NavSide from './components/NavSide';
-import Navbar from './components/Navbar';
-import ImportantInfoBox from './components/ImportantInfoBox';
-import UserMap from './components/UserMap'
-import MissingPeopleDash from './components/MissingPeopleDash';
+import Login from './Login';
+import SignUp from './components/SignUp';
+import UserAlert from './pages/UserAlert';
+import Home from './pages/Home';
+import RescueServicesPage from './pages/RescueServicesPage';
+import AddShelterPage from './pages/AddShelterPage';
+import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 
 function App() {
   const [count, setCount] = useState(0)

@@ -77,7 +77,7 @@ const Login = () => {
                     <a href="#" className="text-blue-600 mb-2">Reset Password</a>
                     <div className="flex w-[100%] justify-center">
                         <p>No Account?</p>
-                        <a href="#" className="text-blue-600 ml-2">Create One!</a>
+                        <a href="/signup" className="text-blue-600 ml-2">Create One!</a>
                     </div>
                 </div>
             </div>

@@ -24,20 +24,17 @@ function AddShelterPage() {
                     <div>
                         <NewNavSide />
                     </div>
-                    <div className="flex justify-between">
-                        <div className="">
-                            <ShelterForm/>
-                        </div>
-                        <div className="flex flex-col ">
-                            <div className="w-full">
-                                <AddLocationOnMap/>
+                    <div className="w-full">
+                        <div className="flex flex-col w-[97%] mx-auto my-5 px-3">
+                            <div className="">
+                                <h1 className="font-bold text-[30px] mb-4">Dashboard : Add Shelter</h1>
                             </div>
-                            <div className="flex justify-between">
-                                <div>
+                            <div className="flex justify-between space-x-5">
+                                <div className="w-full">
                                     <ShelterForm />
                                 </div>
                                 <div className="flex flex-col">
-                                    <div>
+                                    <div className="w-[400px]">
                                         <AddLocationOnMap />
                                     </div>
                                     <div className="flex justify-end space-x-10 my-5">
@@ -54,4 +51,4 @@ function AddShelterPage() {
         </BurgerContext.Provider>
     </>)
 }
-export default AddShelterPage;
+export default AddShelterPage;

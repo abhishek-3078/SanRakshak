@@ -1,7 +1,31 @@
 import React, { useEffect } from "react";
 import { Loader } from "@googlemaps/js-api-loader";
+import { API } from "../constant";
 
 function SearchSelter(){
+
+    try {
+        fetch(`${API}/disaster/shelter`)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json(); // Assuming the response is in JSON format
+          })
+          .then(data => {
+            // Work with the data here
+            console.log("data :",data);
+          })
+          .catch(error => {
+            // Handle errors here
+            console.error('Fetch error:', error);
+          });
+      } catch (error) {
+        // Handle exceptions that occur outside of the fetch block
+        console.error('An exception occurred outside of fetch:', error);
+      }
+      
+
     useEffect(() => {
    
         try {
@@ -97,7 +121,7 @@ function SearchSelter(){
                     <label className="mx-2 font-[500]" htmlFor="shelterType">Location</label>
                     <select className="border-2 border-solid border-[#C5C5C5] w-32 rounded-lg" name="shelterType" id="shelterType">
                         <option value="volvo">Near Your Location</option>
-                        <option value="saab" selected>All Selters</option>
+                        <option value="saab">All Selters</option>
                     </select>
                 </div>
                 <div>     
@@ -112,7 +136,7 @@ function SearchSelter(){
                     <label className="mx-2 font-[500] " htmlFor="shelterType">Capacity</label>
                     <select className="border-2 border-solid border-[#C5C5C5] w-32 rounded-lg" name="shelterType" id="shelterType">
                         <option value="volvo">Less than 100</option>
-                        <option value="volvo" selected>More than 100</option>
+                        <option value="volvo">More than 100</option>
                         <option value="saab">More than 1000</option>
                         <option value="opel">More than 1000</option>
                         <option value="audi">More than 10000</option>

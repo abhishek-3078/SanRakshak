@@ -46,7 +46,15 @@ router.post('/addshelter',adminAuth,async(req,res)=>{
         }
   
 })
-
+router.get('/shelter',async(req,res)=>{
+    try{
+        const data=await Shelter.find({})
+        console.log(data)
+        return res.send({data})
+    }catch(e){
+        res.status(400).send({Error:e.message})
+    }
+})
 router.get('/shelter/:id',async(req,res)=>{
      try{   
             const id=req.params.id

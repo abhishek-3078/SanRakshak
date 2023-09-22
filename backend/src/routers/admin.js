@@ -18,7 +18,6 @@ router.get('/',adminAuth,async (req,res)=>{
 })
 
 router.post('/signup',async(req,res)=>{
-    console.log(req.body)
     try{ 
     const user=new Admin(req.body)
     console.log(user)

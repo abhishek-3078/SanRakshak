@@ -17,17 +17,7 @@ router.get('/',async (req,res)=>{
         return res.status(401).send({error:e.message});
     }
 })
-router.get('/:id',async (req,res)=>{
-    // console.log("get user:",req.user)
-    try{
-        const data=await Disaster.findOne({_id:req.params.id})
-        // const user=req.user;
-        res.status(200).send(data)
-    }catch(e){
-        console.log("hello error",e.message);
-        return res.status(401).send({error:e.message});
-    }
-})
+
 
 router.post('/add',async(req,res)=>{
     const d=new Disaster(req.body)
@@ -83,7 +73,17 @@ router.get('/shelter/:id',async(req,res)=>{
 //     res.send({message:"hello"})
     
 // })
-
+router.get('/:id',async (req,res)=>{
+    // console.log("get user:",req.user)
+    try{
+        const data=await Disaster.findOne({_id:req.params.id})
+        // const user=req.user;
+        res.status(200).send(data)
+    }catch(e){
+        console.log("hello error",e.message);
+        return res.status(401).send({error:e.message});
+    }
+})
 router.post('/user/logout',auth,(req,res)=>{
     try{
         console.log("hello");

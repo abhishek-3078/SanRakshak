@@ -18,6 +18,8 @@ import Home from './pages/Home'
 import AdminAddress from './components/AdminAddress';
 import AdminCreateAlert from './pages/AdminCreateAlert';
 
+import Footer from './components/Footer';
+import HomePage from './pages/HomePage';
 function App() {
   const [count, setCount] = useState(0)
   return (
@@ -40,7 +42,6 @@ function App() {
       </Router>
       {/* <AdminAddress/> */}
     </div>
-    // <SignUp/>
   )
 }
 

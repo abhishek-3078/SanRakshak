@@ -12,7 +12,7 @@ const UserMap = () => {
         <div id="map" className="w-[95%] h-[90%] flex justify-center items-center bg-[#D9D9D9] ml-5 mr-0 my-5 rounded-[10px]"> 
             <Map/>
         </div>
-    </div>
+      </div>
   )
 }
 

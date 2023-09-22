@@ -14,9 +14,10 @@ import UserMap from './components/UserMap'
 import MissingPeopleDash from './components/MissingPeopleDash';
 import SignUp from './components/SignUp'
 import Home from './pages/Home'
-// import {BrowserRouter as Router , Routes,Route} from 'react-router-dom';
 import AdminAddress from './components/AdminAddress';
 import Footer from './components/Footer';
+import CommunityForumPage from './pages/CommunityForumPage';
+
 function App() {
   const [count, setCount] = useState(0)
   return (
@@ -31,8 +32,7 @@ function App() {
       <Route path="/addShelter" element={<AddShelterPage/>}/>
       <Route path="/OrgRegister" element={<OrgRegister/>}/>
       <Route path="/OrgLogin" element={<OrgLogin/>}/>
-      
-
+      <Route path="/forum/:id" element={<CommunityForumPage/>}/>
     </Routes>
     </Router> 
     <Footer/>

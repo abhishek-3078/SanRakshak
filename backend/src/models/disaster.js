@@ -16,18 +16,7 @@ const disasterSchema = new mongoose.Schema({
 });
 
 const Disaster = mongoose.model('Disaster', disasterSchema);
-const newDisaster = new Disaster({
-    name: 'Covid-19',
-    date: new Date('2019'),
-    location: {
-    address:"delhi",
-      latitude: 12.34,
-      longitude: -56.78,
-    },
-    type: 'epidemic',
-    severity: 'Very High',
-    description: 'Coronavirus disease (COVID-19) is an infectious disease caused by the SARS-CoV-2 virus. Most people infected with the virus will experience mild to moderat',
-  });
-  console.log(newDisaster)
+// const newDisaster = new Disaster(d);
+//   console.log(newDisaster)
   // newDisaster.save()
 module.exports = Disaster;

@@ -7,13 +7,25 @@ const router=new express.Router()
 const Disaster=require('../models/disaster')
 router.get('/',async (req,res)=>{
     // console.log("get user:",req.user)
+    console.log(req.params.id)
     try{
-        const data=Disaster.find({})
+        const data=await Disaster.find({})
         // const user=req.user;
         res.status(200).send(data)
     }catch(e){
         console.log("hello error");
-        return res.status(401).send({message:e.message});
+        return res.status(401).send({error:e.message});
+    }
+})
+router.get('/:id',async (req,res)=>{
+    // console.log("get user:",req.user)
+    try{
+        const data=await Disaster.findOne({_id:req.params.id})
+        // const user=req.user;
+        res.status(200).send(data)
+    }catch(e){
+        console.log("hello error");
+        return res.status(401).send({error:e.message});
     }
 })
 

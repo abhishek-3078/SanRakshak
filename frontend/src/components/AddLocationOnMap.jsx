@@ -4,7 +4,7 @@ function AddLocationOnMap(){
     const onFocus = () => setIsOnFocus(true)
     const onBlur = () => setIsOnFocus(false)
     return(
-        <section className="w-[40vw] h-[80vh] border-2 border-solid border-[grey] rounded-xl px-5 py-2">
+        <section className="w-[100%] h-[80vh] border-2 border-solid border-[grey] rounded-xl px-5 py-2">
             <div>
                 <h1 className="font-bold font-serif text-[25px]">Location</h1>
                 <p>Select Location from the Map or use the search bar</p>

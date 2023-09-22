@@ -28,11 +28,11 @@ function AddShelterPage(){
                         <h1 className="font-bold text-[30px] font-mono mb-4">Dashboard : Add Shelter</h1>
                     </div>
                     <div className="flex justify-between">
-                        <div>
+                        <div className="">
                             <ShelterForm/>
                         </div>
-                        <div className="flex flex-col">
-                            <div>
+                        <div className="flex flex-col ">
+                            <div className="w-full">
                                 <AddLocationOnMap/>
                             </div>
                             <div className="flex justify-end space-x-10 my-5">

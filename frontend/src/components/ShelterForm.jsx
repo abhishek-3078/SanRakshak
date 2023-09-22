@@ -40,7 +40,7 @@ function ShelterForm(){
     }
 
     return(
-        <div className="border-2 border-solid border-[grey] w-[40vw] rounded-xl h-[90vh] px-5 py-2 overflow-auto">
+        <div className="border-2 border-solid border-[grey] w-[100%] rounded-xl h-[90vh] px-5 py-2 overflow-auto">
             <div>
                 <h1 className="text-[25px] font-bold font-serif">
                     Shelter Details

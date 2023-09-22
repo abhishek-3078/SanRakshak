@@ -26,11 +26,15 @@ const Map = () => {
             { lat: 28.6129, lng: 77.2295 },
             { lat: 28.7, lng: 77.1 }, // Add more positions as needed
             { lat: 19.07, lng: 72.877 }, // Add more positions as needed
-            { lat: 29.22, lng: 79.277 } // Add more positions as needed
+            { lat: 29.22, lng: 79.277 }, // Add more positions as needed
+            { lat: 29.9564963, lng: 76.8173138 }, // Add more positions as needed
+            { lat: 29.9564963, lng: 76.8173138 }, // Add more positions as needed
+            { lat: 29.960503, lng: 76.827335}, // Add more positions as needed
             // Add more positions as needed
           ];
         // const marker = new AdvancedMarkerElement({
         //   map,
+        // 29.9564963
         //   position: { lat: 37.4239163, lng: -122.0947209 },
         // });
         const infoWindow = new InfoWindow();

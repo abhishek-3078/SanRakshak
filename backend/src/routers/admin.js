@@ -1,5 +1,5 @@
 const express=require('express')
-const Admin=require('../models/admin')
+const {Admin,Shelter}=require('../models/admin')
 const {adminAuth}=require('../middleware/auth')
 const router=new express.Router()
 const jwt = require('jsonwebtoken');
@@ -8,7 +8,7 @@ const passport = require("passport");
 router.get('/',adminAuth,async (req,res)=>{
     console.log("get admin:",req.user)
     try{
-        const user=req.user;
+        const user=req.user;a
         res.status(200).send(user)
     }catch(e){
         console.log("hello error");
@@ -18,14 +18,16 @@ router.get('/',adminAuth,async (req,res)=>{
 })
 
 router.post('/signup',async(req,res)=>{
-    const admin=new Admin(req.body)
+    console.log(req.body)
     try{ 
+    const user=new Admin(req.body)
     console.log(user)
     await user.save()
     // sendWelcomeEmail(user.email,user.name)
-    const token=await user.generateAuthToken()
-    res.status(201).send({admin,token})
+    let token = jwt.sign({_id:user._id.toString()},process.env.JWT_SECRET,{expiresIn:60*60})
+    res.status(201).send({user,token})
     }catch(e){
+        console.log(e.message)
         res.status(400).send(e)
     }
     
@@ -36,6 +38,7 @@ router.post('/signup/address',adminAuth,async(req,res)=>{
     const admin=req.user
     if(!admin) return res.status(400).send()
     try{
+        admin.location={}
         admin.location.main=req.body;
         console.log(admin)
         await admin.save()
@@ -51,7 +54,7 @@ router.post('/login',async(req,res)=>{
 
         try{
 
-            const user=await User.findByCredentials(req.body.email,req.body.password)
+            const user=await Admin.findByCredentials(req.body.email,req.body.password)
             const token=await user.generateAuthToken()
             res.send({user,token})
         }catch(e){

@@ -4,18 +4,37 @@ const bcrypt=require('bcryptjs')
 const jwt=require('jsonwebtoken')
 
 const shelterSchema = new mongoose.Schema({
-    type:{
-        type:String
+    coordinator:{
+      type:String
     },
     description:{
         type:String
     },
     address: {
-      type: String,
-      required: true,
+      street: {
+        type: String
+        
+      },
+      city: {
+        type: String,
+        
+      },
+      state: {
+        type: String,
+        
+      },
+      postalCode: {
+        type: String,
+        
+      },
+      country: {
+        type: String,
+        
+      }
     },
     coord: {
-      type: [Number] // Assuming coordinates are stored as [longitude, latitude]
+      lng:{type:Number},
+      lat:{type:Number}
     },
     resources:[{
         name:{
@@ -24,9 +43,10 @@ const shelterSchema = new mongoose.Schema({
         qty:{
             type:Number
         }
-    }]
+    }],
+    disaster: { type: mongoose.Schema.Types.ObjectId, ref: 'Disaster' }
   });
-  
+const Shelter=mongoose.model('shelter',shelterSchema)
 const adminSchema=new mongoose.Schema({
     name:{
         type:String,
@@ -53,22 +73,40 @@ const adminSchema=new mongoose.Schema({
     location:{
         main: {
             address: {
-              type: String,
-              required: true,
+              street: {
+                type: String,
+                
+              },
+              city: {
+                type: String,
+                
+              },
+              state: {
+                type: String,
+                
+              },
+              postalCode: {
+                type: String,
+                
+              },
+              country: {
+                type: String,
+                
+              }
             },
             coord: {
-              type: [Number],
-              required: true,
+              lng:{type:Number},
+              lat:{type:Number}
             },
           }
          
     },
-    shelters:[shelterSchema],
+    shelters:[{ type: mongoose.Schema.Types.ObjectId, ref: 'shelter' }],
     profileUrl:{
         type:String
     },
-    organisationTypeId:{
-        type:Number
+    organisationType:{
+        type:String
     },
     expertise:{
         type:String
@@ -81,18 +119,18 @@ const adminSchema=new mongoose.Schema({
     timestamps:true
 })
 
-adminSchema.virtual('organisationType').get(function () {
-    switch (this.organisationTypeId) {
-      case 1:
-        return 'NGO';
-      case 2:
-        return 'Rescue Agency';
-       case 3:
-        return '' 
-        default:
-        return 'unknown';
-    }
-  });
+// adminSchema.virtual('organisationType').get(function () {
+//     switch (this.organisationTypeId) {
+//       case 1:
+//         return 'NGO';
+//       case 2:
+//         return 'Rescue Agency';
+//        case 3:
+//         return '' 
+//         default:
+//         return 'unknown';
+//     }
+//   });
 adminSchema.virtual('profileCompleted').get(function(){
   if(this.location) {
     return 1;
@@ -111,14 +149,7 @@ adminSchema.statics.findByCredentials=async(email,password)=>{
     // console.log("user=",user)
     return user
 }
-//methods method is for creating functiod for instance of User model 
-// adminSchema.methods.getPublicProfile=function(){
-//     const user=this
-//     const userObject=user.toObject()
-//     delete userObject.password
-//     delete userObject.tokens
-//     return userObject
-// }
+
 adminSchema.methods.toJSON=function(){
     const user=this
     const userObject=user.toObject()
@@ -129,11 +160,9 @@ adminSchema.methods.toJSON=function(){
     return userObject
 }
 adminSchema.methods.generateAuthToken=async function(){
-    const user =this
-    token = jwt.sign({_id:user._id.toString()},process.env.JWT_SECRET)
-    user.tokens=user.tokens.concat({token})
-    await user.save()
-    return token
+  const user =this
+  let token = jwt.sign({_id:user._id.toString()},process.env.JWT_SECRET,{expiresIn:60*60})
+  return token
 }
 //arrow function dont support this keyword
 adminSchema.pre('save',async function(next){
@@ -189,7 +218,11 @@ const newAdminData = {
       // Add more shelters as needed
     ],
 };
-const data=new Admin(newAdminData)
+const data=new Admin({
+  name:"abhihsek",
+  email:"abhi@fa.com",
+  password:"123445"
+})
 
-// console.log(data)
-module.exports=Admin
+console.log(data)
+module.exports={Admin,Shelter}

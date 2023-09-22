@@ -7,7 +7,7 @@ import { useState } from "react";
 import BurgerContext from '../contexts/BurgerContext'
 import PreviousAlerts from "../components/PreviousAlerts";
 
-function AddShelterPage() {
+function UserAlert() {
     const [isBurgerOn, setIsBurgerOn] = useState(false);
 
     function handleBurgerClick(isBur) {
@@ -40,4 +40,4 @@ function AddShelterPage() {
         </BurgerContext.Provider>
     </>)
 }
-export default AddShelterPage;
+export default UserAlert;

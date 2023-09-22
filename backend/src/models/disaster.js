@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const {Shelter}=require('./admin')
 const disasterSchema = new mongoose.Schema({
   name: { type: String, required: true ,unique:true},
   date: { type: Date, required: true },
@@ -11,7 +11,8 @@ const disasterSchema = new mongoose.Schema({
   type: { type: String, required: true },
   severity: { type: String, required: true },
   description: { type: String, required: true },
-  createdAt: { type: Date, default: Date.now }
+  createdAt: { type: Date, default: Date.now },
+  shelters:{}
 });
 
 const Disaster = mongoose.model('Disaster', disasterSchema);

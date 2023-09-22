@@ -63,10 +63,10 @@ function NewRow(props) {
                 <NewRowComponent text={coordinator}/>
                 <NewRowComponent text={type}/>
                 <div className="w-[70px] h-full flex items-center justify-between m-3">
-                    <div className="w-[25px] h-[25px] hover:bg-[#C5C5C5] flex justify-center items-center rounded-[10px]">
+                    <div className="w-[25px] h-[25px] hover:bg-[white] flex justify-center items-center rounded-[10px]">
                         <img className="w-[20px] h-[20px]" src="https://cdn-icons-png.flaticon.com/128/1828/1828911.png" alt="E" />
                     </div>
-                    <div className="w-[25px] h-[25px] hover:bg-[#C5C5C5] flex justify-center items-center rounded-[10px]">
+                    <div className="w-[25px] h-[25px] hover:bg-[white] flex justify-center items-center rounded-[10px]">
 
                             <img className="w-[20px] h-[20px]" src="https://cdn-icons-png.flaticon.com/128/484/484662.png" alt="G" />
                     </div>
@@ -103,7 +103,7 @@ function ShelterDetailBox() {
       {/* <RescueServicesPage /> */}
 
 
-      <div className="w-[60%] h-[auto] border-solid border-2 border-[#C5C5C5] bg-[#ffffff] rounded-[10px] m-5 p-3 flex flex-col">  {/* Shelter Info Box */}
+      <div className="w-[90%] h-[auto] border-solid border-2 border-[#C5C5C5] bg-[#ffffff] rounded-[10px] m-5 p-3 flex flex-col">  {/* Shelter Info Box */}
 
 
         <div className="flex w-full h-[15%] mb-3"> {/*Heading */}

@@ -7,13 +7,17 @@ import Navbar from './components/Navbar';
 import ImportantInfoBox from './components/ImportantInfoBox';
 import UserMap from './components/UserMap'
 import MissingPeopleDash from './components/MissingPeopleDash';
+import RescueAgencyDashBoard from './pages/RescueAgencyDashBoard';
+import { MainDisplayFunction } from './components/ShelterDetailBox';
+import CommunityForumPage from './pages/CommunityForumPage'
+import NewComponent from './components/newComponent';
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <div className=''>
+      {/* <div className=''>
           <section>
               <Navbar></Navbar>
           </section>
@@ -27,7 +31,17 @@ function App() {
                   </div> 
               </div>
           </section>
-      </div>
+      </div> */}
+
+
+      {/* <RescueAgencyDashBoard></RescueAgencyDashBoard> */}
+      {/* <MainDisplayFunction></MainDisplayFunction> */}
+      <CommunityForumPage/>
+      {/* <RescueServices></RescueServices> */}
+      {/* <Home></Home> */}
+
+
+      {/* <NewComponent title="Hello This Is Title"/> */}
     </>
   )
 }

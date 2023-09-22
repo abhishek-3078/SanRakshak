@@ -7,7 +7,7 @@ function NewNavSide(){
     console.log("isBurgerOn : ",isBurgerOn);
     return(
         
-        <div className={`bg-[#6A8BFF] w-[${isBurgerOn ? 7:15}vw] h-full`}>
+        <div className={`bg-[#6A8BFF] w-[${isBurgerOn ? 7:15}vw] h-[100vh]`}>
             <ul className="flex flex-col w-full pt-5">
                 <li className="flex ml-2 space-x-5 my-5">
                     <img className="w-6 h-6 invert-[1] m-2" src="https://cdn-icons-png.flaticon.com/128/3524/3524878.png" alt="" />

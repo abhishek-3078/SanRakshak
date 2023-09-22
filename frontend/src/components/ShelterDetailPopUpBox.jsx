@@ -52,9 +52,9 @@ const GenerateRow = (props) => {
 const ShelterDetailPopUpBox = ({id, name, area, coordinator, dateOfCreation, type, resources}) => {
     const {optionSelected, setOptionSelected} = useContext(MyContext);
     return (
-        <div className="w-[40%] h-[auto] border-2 border-solid border-[#D9D9D9] flex flex-col items-center bg-[#ffffff] rounded-[30px] absolute top-[20vh] left-[60vh]">
+        <div className="w-[40%] h-[auto] border-2 border-solid border-[#D9D9D9] flex flex-col items-center bg-[#ffffff] rounded-[30px] absolute top-[20vh] left-[60vh] overflow-x-hidden p-2">
             <div className="flex justify-between w-full">  {/*HEADER */}
-                <div className="bg-white" onClick={()=>{setOptionSelected(-1);}}>
+                <div className="bg-white m-2" onClick={()=>{setOptionSelected(-1);}}>
                     <IoChevronBackCircleOutline color={"indigo"} size={45} />
                 </div>
             </div>

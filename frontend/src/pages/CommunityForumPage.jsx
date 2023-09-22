@@ -23,15 +23,35 @@ const CommunityForumPage = () => {
     }
 
 
-    function handleSubmit(){
+    async function handleSubmit(){
         const obj = {
             title: document.getElementById('title'),
             content: document.getElementById('content'),
             disaster:"650de82f43f92c9332c8a7ff"
         }
 
-
-        fetch()
+        try{
+        const id_token = localStorage.getItem('idToken')
+        const response = await fetch(`${API}/forum/post`, {
+          method: "POST",
+          headers: {
+            'Content-Type': "application/json"
+          },
+          body: JSON.stringify(obj)
+        });
+        console.log("vgv:", response)
+        if (response.ok) {
+          const data = await response.json()
+          console.log(data);
+        }
+        else {
+          throw new Error('Network response was not ok');
+        }
+      }
+      catch (error) {
+        alert(error);
+        console.log("This is the erroe", error);
+      }
     }
   return (
     <BurgerContext.Provider value={isBurgerOn}>

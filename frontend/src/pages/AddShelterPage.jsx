@@ -6,6 +6,8 @@ import CurrentAlerts from '../components/CurrentAlerts';
 import { useState } from "react";
 import BurgerContext from '../contexts/BurgerContext'
 import PreviousAlerts from "../components/PreviousAlerts";
+import Map from "../components/LocationSelectorMap";
+// import LocationMap from '../components/ShowLocationMap'
 
 function AddShelterPage() {
     const [isBurgerOn, setIsBurgerOn] = useState(false);
@@ -27,15 +29,16 @@ function AddShelterPage() {
                     <div className="w-full">
                         <div className="flex flex-col w-[97%] mx-auto my-5 px-3">
                             <div className="">
-                                <h1 className="font-bold text-[30px] font-mono mb-4">Dashboard : Add Shelter</h1>
+                                <h1 className="font-bold text-[30px] mb-4">Dashboard : Add Shelter</h1>
                             </div>
-                            <div className="flex justify-between">
-                                <div>
+                            <div className="flex justify-between space-x-5">
+                                <div className="w-full">
                                     <ShelterForm />
                                 </div>
-                                <div className="flex flex-col">
-                                    <div>
-                                        <AddLocationOnMap />
+                                <div className="flex flex-col border-2 p-4">
+                                    <p className="font-semibold text-2xl ">Select Location</p>
+                                    <div className="w-[400px] mt-4">
+                                        <Map/>
                                     </div>
                                     <div className="flex justify-end space-x-10 my-5">
                                         <button className=" bg-transparent text-[grey] border-2 border-solid rounded-lg border-[grey] px-4 py-1 hover:shadow-black hover:shadow-md" >Cancel</button>
@@ -51,4 +54,4 @@ function AddShelterPage() {
         </BurgerContext.Provider>
     </>)
 }
-export default AddShelterPage;
+export default AddShelterPage;

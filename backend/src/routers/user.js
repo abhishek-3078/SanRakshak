@@ -1,6 +1,6 @@
 const express=require('express')
 const User=require('../models/user')
-const auth=require('../middleware/auth')
+const {auth}=require('../middleware/auth')
 const router=new express.Router()
 const jwt = require('jsonwebtoken');
 const passport = require("passport");
@@ -55,7 +55,7 @@ router.post('/user/login',async(req,res)=>{
     
 // })
 
-router.get('/user/logout',auth,(req,res)=>{
+router.post('/user/logout',auth,(req,res)=>{
     try{
         console.log("hello");
         res.send({success:true,message:"successfully logout"})

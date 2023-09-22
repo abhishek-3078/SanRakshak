@@ -9,6 +9,9 @@ require('./db/mongoose')
 
 // const cookieSession = require("cookie-session");
 const userRouter=require('./routers/user')
+const adminRouter=require('./routers/admin')
+const disasterRouter=require('./routers/disaster')
+const forumRouter=require('./routers/forum')
 const cors=require('cors')
 // const taskRouter=require('./routers/task')
 // const { findByIdAndUpdate, findByIdAndDelete } = require('./models/user')
@@ -42,6 +45,9 @@ app.get("/",(req,res)=>{
 })
 
 app.use(userRouter)
+app.use("/admin",adminRouter)
+app.use("/disaster",disasterRouter)
+app.use('/forum',forumRouter)
 // app.use("/auth", authRoute)
 
 

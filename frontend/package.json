@@ -10,7 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@googlemaps/google-maps-services-js": "^3.3.38",
+    "@googlemaps/js-api-loader": "^1.16.2",
+    "aos": "^2.3.4",
+    "google-maps": "^4.3.3",
+    "lottie-react": "^2.4.0",
     "react": "^18.2.0",
+    "react-countup": "^6.4.2",
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",
     "react-router-dom": "^6.16.0"

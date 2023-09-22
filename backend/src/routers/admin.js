@@ -1,5 +1,5 @@
 const express=require('express')
-const Admin=require('../models/admin')
+const {Admin,Shelter}=require('../models/admin')
 const {adminAuth}=require('../middleware/auth')
 const router=new express.Router()
 const jwt = require('jsonwebtoken');
@@ -18,14 +18,16 @@ router.get('/',adminAuth,async (req,res)=>{
 })
 
 router.post('/signup',async(req,res)=>{
-    const admin=new Admin(req.body)
+    console.log(req.body)
     try{ 
+    const user=new Admin(req.body)
     console.log(user)
     await user.save()
     // sendWelcomeEmail(user.email,user.name)
-    const token=await user.generateAuthToken()
-    res.status(201).send({admin,token})
+    let token = jwt.sign({_id:user._id.toString()},process.env.JWT_SECRET,{expiresIn:60*60})
+    res.status(201).send({user,token})
     }catch(e){
+        console.log(e.message)
         res.status(400).send(e)
     }
     

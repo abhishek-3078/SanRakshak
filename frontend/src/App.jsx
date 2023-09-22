@@ -1,12 +1,9 @@
 import { useState } from 'react'
 import './App.css'
 import Login from './Login';
-import SignUp from './components/SignUp';
 import UserAlert from './pages/UserAlert';
-import Home from './pages/Home';
 import RescueServicesPage from './pages/RescueServicesPage';
 import AddShelterPage from './pages/AddShelterPage';
-import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 
 import SignUp from './components/SignUp'
 import Home from './pages/Home'

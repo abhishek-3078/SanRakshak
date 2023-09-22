@@ -4,7 +4,7 @@ function HomeNavbar({color}){
     return(
         <div className={`bg-blue-400 h-14 w-screen flex items-center justify-between `}>
             <Link to={'/'}>
-                <h1 className="font-bold text-white text-[30px] mx-10 font-serif">
+                <h1 className="font-bold text-white text-[30px] mx-10 ">
                 Sanrakshak
                 </h1>
             </Link> 

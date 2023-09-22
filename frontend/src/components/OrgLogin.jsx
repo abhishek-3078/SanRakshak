@@ -39,10 +39,16 @@ function App() {
         const data = await response.json()
         localStorage.setItem("idToken", data.token);
         console.log(data.token);
-        console.log(data);
-        localStorage.setItem('username',data.user.name)
+        console.log("abhishek ye raha data ", data.completed);
+        localStorage.setItem('username', data.user.name)
         setShowLoader(false);
-        window.location.href = "/addShelter"
+        if (data.comleted === 1) {
+
+          window.location.href = "/AdminAddress"
+        }
+        else {
+          window.location.href = "/addShelter"
+        }
       }
       else {
         throw new Error('Network response was not ok');

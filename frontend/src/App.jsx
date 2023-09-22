@@ -16,11 +16,12 @@ import SignUp from './components/SignUp'
 import Home from './pages/Home'
 // import {BrowserRouter as Router , Routes,Route} from 'react-router-dom';
 import AdminAddress from './components/AdminAddress';
+import Footer from './components/Footer';
 function App() {
   const [count, setCount] = useState(0)
   return (
     <div>
-    {/* <Router>
+    <Router>
     <Routes> 
       <Route path="/login" element={<Login/>}></Route>
       <Route path="/signup" element={<SignUp/>}></Route>
@@ -33,8 +34,8 @@ function App() {
       
 
     </Routes>
-    </Router>  */}
-    <AdminAddress/>
+    </Router> 
+    <Footer/>
     </div>
     // <SignUp/>
   )

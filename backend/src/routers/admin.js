@@ -85,6 +85,7 @@ router.post('/addalert',adminAuth,async(req,res)=>{
     try{
         const data=new Alert(req.body)
         await data.save()
+        res.status(201).send(data)
     }catch(e){
         res.status(403).send({message:e.message})
     }
@@ -92,7 +93,8 @@ router.post('/addalert',adminAuth,async(req,res)=>{
 router.get('/getalert',adminAuth,async(req,res)=>{
     try{
         const data=await Alert.find({})
-        await data.save()
+
+        res.status(200).send(data)
     }catch(e){
         res.status(403).send({message:e.message})
     }

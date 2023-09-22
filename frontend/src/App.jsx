@@ -7,7 +7,9 @@ import Navbar from './components/Navbar';
 import ImportantInfoBox from './components/ImportantInfoBox';
 import UserMap from './components/UserMap'
 import MissingPeopleDash from './components/MissingPeopleDash';
-
+import SignUp from './components/SignUp'
+import Home from './pages/Home'
+import {BrowserRouter as Router , Routes,Route} from 'react-router-dom';
 function App() {
   const [count, setCount] = useState(0)
 
@@ -16,12 +18,12 @@ function App() {
     <div>
     <Router>
     <Routes>
-      <Route path="/login" element={<Login/>}></Route>
+      {/* <Route path="/login" element={<Login/>}></Route> */}
       <Route path="/signup" element={<SignUp/>}></Route>
-      <Route path="/Alerts" element={<UserAlert/>}></Route>
+      {/* <Route path="/Alerts" element={<UserAlert/>}></Route> */}
       <Route path="/" element={<Home/>}/>
-      <Route path="/dashboard" element={<RescueServicesPage/>}/>
-      <Route path="/addShelter" element={<AddShelterPage/>}/>
+      {/* <Route path="/dashboard" element={<RescueServicesPage/>}/> */}
+      {/* <Route path="/addShelter" element={<AddShelterPage/>}/> */}
     </Routes>
     </Router>
     </div>

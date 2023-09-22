@@ -1,49 +1,55 @@
 const express=require('express')
 const User=require('../models/user')
 const Admin=require('../models/admin')
+const Shelter=require('../models/shelter')
 const {auth,adminAuth}=require('../middleware/auth')
 const router=new express.Router()
 const Disaster=require('../models/disaster')
-router.get('/user',auth,async (req,res)=>{
-    console.log("get user:",req.user)
+router.get('/',async (req,res)=>{
+    // console.log("get user:",req.user)
     try{
-        const user=req.user;
-        res.status(200).send(user)
+        const data=Disaster.find({})
+        // const user=req.user;
+        res.status(200).send(data)
     }catch(e){
         console.log("hello error");
         return res.status(401).send({message:e.message});
     }
 })
 
-router.post('/user/signup',async(req,res)=>{
-    const user=new User(req.body)
-    console.log(user)
+router.post('/add',async(req,res)=>{
+    const d=new Disaster(req.body)
     try{ 
-    await user.save()
+    await d.save()
     // sendWelcomeEmail(user.email,user.name)
-    const token=await user.generateAuthToken()
-    res.status(201).send({user,token})
+    res.status(201).send({data:d})
     }catch(e){
         res.status(400).send(e)
     }
-    
 })
-// router.post('/user/login',passport.authenticate('local',{failureRedirect:"/auth/login/failed",successRedirect:process.env.CLIENT_URL}));
-router.post('/user/login',async(req,res)=>{
-    let userData=req.body
-    console.log("login data:",userData)
-    try{
-        try{
 
-            const user=await User.findByCredentials(req.body.email,req.body.password)
-            const token=await user.generateAuthToken()
-            res.send({user,token})
+// router.post('/user/login',passport.authenticate('local',{failureRedirect:"/auth/login/failed",successRedirect:process.env.CLIENT_URL}));
+
+router.post('/addshelter',adminAuth,async(req,res)=>{
+    let data=req.body
+    console.log("login data:",data)
+        try{
+            data=new Shelter(data)
+            await data.save()
+            res.send({data})
         }catch(e){
             res.status(400).send({Error:e.message})
         }
-    }catch(e){
-        res.status(403).send({success:false,message:e.message})
-    }
+  
+})
+
+router.get('/shelter',async(req,res)=>{
+     try{
+            const data=await Shelter.find({})
+            res.send({data})
+        }catch(e){
+            res.status(400).send({Error:e.message})
+        }
 })
 // router.post('/user/logout',(req,res)=>{
 //     console.log("ask for logout",req.session)

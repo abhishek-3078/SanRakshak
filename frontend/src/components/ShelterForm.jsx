@@ -1,15 +1,16 @@
 import { useState } from "react";
 
+
 const initialFieldList = [[
         <div className="flex">
-            <input className="border-[1px]  w-full rounded-l-lg border-[#C5C5C5] border-solid px-1" type="text" name="resource_name"/>
-            <input className="border-[1px]  w-full rounded-r-lg border-[#C5C5C5] border-solid px-1" type="number" name="resource_qty"/>
+            <input className="border-[1px]  w-full  border-[#C5C5C5] border-solid px-1" type="text" name="resource_name"/>
+            <input className="border-[1px]  w-full  border-[#C5C5C5] border-solid px-1" type="number" name="resource_qty"/>
         </div>
     ],
     [
         <div className="flex">
-            <input className="border-[1px]  w-full rounded-l-lg border-[#C5C5C5] border-solid px-1" type="text" name="resource_name"/>
-            <input className="border-[1px]  w-full rounded-r-lg border-[#C5C5C5] border-solid px-1" type="number" name="resource_qty"/>
+            <input className="border-[1px]  w-full  border-[#C5C5C5] border-solid px-1" type="text" name="resource_name"/>
+            <input className="border-[1px]  w-full  border-[#C5C5C5] border-solid px-1" type="number" name="resource_qty"/>
         </div>
     ]
 ];
@@ -25,7 +26,7 @@ function NewFieldList({fieldList}){
 
 
 
-function ShelterForm(){
+function ShelterForm(props){
     const [fieldList,setFieldList] = useState( initialFieldList );
 
     function handleAddNewField(e){
@@ -33,8 +34,8 @@ function ShelterForm(){
         e.stopPropagation();
         setFieldList([...fieldList,
         <div className="flex">
-            <input className="border-[1px]  w-full rounded-l-lg border-[#C5C5C5] border-solid px-1" type="text" name="resource_name"/>
-            <input className="border-[1px]  w-full rounded-r-lg border-[#C5C5C5] border-solid px-1" type="number" name="resource_qty"/>
+            <input className="border-[1px]  w-full  border-[#C5C5C5] border-solid px-1" type="text" name="resource_name"/>
+            <input className="border-[1px]  w-full border-[#C5C5C5] border-solid px-1" type="number" name="resource_qty"/>
         </div>
         ])
     }
@@ -53,16 +54,16 @@ function ShelterForm(){
                 <div className="flex justify-between my-3">
                     <div>     
                         <label className="block font-[500] " htmlFor="shelterType">Type</label>
-                        <select className="border-2 border-solid border-[#C5C5C5] w-32 mt-2 rounded-lg" name="shelterType" id="shelterType">
-                            <option value="volvo">Food Shelter</option>
-                            <option value="saab">Medicine</option>
-                            <option value="opel">Home</option>
-                            <option value="audi">Rescue</option>
+                        <select className="border-2 border-solid border-[#C5C5C5] w-32 mt-2 rounded-lg" name="shelterType" onChange={props.handleInput} id="shelterType">
+                            <option value="Food Shelter">Food Shelter</option>
+                            <option value="Medicine">Medicine</option>
+                            <option value="Home">Home</option>
+                            <option value="Rescue">Rescue</option>
                         </select>
                     </div>
                     <div>
-                        <label className="block font-[500]" htmlFor="shelterCordinator">ShelterCordinator</label>
-                        <input className="border-2  w-60 mt-2 rounded-lg border-[#C5C5C5] border-solid px-1" type="text" name="shelterCordinator"/>
+                        <label className="block font-[500]" htmlFor="shelterCordinator">Shelter Coordinator</label>
+                        <input className="border-2  w-60 mt-2 rounded-lg border-[#C5C5C5] border-solid px-1" onChange={props.handleInput} type="text" name="coordinator"/>
                     </div>
                 </div>
                 <div className="flex flex-col w-full  my-3">
@@ -87,13 +88,13 @@ function ShelterForm(){
                 <div className="my-3">
                     <div>
                         <label className="block font-[500]" htmlFor="Capacity">Capacity</label>
-                        <input className="border-2  w-32 mt-2 rounded-lg border-[#C5C5C5] border-solid px-1" type="number" name="Capacity"/>
+                        <input className="border-2  w-32 mt-2 rounded-lg border-[#C5C5C5] border-solid px-1" type="number" name="capacity" onChange={props.handleInput}/>
                     </div>
                 </div>
                 <div className="my-3">
                     <div>
-                        <label className="block font-[500]" htmlFor="Discription">Discription</label>
-                        <textarea className="border-2  w-full h-32 mt-2 rounded-lg border-[#C5C5C5] border-solid px-1 py-1 font-serif" type="text" name="Discription"/>
+                        <label className="block font-[500]" htmlFor="Discription">Description</label>
+                        <textarea className="border-2  w-full h-32 mt-2 rounded-lg border-[#C5C5C5] border-solid px-1 py-1 font-serif" type="text" name="description" onChange={props.handleInput}/>
                     </div>             
                 </div>
 

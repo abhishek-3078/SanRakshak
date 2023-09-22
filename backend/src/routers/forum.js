@@ -29,7 +29,17 @@ router.post('/post',auth,async(req,res)=>{
         console.log(e.message)
         res.status(400).send(e)
     }
-    
+})
+router.get('/post/:id',async(req,res)=>{
+    try{ 
+        const id=req.params.id
+        console.log(id)
+    const data=await Post.find({disaster:id}).sort({createdAt:-1})
+        res.status(201).send(data)
+    }catch(e){
+        console.log(e.message)
+        res.status(400).send(e)
+    }
 })
 
 router.post('/signup/address',adminAuth,async(req,res)=>{

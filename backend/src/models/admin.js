@@ -52,7 +52,9 @@ const shelterSchema = new mongoose.Schema({
       type:Number,
       default:1
     },
-    
+    capacity:{
+      type:Number
+    }
   });
 const Shelter=mongoose.model('shelter',shelterSchema)
 const adminSchema=new mongoose.Schema({

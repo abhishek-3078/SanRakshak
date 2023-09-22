@@ -43,7 +43,7 @@ function OrgRegister() {
         localStorage.setItem("idToken", data.token);
         console.log(data.token);
         console.log(data);
-        window.location.href="/OrgLogin" 
+        window.location.href="/AdminAddress" 
       }
       else {
         throw new Error('Network response was not ok');
@@ -83,7 +83,7 @@ function OrgRegister() {
               <div className="grid grid-cols-2 gap-4 items-end">
                 <div className="flex flex-col">
                   <label className="py-1" htmlFor="name">Name of the Organisation</label>
-                  <div className="border-solid border-2 border-black rounded-sm">
+                  <div className="border-solid border-2  rounded-sm">
                     <input
                       className="w-full py-3 px-2 outline-0"
                       type="text"
@@ -96,7 +96,7 @@ function OrgRegister() {
                 </div>
                 <div className="flex flex-col">
                   <label className="py-1" htmlFor="type">Type</label>
-                  <div className="border-solid border-2 border-black rounded-sm">
+                  <div className="border-solid border-2 rounded-sm">
                     <select
                       name="type"
                       id="type"
@@ -113,7 +113,7 @@ function OrgRegister() {
                 </div>
                 <div>
                   <label className="py-1" htmlFor="email">Email</label>
-                  <div className="border-solid border-2 border-black rounded-sm">
+                  <div className="border-solid border-2 rounded-sm">
                     <input
                       className="w-full py-3 px-2 outline-0"
                       type="email"
@@ -126,7 +126,7 @@ function OrgRegister() {
                 </div>
                 <div>
                   <label className="py-1" htmlFor="telephone">Telephone No.</label>
-                  <div className="border-solid border-2 border-black rounded-sm">
+                  <div className="border-solid border-2  rounded-sm">
                     <input
                       className="w-full py-3 px-2 outline-0"
                       type="tel"
@@ -139,7 +139,7 @@ function OrgRegister() {
                 </div>
                 <div>
                   <label className="py-1" htmlFor="password">Password</label>
-                  <div className="border-solid border-2 border-black rounded-sm">
+                  <div className="border-solid border-2 rounded-sm">
                     <input
                       className="w-full py-3 px-2 outline-0"
                       type="password"
@@ -164,7 +164,7 @@ function OrgRegister() {
               </div> */}
                 <div className="col-span-2">
                   <label className="py-1" htmlFor="address">Permanent Address</label>
-                  <div className="border-solid border-2 border-black rounded-sm">
+                  <div className="border-solid border-2  rounded-sm">
                     <textarea
                       className="w-full py-3 px-2 h-20 outline-0 resize-none"
                       id="confirmPassword"

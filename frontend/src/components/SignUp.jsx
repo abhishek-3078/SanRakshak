@@ -3,15 +3,10 @@ import img from "../assets/main_bg3.jpg";
 
 function App() {
   return (
-    <div className="bg-gradient-to-r flex from-indigo-500 rounded-2xl items-center h-full md:h-screen md:w-screen  m-auto">
-      {/* <div className="mx-auto bg-white w-fit h-fit"> */}
+    <div className="flex bg-gradient-to-r from-red-500 to-red-400 rounded-2xl items-center h-full md:h-screen md:w-screen  m-auto">
         <div className="w-11/12 md:w-9/12 py-0 px-0 md:py-10 md:px-8 bg-white rounded-xl mx-auto flex shadow-lg flex-col my-5 md:my-auto items-center relative md:flex-row">
           <div className="relative w-auto p-4 md:w-1/2">
             <img src={img} className="rounded-2xl h-auto w-auto" alt="Error" />
-            {/* <div className="absolute top-1 left-2 w-1/2">
-              <h1>Welcome</h1>
-              <p>gjvcjns vhskbv mbs bk bksru bksr hrbfh brsh</p>
-            </div> */}
           </div>
           <div className="mx-auto w-4/5 md:w-1/2 md:pr-4">
             <div className="w-full">
@@ -74,13 +69,12 @@ function App() {
                 <input type="checkbox"></input>
                 <span className="ml-1">I accept the Terms of Use & Privacy Policy</span>
               </div>
-              <button className="bg-blue-400 mx-auto block md:left-0 md:inline-block rounded-md py-2 px-2 text-white mt-3  mb-3 hover:bg-blue-500 duration-200">
+              <button className="bg-red-400 mx-auto block md:left-0 md:inline-block rounded-md py-2 px-2 text-white mt-3  mb-3 hover:bg-red-500 duration-200">
                 Register Now
               </button>
             </div>
           </div>
         </div>
-      {/* </div> */}
     </div>
   );
 }

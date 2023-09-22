@@ -7,13 +7,17 @@ import Navbar from './components/Navbar';
 import ImportantInfoBox from './components/ImportantInfoBox';
 import UserMap from './components/UserMap'
 import MissingPeopleDash from './components/MissingPeopleDash';
+import SignUp from './components/SignUp';
+import OrgRegister from './components/OrgRegister';
+import OrgLogin from './components/OrgLogin';
+import AlertComponent from './components/AlertComponent';
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <div className=''>
+      {/* <div className=''>
           <section>
               <Navbar></Navbar>
           </section>
@@ -27,7 +31,11 @@ function App() {
                   </div> 
               </div>
           </section>
-      </div>
+      </div> */}
+      <SignUp/>
+      {/* <OrgRegister/> */}
+      {/* <OrgLogin/> */}
+      {/* <AlertComponent/> */}
     </>
   )
 }

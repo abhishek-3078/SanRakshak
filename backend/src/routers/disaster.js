@@ -1,7 +1,7 @@
 const express=require('express')
 const User=require('../models/user')
-const Admin=require('../models/admin')
-const Shelter=require('../models/shelter')
+const {Admin,Shelter}=require('../models/admin')
+// const Shelter=require('../models/shelter')
 const {auth,adminAuth}=require('../middleware/auth')
 const router=new express.Router()
 const Disaster=require('../models/disaster')
@@ -31,12 +31,13 @@ router.post('/add',async(req,res)=>{
 // router.post('/user/login',passport.authenticate('local',{failureRedirect:"/auth/login/failed",successRedirect:process.env.CLIENT_URL}));
 
 router.post('/addshelter',adminAuth,async(req,res)=>{
-    let data=req.body
-    console.log("login data:",data)
+    const admin=req.user
+    console.log("login user:",admin)
         try{
-            data=new Shelter(data)
-            await data.save()
-            res.send({data})
+            data=new Shelter(req.body)
+            admin.shelters.push(data);
+            await admin.save()
+            res.send({admin,shelter:data})
         }catch(e){
             res.status(400).send({Error:e.message})
         }

@@ -4,18 +4,37 @@ const bcrypt=require('bcryptjs')
 const jwt=require('jsonwebtoken')
 
 const shelterSchema = new mongoose.Schema({
-    type:{
-        type:String
+    coordinator:{
+      type:String
     },
     description:{
         type:String
     },
     address: {
-      type: String,
-      required: true,
+      street: {
+        type: String
+        
+      },
+      city: {
+        type: String,
+        required: true,
+      },
+      state: {
+        type: String,
+        required: true,
+      },
+      postalCode: {
+        type: String,
+        required: true,
+      },
+      country: {
+        type: String,
+        required: true,
+      }
     },
     coord: {
-      type: [Number] // Assuming coordinates are stored as [longitude, latitude]
+      lng:{type:Number},
+      lat:{type:Number}
     },
     resources:[{
         name:{
@@ -24,7 +43,8 @@ const shelterSchema = new mongoose.Schema({
         qty:{
             type:Number
         }
-    }]
+    }],
+    disaster: { type: mongoose.Schema.Types.ObjectId, ref: 'Disaster', required: true }
   });
   
 const adminSchema=new mongoose.Schema({
@@ -53,12 +73,30 @@ const adminSchema=new mongoose.Schema({
     location:{
         main: {
             address: {
-              type: String,
-              required: true,
+              street: {
+                type: String,
+                
+              },
+              city: {
+                type: String,
+                required: true,
+              },
+              state: {
+                type: String,
+                required: true,
+              },
+              postalCode: {
+                type: String,
+                required: true,
+              },
+              country: {
+                type: String,
+                required: true,
+              }
             },
             coord: {
-              type: [Number],
-              required: true,
+              lng:{type:Number,required:true},
+              lat:{type:Number,required:true}
             },
           }
          
@@ -150,7 +188,7 @@ adminSchema.pre('save',async function(next){
 //     next()
 // })
 const Admin=mongoose.model('admin',adminSchema)
-
+const Shelter=mongoose.model('shelter',shelterSchema)
 const newAdminData = {
 
     email: 'admin@example.com',
@@ -193,3 +231,4 @@ const data=new Admin(newAdminData)
 
 // console.log(data)
 module.exports=Admin
+module.exports=Shelter

@@ -38,6 +38,7 @@ router.post('/signup/address',adminAuth,async(req,res)=>{
     const admin=req.user
     if(!admin) return res.status(400).send()
     try{
+        admin.location={}
         admin.location.main=req.body;
         console.log(admin)
         await admin.save()

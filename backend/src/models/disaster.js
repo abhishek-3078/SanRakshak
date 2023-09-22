@@ -5,10 +5,10 @@ const disasterSchema = new mongoose.Schema({
   date: { type: Date, required: true },
   location: {
     address:{type:String},
-    latitude: { type: Number, required: true },
-    longitude: { type: Number, required: true },
+    latitude: { type: Number},
+    longitude: { type: Number },
   },
-  type: { type: String, required: true },
+  type: { type: String },
   severity: { type: String, required: true },
   description: { type: String, required: true },
   createdAt: { type: Date, default: Date.now },
@@ -17,17 +17,17 @@ const disasterSchema = new mongoose.Schema({
 
 const Disaster = mongoose.model('Disaster', disasterSchema);
 const newDisaster = new Disaster({
-    name: 'Test Disaster',
-    date: new Date(),
+    name: 'Covid-19',
+    date: new Date('2019'),
     location: {
     address:"delhi",
       latitude: 12.34,
       longitude: -56.78,
     },
-    type: 'Test Type',
-    severity: 'Test Severity',
-    description: 'This is a test disaster entry.',
+    type: 'epidemic',
+    severity: 'Very High',
+    description: 'Coronavirus disease (COVID-19) is an infectious disease caused by the SARS-CoV-2 virus. Most people infected with the virus will experience mild to moderat',
   });
   console.log(newDisaster)
-//   newDisaster.save()
+  // newDisaster.save()
 module.exports = Disaster;

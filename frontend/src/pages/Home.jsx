@@ -2,21 +2,32 @@ import React,{useEffect} from 'react'
 import Navbar from '../components/Navbar'
 import HomeNavbar from '../components/HomeNavbar'
 import { API } from '../constant'
-import Map from '../components/Map'
-
+import Map from '../components/LocationSelectorMap'
+import CountUp from 'react-countup';
+import AOS from "aos";
+import "aos/dist/aos.css";
+import {useNavigate} from "react-router-dom"
 
 const Home = () => {
-
+  const navigate = useNavigate();
+ useEffect(()=>{
+  AOS.init({ duration: 1000 });
+ },[])
   return (
-    <div className='h'>
-       <HomeNavbar color="#6A8BFF"/>
-       <div className='h-[500px] flex justify-center items-center w-full bg-slate-200'>
-        
-        {/* <button className='p-4 bg-blue-400 '> Get Started</button> */}
-        <Map/>
-        
+    <div  data-aos="flip-left" data-aos-delay="100" className=''>
+      <HomeNavbar color={'blue-400'}/>
+       <div data-aos="flip-left" data-aos-delay="100" className='h-[400px] flex justify-center items-center w-screen bg-slate-400'>
+     
+      <button  onClick={()=>navigate('/search')} className='px-7 py-4 text-xl font-normal rounded-full text-white bg-green-700/60'>Get Started</button>
+ 
+      </div>
+       
+       <div data-aos="zoom-in" className='flex w-[300px] h-[500px] bg-blue-400'>
+        </div>
+       <div data-aos="zoom-in" data-aos-delay="100"  className='flex '>
+        <div className='h-[200px] w-screen bg-red-200'></div>
        </div>
-
+       <div data-aos="zoom-in" data-aos-delay="100"  className='h-[200px] w-screen bg-green-400'></div>
     </div>
   )
 }

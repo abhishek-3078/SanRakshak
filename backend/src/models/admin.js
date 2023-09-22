@@ -44,7 +44,14 @@ const shelterSchema = new mongoose.Schema({
             type:Number
         }
     }],
-    disaster: { type: mongoose.Schema.Types.ObjectId, ref: 'Disaster' }
+    shelterType:{
+      type:String
+    },
+    disaster: { type: mongoose.Schema.Types.ObjectId, ref: 'Disaster' },
+    active:{
+      type:Number,
+      default:1
+    }
   });
 const Shelter=mongoose.model('shelter',shelterSchema)
 const adminSchema=new mongoose.Schema({

@@ -1,4 +1,7 @@
 import { useState } from "react";
+import Map from "./LocationSelectorMap";
+
+
 function AddLocationOnMap(){
     const [isOnFocus,setIsOnFocus] = useState(false);
     const onFocus = () => setIsOnFocus(true)
@@ -16,7 +19,7 @@ function AddLocationOnMap(){
                 </div>
             </div>
             <div className="w-full border-[1px] border-solid border-[#C5C5C5] my-5 rounded-lg overflow-hidden">
-                <iframe className="w-full" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3457.10860326683!2d76.82013447424663!3d29.947554623157192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390e3f422f5244e7%3A0x9c630c311d6349b8!2sNIT%20KURUKSHETRA!5e0!3m2!1sen!2sin!4v1695206905977!5m2!1sen!2sin" width="400" height="300" style={{border:0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <Map/>
             </div>
         </section>
     )

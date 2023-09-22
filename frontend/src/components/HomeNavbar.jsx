@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function HomeNavbar({color}){
     return(
-        <div className={`bg-[${color}] h-14 w-screen flex items-center justify-between `}>
+        <div className={`bg-blue-400 h-14 w-screen flex items-center justify-between `}>
             <Link to={'/'}>
                 <h1 className="font-bold text-white text-[30px] mx-10 font-serif">
                 Sanrakshak

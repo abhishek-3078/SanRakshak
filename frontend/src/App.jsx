@@ -2,6 +2,10 @@ import { useState } from 'react'
 import './App.css'
 import RescueServicesPage from './pages/RescueServicesPage';
 import AddShelterPage from './pages/AddShelterPage';
+import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
+import OrgRegister from './components/OrgRegister';
+import OrgLogin from './components/OrgLogin';
+
 import BurgerContext from './contexts/BurgerContext';
 import Login from './Login'
 import UserAlert from './pages/UserAlert'
@@ -10,10 +14,9 @@ import UserMap from './components/UserMap'
 import MissingPeopleDash from './components/MissingPeopleDash';
 import SignUp from './components/SignUp'
 import Home from './pages/Home'
-import {BrowserRouter as Router , Routes,Route} from 'react-router-dom';
+// import {BrowserRouter as Router , Routes,Route} from 'react-router-dom';
 import AdminAddress from './components/AdminAddress';
-import SearchSelter from './components/SearchSelter';
-
+import Footer from './components/Footer';
 function App() {
   const [count, setCount] = useState(0)
   return (
@@ -26,10 +29,13 @@ function App() {
       <Route path="/" element={<Home/>}/>
       <Route path="/dashboard" element={<RescueServicesPage/>}/>
       <Route path="/addShelter" element={<AddShelterPage/>}/>
+      <Route path="/OrgRegister" element={<OrgRegister/>}/>
+      <Route path="/OrgLogin" element={<OrgLogin/>}/>
+      
 
     </Routes>
-    </Router> 
-    {/* <SearchSelter></SearchSelter> */}
+    </Router>  */}
+    <AdminAddress/>
     </div>
   )
 }

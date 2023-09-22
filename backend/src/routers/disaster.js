@@ -13,7 +13,7 @@ router.get('/',async (req,res)=>{
         // const user=req.user;
         res.status(200).send(data)
     }catch(e){
-        console.log("hello error");
+        console.log("hello error",e.message);
         return res.status(401).send({error:e.message});
     }
 })
@@ -24,7 +24,7 @@ router.get('/:id',async (req,res)=>{
         // const user=req.user;
         res.status(200).send(data)
     }catch(e){
-        console.log("hello error");
+        console.log("hello error",e.message);
         return res.status(401).send({error:e.message});
     }
 })

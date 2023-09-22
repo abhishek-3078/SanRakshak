@@ -6,6 +6,8 @@ import CurrentAlerts from '../components/CurrentAlerts';
 import { useState } from "react";
 import BurgerContext from '../contexts/BurgerContext'
 import PreviousAlerts from "../components/PreviousAlerts";
+import Map from "../components/LocationSelectorMap";
+// import LocationMap from '../components/ShowLocationMap'
 
 function AddShelterPage() {
     const [isBurgerOn, setIsBurgerOn] = useState(false);
@@ -33,9 +35,10 @@ function AddShelterPage() {
                                 <div className="w-full">
                                     <ShelterForm />
                                 </div>
-                                <div className="flex flex-col">
-                                    <div className="w-[400px]">
-                                        <AddLocationOnMap />
+                                <div className="flex flex-col border-2 p-4">
+                                    <p className="font-semibold text-2xl ">Select Location</p>
+                                    <div className="w-[400px] mt-4">
+                                        <Map/>
                                     </div>
                                     <div className="flex justify-end space-x-10 my-5">
                                         <button className=" bg-transparent text-[grey] border-2 border-solid rounded-lg border-[grey] px-4 py-1 hover:shadow-black hover:shadow-md" >Cancel</button>

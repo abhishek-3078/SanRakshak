@@ -2,7 +2,7 @@ import React,{useEffect} from 'react'
 import Navbar from '../components/Navbar'
 import HomeNavbar from '../components/HomeNavbar'
 import { API } from '../constant'
-import Map from '../components/Map'
+import Map from '../components/LocationSelectorMap'
 
 
 const Home = () => {

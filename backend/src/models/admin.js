@@ -51,7 +51,8 @@ const shelterSchema = new mongoose.Schema({
     active:{
       type:Number,
       default:1
-    }
+    },
+    
   });
 const Shelter=mongoose.model('shelter',shelterSchema)
 const adminSchema=new mongoose.Schema({
@@ -139,9 +140,9 @@ const adminSchema=new mongoose.Schema({
 //     }
 //   });
 adminSchema.virtual('profileCompleted').get(function(){
-  if(this.location) {
-    return 1;
-  }else return 0;
+  if(this.location.main.address.postalCode) {
+    return 0;
+  }else return 1;
 })
 adminSchema.statics.findByCredentials=async(email,password)=>{
     const user=await Admin.findOne({email})

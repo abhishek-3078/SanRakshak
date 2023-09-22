@@ -1,30 +1,30 @@
 const express=require('express')
 const {Admin,Shelter}=require('../models/admin')
-const {adminAuth}=require('../middleware/auth')
+const {Disaster}=require("../models/disaster")
+const {adminAuth, auth}=require('../middleware/auth')
 const router=new express.Router()
 const jwt = require('jsonwebtoken');
 const passport = require("passport");
-
-router.get('/',adminAuth,async (req,res)=>{
-    console.log("get admin:",req.user)
+const {Post}=require("../models/forum")
+router.get('/',async (req,res)=>{
     try{
-        const user=req.user;a
+        const user=req.user;
         res.status(200).send(user)
     }catch(e){
         console.log("hello error");
         return res.status(401).send({message:e.message});
-
     }
 })
 
-router.post('/signup',async(req,res)=>{
+router.post('/post',auth,async(req,res)=>{
     try{ 
-    const user=new Admin(req.body)
-    console.log(user)
-    await user.save()
-    // sendWelcomeEmail(user.email,user.name)
-    let token = jwt.sign({_id:user._id.toString()},process.env.JWT_SECRET,{expiresIn:60*60})
-    res.status(201).send({user,token})
+    p=req.body
+    p.author=req.user.name
+    const data=new Post(p)
+    console.log("data:",data)
+    await data.save()
+   
+    res.status(201).send({data})
     }catch(e){
         console.log(e.message)
         res.status(400).send(e)
@@ -43,7 +43,7 @@ router.post('/signup/address',adminAuth,async(req,res)=>{
         await admin.save()
         res.status(201).send({admin})
     }catch(e){
-        res.status(400).send({Error:e.message})
+
     }
 })
 // router.post('/user/login',passport.authenticate('local',{failureRedirect:"/auth/login/failed",successRedirect:process.env.CLIENT_URL}));
@@ -52,11 +52,10 @@ router.post('/login',async(req,res)=>{
     console.log("login data:",userData)
 
         try{
+
             const user=await Admin.findByCredentials(req.body.email,req.body.password)
             const token=await user.generateAuthToken()
-            
-            console.log("user:",user)
-            res.send({user,token,completed:user.profileCompleted})
+            res.send({user,token})
         }catch(e){
             res.status(400).send({Error:e.message})
         }
@@ -70,13 +69,6 @@ router.post('/login',async(req,res)=>{
     
 // })
 
-router.post('/logout',adminAuth,(req,res)=>{
-    try{
-        console.log("hello");
-        res.send({success:true,message:"successfully logout"})
-    }catch(e){
-        res.status(403).send({message:e.message})
-    }
-})
+
 
 module.exports=router

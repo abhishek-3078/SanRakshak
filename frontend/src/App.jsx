@@ -17,10 +17,7 @@ import Home from './pages/Home'
 // import {BrowserRouter as Router , Routes,Route} from 'react-router-dom';
 import AdminAddress from './components/AdminAddress';
 import Footer from './components/Footer';
-import SearchSelter from './components/SearchSelter';
-import AlertPopup from './components/AlertPopup';
-import DisasterForm from './components/DisasterForm';
-
+import HomePage from './pages/HomePage';
 function App() {
   const [count, setCount] = useState(0)
   return (

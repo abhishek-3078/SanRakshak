@@ -35,11 +35,12 @@ function App() {
       
 
     </Routes>
-    </Router> 
-    <Footer/> */}
-    <HomePage/>
+    </Router>   */}
+    {/* <AdminAddress/> */}
+    {/* <SearchSelter></SearchSelter> */}
+    {/* <AlertPopup></AlertPopup> */}
+    <DisasterForm></DisasterForm>
     </div>
-    // <SignUp/>
   )
 }
 

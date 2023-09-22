@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar"
 import UserMap from "../components/UserMap"
 import MissingPeopleDash from "../components/MissingPeopleDash";
 import BurgerContext from "../contexts/BurgerContext";
+
 function RescueServices(){
     useEffect(()=>{
         async function getUser(){
@@ -38,7 +39,7 @@ function RescueServices(){
                     <div className="w-full">
                         <div>
                             <div className="w-full mt-3">
-                                <ImportantInfoBox></ImportantInfoBox>
+                                <ImportantInfoBox />
                             </div>
                             <div className="flex w-[80vw] mt-10 mx-auto justify-between space-x-5">
                                     <UserMap></UserMap>

@@ -9,14 +9,15 @@ require('./db/mongoose')
 
 // const cookieSession = require("cookie-session");
 const userRouter=require('./routers/user')
+const adminRouter=require('./routers/admin')
 const cors=require('cors')
 // const taskRouter=require('./routers/task')
 // const { findByIdAndUpdate, findByIdAndDelete } = require('./models/user')
 
 const app=express() 
-app.set("trust proxy",1) 
+const allowedOrigins=["http://localhost:5173","https://sanrakshak.onrender.com/"]
 app.use(cors({
-    origin: "https://sanrakshak.onrender.com",
+    origin: allowedOrigins,
     methods: "GET,POST,PUT,DELETE",
     credentials: true,
 }))
@@ -42,6 +43,7 @@ app.get("/",(req,res)=>{
 })
 
 app.use(userRouter)
+app.use("/admin",adminRouter)
 // app.use("/auth", authRoute)
 
 

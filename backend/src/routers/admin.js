@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 const passport = require("passport");
 
 router.get('/',adminAuth,async (req,res)=>{
-    console.log("get user:",req.user)
+    console.log("get admin:",req.user)
     try{
         const user=req.user;
         res.status(200).send(user)
@@ -18,24 +18,28 @@ router.get('/',adminAuth,async (req,res)=>{
 })
 
 router.post('/signup',async(req,res)=>{
-
-    const user=new Admin(req.body)
+    const admin=new Admin(req.body)
     try{ 
     console.log(user)
     await user.save()
     // sendWelcomeEmail(user.email,user.name)
     const token=await user.generateAuthToken()
-    res.status(201).send({user,token})
+    res.status(201).send({admin,token})
     }catch(e){
         res.status(400).send(e)
     }
     
 })
-router.post('/signup2',async(req,res)=>{
-    const admin=await Admin.findOne({})
+
+router.post('/signup/address',adminAuth,async(req,res)=>{
+    const body=req.body;
+    const admin=req.user
     if(!admin) return res.status(400).send()
     try{
-        
+        admin.location.main=req.body;
+        console.log(admin)
+        await admin.save()
+        res.status(201).send({admin})
     }catch(e){
 
     }
@@ -55,6 +59,7 @@ router.post('/login',async(req,res)=>{
         }
     
 })
+
 // router.post('/user/logout',(req,res)=>{
 //     console.log("ask for logout",req.session)
 //     req.logout()

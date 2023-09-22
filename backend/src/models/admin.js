@@ -3,7 +3,6 @@ const validator=require('validator')
 const bcrypt=require('bcryptjs')
 const jwt=require('jsonwebtoken')
 
-
 const shelterSchema = new mongoose.Schema({
     type:{
         type:String
@@ -94,7 +93,11 @@ adminSchema.virtual('organisationType').get(function () {
         return 'unknown';
     }
   });
-
+adminSchema.virtual('profileCompleted').get(function(){
+  if(this.location) {
+    return 1;
+  }else return 0;
+})
 adminSchema.statics.findByCredentials=async(email,password)=>{
     const user=await Admin.findOne({email})
     
@@ -188,5 +191,5 @@ const newAdminData = {
 };
 const data=new Admin(newAdminData)
 
-console.log(data)
+// console.log(data)
 module.exports=Admin

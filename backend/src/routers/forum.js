@@ -1,11 +1,11 @@
 const express=require('express')
 const {Admin,Shelter}=require('../models/admin')
-const {Disaster}=requd
+const {Disaster}=require("../models/disaster")
 const {adminAuth, auth}=require('../middleware/auth')
 const router=new express.Router()
 const jwt = require('jsonwebtoken');
 const passport = require("passport");
-const Post=require(".f")
+const {Post}=require("../models/forum")
 router.get('/',async (req,res)=>{
     try{
         const user=req.user;
@@ -18,9 +18,10 @@ router.get('/',async (req,res)=>{
 
 router.post('/post',auth,async(req,res)=>{
     try{ 
-    p=req.body()
+    p=req.body
     p.author=req.user.name
     const data=new Post(p)
+    console.log("data:",data)
     await data.save()
    
     res.status(201).send({data})

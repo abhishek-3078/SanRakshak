@@ -21,6 +21,9 @@ import Footer from './components/Footer';
 import CommunityForumPage from './pages/CommunityForumPage';
 import CommunityList from './components/communityList';
 import HomePage from './pages/HomePage';
+// import Awareness from './pages/Awareness';
+import UserToDo from './pages/UserToDo';
+import AwarenessCards from './components/AwarenessCards';
 import DisasterFormPage from './components/DisasterForm';
 
 
@@ -39,6 +42,7 @@ function App() {
           <Route path="/OrgLogin" element={<OrgLogin />} />
           <Route path="/createAlert" element={<AdminCreateAlert />} />
           <Route path="/addShelter" element={<AddShelterPage />} />
+          <Route path="/awareness" element={<UserToDo />} />
           
           <Route path="/" element={<HomePage />} />
           <Route path="/publicforumlist" element={<CommunityList />} />
@@ -48,7 +52,7 @@ function App() {
           <Route path="/AdminAddress" element={<AdminAddress />} />
           
           <Route path="/adminDashboard" element={<RescueAgencyDashBoard />} />
-          <Route path='/addDisaster' element ={<DisasterFormPage/>}/>
+
         </Routes>
       </Router>
       {/* <AdminAddress/> */}

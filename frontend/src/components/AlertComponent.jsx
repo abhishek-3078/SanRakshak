@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { API } from '../constant.js';
 import Lottie from "lottie-react";
 import animationData from '../img/demo.json'
+import swal from "sweetalert";
 
 export default function AlertPage() {
 
@@ -39,7 +40,7 @@ const sendAlert = async () => {
   try {
     console.log("Yaha pahuch gayaa");
 
-    // setShowLoader(true)
+    setShowLoader(true)
     const id_token = localStorage.getItem('idToken')
     const response = await fetch(`${API}/admin/addalert`, {
       method: "POST",
@@ -55,6 +56,7 @@ const sendAlert = async () => {
       console.log(data);
       console.log("abhishek ye raha data ", data);
       setShowLoader(false);
+      swal("Alert Added","Alert has now been send ","success");
       
     }
     else {
@@ -216,9 +218,13 @@ const sendAlert = async () => {
                 id="file_input"
                 type="file"
                 />
-                <button onClick={sendAlert}>Send Alert</button>
               <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
             </div>
+            
+          </div>
+          <div className="flex justify-center mt-3 font-semibold">
+
+          <button onClick={sendAlert} className="mt-4 text-white bg-blue-500 py-3 px-6 rounded-lg">Send Alert</button>
           </div>
         </div>
       </div>

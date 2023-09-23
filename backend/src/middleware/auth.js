@@ -29,7 +29,7 @@ const adminAuth=async(req,res,next)=>{
       console.log(decoded)
       const user=await Admin.findOne({_id:decoded._id}).populate('shelters')
       if(!user){
-          throw new Error("no user found")
+          throw new Error("no admin found")
       }
       if(!user.profileUrl){
         user.profileUrl="https://www.pngmart.com/files/21/Admin-Profile-Vector-PNG-Image.png"

@@ -23,7 +23,7 @@ const shelterSchema = new mongoose.Schema({
     address: {
       street: {
         type: String
-        
+
       },
       city: {
         type: String,

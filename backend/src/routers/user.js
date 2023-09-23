@@ -4,7 +4,7 @@ const {auth}=require('../middleware/auth')
 const router=new express.Router()
 const jwt = require('jsonwebtoken');
 const passport = require("passport");
-
+const {sendWelcomeEmail, sendCancelationEmail}=require('../emails/email')
 router.get('/user',auth,async (req,res)=>{
     console.log("get user:",req.user)
     try{
@@ -22,8 +22,6 @@ router.post('/user/signup',async(req,res)=>{
     const user=new User(req.body)
     console.log(user)
     try{ 
-    await user.save()
-    // sendWelcomeEmail(user.email,user.name)
     const token=await user.generateAuthToken()
     res.status(201).send({user,token})
     }catch(e){

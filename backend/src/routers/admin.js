@@ -5,6 +5,7 @@ const {adminAuth}=require('../middleware/auth')
 const router=new express.Router()
 const jwt = require('jsonwebtoken');
 const passport = require("passport");
+const { sendAlertMail } = require('../emails/email')
 
 router.get('/',adminAuth,async (req,res)=>{
     console.log("get admin:",req.user)
@@ -83,14 +84,16 @@ router.post('/logout',adminAuth,(req,res)=>{
 
 router.post('/addalert',adminAuth,async(req,res)=>{
     try{
+        const user=req.user
         const data=new Alert(req.body)
-        await data.save()
+        // await data.save()
+        sendAlertMail({email:user.email,...(req.body),name:user.name})
         res.status(201).send(data)
     }catch(e){
         res.status(403).send({message:e.message})
     }
 })
-router.get('/getalert',adminAuth,async(req,res)=>{
+router.get('/getalert',async(req,res)=>{
     try{
     
         const data=await Alert.find({})

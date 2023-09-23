@@ -31,7 +31,9 @@ const adminAuth=async(req,res,next)=>{
       if(!user){
           throw new Error()
       }
-      
+      if(!user.profileUrl){
+        user.profileUrl="https://www.pngmart.com/files/21/Admin-Profile-Vector-PNG-Image.png"
+      }
       req.user=user
       req.token=token
       next()

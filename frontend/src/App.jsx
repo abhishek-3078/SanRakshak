@@ -21,10 +21,8 @@ import Footer from './components/Footer';
 
 
 import HomePage from './pages/HomePage';
-import AreasOfFocus from './components/AreasOfFocus';
-import RescueAgencyDashBoard from './pages/RescueAgencyDashBoard';
-import CommunityForumPage from './pages/CommunityForumPage';
-import InfoBox from './pages/InfoBox';
+
+
 function App() {
   const [count, setCount] = useState(0)
   return (
@@ -44,9 +42,12 @@ function App() {
           <Route path="/forum/:id" element={<CommunityForumPage />} />
           
 
-        </Routes>
-      </Router>
-      {/* <AdminAddress/> */}
+    </Routes>
+    </Router>  
+    {/* <AdminAddress/> */}
+    {/* <SearchSelter></SearchSelter> */}
+    {/* <AlertPopup></AlertPopup> */}
+    {/* <DisasterForm></DisasterForm> */}
     </div>
   )
 }

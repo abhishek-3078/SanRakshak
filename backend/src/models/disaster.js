@@ -11,8 +11,8 @@ const disasterSchema = new mongoose.Schema({
   type: { type: String },
   severity: { type: String, required: true },
   description: { type: String, required: true },
-  createdAt: { type: Date, default: Date.now },
-  shelters:{}
+  createdAt: { type: Date, default: Date.now }
+
 });
 
 const Disaster = mongoose.model('Disaster', disasterSchema);

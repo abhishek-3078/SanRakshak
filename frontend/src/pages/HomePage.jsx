@@ -3,6 +3,7 @@ import MainNav from '../components/MainNav'
 import Slider from '../components/Slider'
 import HomeMidContent from '../components/HomeMidContent'
 import Footer from '../components/Footer'
+import OurGoals from '../components/OurGoals'
 
 export default function HomePage() {
   return (
@@ -10,6 +11,7 @@ export default function HomePage() {
       <MainNav/>
       <Slider/>
       <HomeMidContent/>
+      <OurGoals/>
       <Footer/>
     </div>
   )

@@ -21,6 +21,7 @@ import Footer from './components/Footer';
 import CommunityForumPage from './pages/CommunityForumPage';
 import CommunityList from './components/communityList';
 import HomePage from './pages/HomePage';
+import DisasterFormPage from './components/DisasterForm';
 
 
 function App() {
@@ -47,7 +48,7 @@ function App() {
           <Route path="/AdminAddress" element={<AdminAddress />} />
           
           <Route path="/adminDashboard" element={<RescueAgencyDashBoard />} />
-
+          <Route path='/addDisaster' element ={<DisasterFormPage/>}/>
         </Routes>
       </Router>
       {/* <AdminAddress/> */}

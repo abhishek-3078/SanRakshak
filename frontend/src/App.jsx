@@ -23,6 +23,7 @@ import CommunityList from './components/communityList';
 import HomePage from './pages/HomePage';
 import Awareness from './pages/Awareness';
 import AwarenessCards from './components/AwarenessCards';
+import DisasterFormPage from './components/DisasterForm';
 
 
 function App() {

@@ -9,7 +9,7 @@ const auth=async(req,res,next)=>{
       console.log(decoded)
       const user=await User.findOne({_id:decoded._id})
       if(!user){
-          throw new Error()
+          throw new Error("no user found")
       }
       if(!user.profileUrl){
         user.profileUrl="https://img.freepik.com/premium-vector/man-avatar-profile-picture-vector-illustration_268834-538.jpg"
@@ -29,7 +29,7 @@ const adminAuth=async(req,res,next)=>{
       console.log(decoded)
       const user=await Admin.findOne({_id:decoded._id}).populate('shelters')
       if(!user){
-          throw new Error()
+          throw new Error("no user found")
       }
       if(!user.profileUrl){
         user.profileUrl="https://www.pngmart.com/files/21/Admin-Profile-Vector-PNG-Image.png"

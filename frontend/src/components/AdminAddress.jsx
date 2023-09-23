@@ -51,8 +51,8 @@ function AdminAddress() {
             }
             else {
                 const data = await response.json()
-                console.log("This is the",data);
-                throw new Error('Network response was not ok');
+                console.log(data)
+                throw new Error(data.error);
             }
         }
         catch (error) {

@@ -110,10 +110,10 @@ export default function MainNav() {
               </svg>
             </button>
           </div>
-          <div className="flex justify-end">
+          <div className="flex justify-between w-[70%]">
           <div
             className="items-center  hidden w-full mr-8 md:flex md:w-auto "
-            id="navbar-user"
+            id="navbar-user w-[70%]"
           >
             <ul className="flex  font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white">
               <li>
@@ -159,9 +159,9 @@ export default function MainNav() {
               </li> */}
             </ul>
           </div>
-          <div className="flex gap-4">
-            <button onClick={()=>navigate('/userlogin')}className="cursor-pointer p-2 bg-green-400 rounded-full">User Login</button>
-            <button onClick={()=>navigate('/orglogin')}className="cursor-pointer p-2 bg-red-400 rounded-full">Partner Login</button>
+          <div className="flex gap-4 w-[30%]">
+            <button onClick={()=>navigate('/userlogin')}className="cursor-pointer p-3 bg-green-400 rounded-full text-white hover:bg-green-300 active:bg-green-500">User Login</button>
+            <button onClick={()=>navigate('/orglogin')}className="cursor-pointer p-3 bg-red-400 rounded-full text-white hover:bg-red-300 active:bg-red-500">Partner Login</button>
           </div>
           </div>
         </div>

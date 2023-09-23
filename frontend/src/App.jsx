@@ -17,6 +17,7 @@ import Home from './pages/Home'
 import AdminAddress from './components/AdminAddress';
 import AdminCreateAlert from './pages/AdminCreateAlert';
 import RescueAgencyDashBoard from './pages/RescueAgencyDashBoard';
+import CommunityForumPage from './pages/CommunityForumPage'
 import Footer from './components/Footer';
 
 
@@ -38,7 +39,6 @@ function App() {
           <Route path="/OrgLogin" element={<OrgLogin />} />
           <Route path="/createAlert" element={<AdminCreateAlert />} />
           <Route path="/addShelter" element={<AddShelterPage />} />
-          
           <Route path="/" element={<HomePage />} />
           
           
@@ -48,6 +48,10 @@ function App() {
           <Route path="/adminDashboard" element={<RescueAgencyDashBoard />} />
 
         </Routes>
+
+
+
+        {/* <CommunityForumPage/> */}
       </Router>
       {/* <AdminAddress/> */}
     </div>

@@ -171,7 +171,7 @@ adminSchema.methods.toJSON=function(){
 }
 adminSchema.methods.generateAuthToken=async function(){
   const user =this
-  let token = jwt.sign({_id:user._id.toString()},process.env.JWT_SECRET,{expiresIn:60*60})
+  let token = jwt.sign({_id:user._id.toString()},process.env.JWT_SECRET,{expiresIn:24*60*60})
   return token
 }
 //arrow function dont support this keyword

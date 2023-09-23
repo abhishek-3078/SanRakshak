@@ -19,7 +19,7 @@ import AdminCreateAlert from './pages/AdminCreateAlert';
 import RescueAgencyDashBoard from './pages/RescueAgencyDashBoard';
 import Footer from './components/Footer';
 import CommunityForumPage from './pages/CommunityForumPage';
-
+import CommunityList from './components/communityList';
 import HomePage from './pages/HomePage';
 
 
@@ -33,13 +33,14 @@ function App() {
           <Route path="/userdashboard" element={<RescueServicesPage />} />
           <Route path="/usersignup" element={<SignUp />}></Route>
           <Route path="/alerts" element={<UserAlert />}></Route>
-          <Route path="/publicforum" element={<CommunityForumPage />}></Route>
+          <Route path="/publicforum/:id" element={<CommunityForumPage />}></Route>
           <Route path="/OrgRegister" element={<OrgRegister />} />
           <Route path="/OrgLogin" element={<OrgLogin />} />
           <Route path="/createAlert" element={<AdminCreateAlert />} />
           <Route path="/addShelter" element={<AddShelterPage />} />
           
           <Route path="/" element={<HomePage />} />
+          <Route path="/publicforumlist" element={<CommunityList />} />
           
           
 

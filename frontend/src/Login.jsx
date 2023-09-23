@@ -110,7 +110,7 @@ const Login = () => {
           </a>
           <div className="flex w-[100%] justify-center">
             <p>No Account?</p>
-            <a href="/usersignup" className="text-blue-600 ml-2">
+            <a href="#" onClick={() =>window.location.href = "/usersignup"} className="text-blue-600 ml-2">
               Create One!
             </a>
           </div>

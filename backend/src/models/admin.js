@@ -9,16 +9,12 @@ const shelterSchema = new mongoose.Schema({
     description:{
         type:String
     },
-    contact:{
-      email:{type:String,
-        validate(value){
-          if(!validator.isEmail(value)){
-              throw new Error('Email is invalid')
-          }}
-        },
+  
       phone:{
-        type:String
-      }
+        type:String,
+        minLength:10,
+        maxLength:10
+      
     },
     address: {
       street: {

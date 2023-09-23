@@ -90,7 +90,7 @@ router.post('/addalert',adminAuth,async(req,res)=>{
         res.status(403).send({message:e.message})
     }
 })
-router.get('/getalert',adminAuth,async(req,res)=>{
+router.get('/getalert',async(req,res)=>{
     try{
     
         const data=await Alert.find({})

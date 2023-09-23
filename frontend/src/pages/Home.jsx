@@ -44,7 +44,7 @@ const Home = () => {
         <div className='pl-8 text-xl font-bold'>Community Forum</div>
         <div className='p-4'>
           {forum.map((data=>{
-            return <div key={data._id}  onClick={()=>navigate(`/forum/${data._id}`)} className='border-b-2 cursor-pointer'>
+            return <div key={data._id}  onClick={()=>navigate(`/publicforum/${data._id}`)} className='border-b-2 cursor-pointer'>
               <p className='font-bold text-xl'>{data.name}</p>
               <p>{data.description}</p>
               </div>

@@ -179,7 +179,7 @@ function MainDisplayFunction(){
 
   const [optionSelected, setOptionSelected] = useState(-1);
 
-  if(optionSelected===-1)
+  if(optionSelected === -1)
   {
     return<MyContext.Provider value={{optionSelected, setOptionSelected}}>
 

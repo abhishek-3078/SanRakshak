@@ -10,15 +10,9 @@ import SearchSelter from "../components/SearchSelter";
 import swal from "sweetalert";
 
 function RescueServices(){
-    const [data,setData]=useState('')
+    const [data,setData] = useState("");
     useEffect(()=>{
         async function getUser(){
-          const res=await fetch(`${API}/user`,{
-            method:"GET",
-            credentials:"include"
-        })
-          const data=await res.json();
-          console.log("Data from backend:",data)
             try{
                 const token=localStorage.getItem('idToken')
                 const res=await fetch(`${API}/user`,{
@@ -26,7 +20,6 @@ function RescueServices(){
                     headers:{
                         "Authorization":token
                     }
-                   
                     
                 })
                 
@@ -37,7 +30,7 @@ function RescueServices(){
                     return swal("Error in fetching")
 
                 }
-                const data=await res.json();
+                const data = await res.json();
                 setData(data)
                 localStorage.setItem('name',data.name)
                 localStorage.setItem('email',data.email)
@@ -78,9 +71,9 @@ function RescueServices(){
                             <div className="w-full mt-3">
                                 <ImportantInfoBox name={data.name} />
                             </div>
-                            <div className="flex w-[80vw] h-screen mt-10 mx-auto justify-between space-x-5">
-                                    <SearchSelter/>
-                                    <MissingPeopleDash/>
+                            <div className="flex flex-col w-[80vw] h-[1000px] mt-10 mx-auto items-center space-y-5"> 
+                                <SearchSelter/>
+                                <MissingPeopleDash/>
                             </div>
                         </div>
                     </div>

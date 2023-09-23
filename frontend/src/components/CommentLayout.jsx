@@ -14,12 +14,12 @@ const Image = (props) => {
 }
 
 
-const CommentLayout = () => {
-    const profilePhoto ="https://img.freepik.com/premium-vector/man-avatar-profile-picture-vector-illustration_268834-538.jpg";
-    const userName = "Archit Chetan Chhajed";
-    const heading = "Road No.108 is now clear of all roadblocks as the avalanche cleared the debri";
-    const content = "This morning an avalanche occured on the hill near the Bedi Road, Jamanagar, we were 50 people travelling. Thank God, none of us got hurt, but now the road is clear towards the Jamangar Medical Aid Camp. We are all heading towards there only.";
-    const arrOfImages = ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVwqJuC0OPRsmFipjvEAE3snWaFl-PjrJ9eQ&usqp=CAU"]
+const CommentLayout = (props) => {
+    const profilePhoto =props.profilePhoto;
+    const userName = props.userName;
+    const heading = props.heading;
+    const content = props.content;
+    const arrOfImages = props.arrOfImages;
     const media = "";
     const [likes, setLikes] = useState(0);
     const [dislikes, setDislikes] = useState(0);
@@ -84,7 +84,7 @@ const CommentLayout = () => {
         console.log("LIKE STATE",likeState);
     }
   return (
-    <div className="w-[95%] h-[auto] border-2 border-solid border-red-500 p-3 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
+    <div className="w-[95%] h-[auto] border-2 border-solid border-white m-3 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
         <div className="w-[100%] h-[50px] flex items-center border-2 border-solid border-black">   
             <div className="w-[4%]">
                 <img className="w-full h-[100%] rounded-[25px] border-2 border-solid border-black" src={profilePhoto} alt="P"></img>

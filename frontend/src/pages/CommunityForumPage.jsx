@@ -22,7 +22,8 @@ const commentObj = {
 const CommunityForumPage = () => {
     const [isBurgerOn, setIsBurgerOn] = useState(false);
     const { id } = useParams();
-    const [forum,setForum]=useState({})
+    const [forum,setForum]=useState([])
+    const [data, setData] = useState([])
     useEffect(()=>{
         const fun=async()=>{
             try{
@@ -31,7 +32,7 @@ const CommunityForumPage = () => {
             if(res.ok){
                 setForum(data)
             }
-            console.log(data)
+            console.log("HELLO 1:",data)
             }catch(e){
                 swal("error",e.message,"error")
             }
@@ -41,6 +42,27 @@ const CommunityForumPage = () => {
     function handleBurgerClick(isBur) {
         setIsBurgerOn(isBur);
     }
+
+
+    useEffect(()=>{
+        const func = async () => {
+            try{
+                const res=await fetch(`${API}/forum/post/${id}`)
+                const data=await res.json()
+                if(res.ok){
+                  console.log(data)
+                  setData(data)
+                }else{
+                  swal("Error",data.error, "error");
+                 
+                }
+            
+                }catch(e){
+                  swal("Error", e.message, "error");
+                }
+        }
+        func();
+    }, [])
 
 
     async function handleSubmit(){
@@ -94,7 +116,7 @@ const CommunityForumPage = () => {
                             <div className="w-full h-[15%] flex justify-center items-center">
                                 <h1 className="mb-4 p-2 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-4xl dark:text-white">{forum.name} Community Discussion</h1>
                             </div>
-                            <div className="w-[95%] h-[auto] border-2 border-solid border-red-500 p-3 bg-gradient-to-br from-slate-900 to-slate-800 text-white flex m-2">
+                            <div className="w-[95%] h-[auto] border-2 border-solid border-white p-3 bg-gradient-to-br from-slate-900 to-slate-800 text-white flex m-2">
                                 <div className="w-[50px] h-[50px]">
                                 <img className="w-full h-full rounded-[30px]" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQZkZhjF_61mP8eGHBMIKaSKTwg2nmNx1k88updr0MBA&s" alt="P"></img>
                                 </div>
@@ -109,7 +131,7 @@ const CommunityForumPage = () => {
                                 </div>
                             </div>
                             <div className="w-full flex flex-col items-center">
-                                <CommentLayout profilePhoto={commentObj.profilePhoto} heading={commentObj.heading} content={commentObj.content} userName={commentObj.userName} arrOfImages={commentObj.arrOfImages}  />
+                                {data.map((comment) => {return <CommentLayout profilePhoto={comment.profileUrl} heading={comment.title} content={comment.content} userName={comment.name} arrOfImages={[]} />})}
                             </div>
                         </div>
                     </div>

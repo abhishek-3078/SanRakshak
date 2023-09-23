@@ -18,7 +18,7 @@ import AdminAddress from './components/AdminAddress';
 import AdminCreateAlert from './pages/AdminCreateAlert';
 
 import Footer from './components/Footer';
-import CommunityForumPage from './pages/CommunityForumPage';
+
 
 import HomePage from './pages/HomePage';
 import AreasOfFocus from './components/AreasOfFocus';
@@ -41,6 +41,7 @@ function App() {
           <Route path="/OrgLogin" element={<OrgLogin />} />
           <Route path="/AdminAddress" element={<AdminAddress />} />
           <Route path="/createAlert" element={<AdminCreateAlert />} />
+          <Route path="/forum/:id" element={<CommunityForumPage />} />
           
 
         </Routes>

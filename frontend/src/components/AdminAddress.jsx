@@ -34,7 +34,7 @@ function AdminAddress() {
             console.log("Yaha pahuch gayaa");
             const idToken = localStorage.getItem('idToken');
             setShowLoader(true)
-            const response = await fetch(`${API}/signup/address`, {
+            const response = await fetch(`${API}/admin/signup/address`, {
                 method: "POST",
                 headers: {
                     'Authorization': idToken,
@@ -50,7 +50,9 @@ function AdminAddress() {
                 console.log("This is the",data);
             }
             else {
-                throw new Error('Network response was not ok');
+                const data = await response.json()
+                console.log(data)
+                throw new Error(data.error);
             }
         }
         catch (error) {
@@ -125,8 +127,8 @@ function AdminAddress() {
                             // alert("hello")
                             console.log("hllgtvgo", position, position.lat)
                             let TempData = AddressData;
-                            TempData.coords.lat = position.lat;
-                            TempData.coords.lng = position.lng;
+                            TempData.coord.lat = position.lat;
+                            TempData.coord.lng = position.lng;
                             SetAddressData(TempData);
                             console.log(AddressData);
 

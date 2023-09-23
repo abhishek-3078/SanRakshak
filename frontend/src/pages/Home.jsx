@@ -7,6 +7,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import {useNavigate} from "react-router-dom"
 import swal from 'sweetalert';
+
 const Home = () => {
   const [forum,setForum]=useState([])
   const navigate = useNavigate();

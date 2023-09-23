@@ -1,4 +1,4 @@
-import NewNavSide from "../components/NewNavSide";
+// import NewNavSide from "../components/NewNavSide";
 import Navbar from '../components/Navbar';
 import ShelterForm from "../components/ShelterForm";
 import AddLocationOnMap from "../components/AddLocationOnMap";
@@ -6,6 +6,7 @@ import CurrentAlerts from '../components/CurrentAlerts';
 import { useState } from "react";
 import BurgerContext from '../contexts/BurgerContext'
 import PreviousAlerts from "../components/PreviousAlerts";
+import NavSide from "../components/NavSide";
 
 function UserAlert() {
     const [isBurgerOn, setIsBurgerOn] = useState(false);
@@ -18,11 +19,11 @@ function UserAlert() {
         <BurgerContext.Provider value={isBurgerOn}>
             <section className="flex flex-col">
                 <div>
-                    <Navbar handleBurgerClick={handleBurgerClick} color="#6A8BFF" />
+                    <Navbar handleBurgerClick={handleBurgerClick} color="#F56868" />
                 </div>
                 <div className="flex">
                     <div>
-                        <NewNavSide />
+                        <NavSide />
                     </div>
                     <div className="w-full bg-[#f5f5f5]">
                         <div className="flex p-4 justify-between">

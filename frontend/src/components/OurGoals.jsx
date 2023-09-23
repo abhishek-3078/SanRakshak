@@ -1,7 +1,7 @@
 import React from "react";
 import { FaFistRaised, FaHeartbeat } from "react-icons/fa";
-import { BiSolidCommentDetail } from "react-icons/Bi";
-import { BiSolidTimer } from "react-icons/Bi";
+// import { BiSolidCommentDetail } from "react-icons/Bi";
+// import { BiSolidTimer } from "react-icons/Bi";
 
 export default function OurGoals() {
   return (
@@ -51,7 +51,7 @@ export default function OurGoals() {
         <div >
           <div className="border-2 border-solid border-gray-400 bg-white h-64">
             <div className="my-1 px-2 py-1 mx-2">
-              <BiSolidCommentDetail size={40}></BiSolidCommentDetail>
+              {/* <BiSolidCommentDetail size={40}></BiSolidCommentDetail> */}
             </div>
             <div>
               <h1 className="text-2xl font-semibold my-1 px-2 py-1 mx-2">
@@ -67,7 +67,7 @@ export default function OurGoals() {
         <div >
           <div className="border-2 border-solid border-gray-400 bg-white h-64">
             <div className="my-1 px-2 py-1 mx-2">
-              <BiSolidTimer size={40}></BiSolidTimer>
+              {/* <BiSolidTimer size={40}></BiSolidTimer> */}
             </div>
             <div>
               <h1 className="text-2xl font-semibold my-1 px-2 py-1 mx-2">

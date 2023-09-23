@@ -2,13 +2,19 @@ const mongoose=require('mongoose')
 const validator=require('validator')
 const bcrypt=require('bcryptjs')
 const jwt=require('jsonwebtoken')
-
 const shelterSchema = new mongoose.Schema({
     coordinator:{
       type:String
     },
     description:{
         type:String
+    },
+  
+      phone:{
+        type:String,
+        minLength:10,
+        maxLength:10
+      
     },
     address: {
       street: {
@@ -82,7 +88,8 @@ const adminSchema=new mongoose.Schema({
     password:{
         type:String,
         trim:true,
-        minLength:6
+        minLength:6,
+        required:true
     },
     location:{
         main: {

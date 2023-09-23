@@ -87,7 +87,7 @@ const Map = ({mapInput}) => {
 
   return (
     <div className="w-[100%]">
-      <div id="map" className="w-[400px] border-2 border-red-400 h-[275px]"></div>
+      <div id="map" className="w-[400px] border-2 border-[#c5c5c5] h-[275px]"></div>
     </div>
   );
 };

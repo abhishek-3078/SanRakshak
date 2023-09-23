@@ -85,10 +85,14 @@ function ShelterForm(props){
                         </button>
                     </div>
                 </div>
-                <div className="my-3">
+                <div className="my-3 flex justify-between">
                     <div>
                         <label className="block font-[500]" htmlFor="Capacity">Capacity</label>
                         <input className="border-2  w-32 mt-2 rounded-lg border-[#C5C5C5] border-solid px-1" type="number" name="capacity" onChange={props.handleInput}/>
+                    </div>
+                    <div className="mr-14">
+                        <label className="block font-[500]" htmlFor="Capacity">Contact</label>
+                        <input className="border-2  w-50 mt-2 rounded-lg border-[#C5C5C5] border-solid px-1" type="tel" name="phone" onChange={props.handleInput}/>
                     </div>
                 </div>
                 <div className="my-3">

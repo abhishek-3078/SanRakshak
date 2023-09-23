@@ -34,7 +34,7 @@ function NavSide() {
                         {isBurgerOn && <ButtonTransparent>Alerts</ButtonTransparent>}
                     </li>
                 </Link>
-                <Link to ="/publicforum"><li className="flex ml-2 space-x-5 my-5">
+                <Link to ="/publicforumlist"><li className="flex ml-2 space-x-5 my-5">
                     <img className="w-6 h-6 invert-[1] m-3" src="https://cdn-icons-png.flaticon.com/128/1542/1542858.png" alt="" />
                     {isBurgerOn && <ButtonTransparent>Public Forum</ButtonTransparent>}
                 </li></Link>

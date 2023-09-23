@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import logo from '../assets/SanRakshak_logo.jpg'
+import { useNavigate } from "react-router-dom";
 
 export default function MainNav() {
   const [display, setDisplay] = useState(false);
+  const navigate = useNavigate();
   const dropDownHandler = () => {
     setDisplay((display) => {
       console.log(display);
@@ -157,9 +159,9 @@ export default function MainNav() {
               </li> */}
             </ul>
           </div>
-          <div>
-            <button>User Login</button>
-            <button>Partner Login</button>
+          <div className="flex gap-4">
+            <button onClick={()=>navigate('/userlogin')}className="cursor-pointer p-2 bg-green-400 rounded-full">User Login</button>
+            <button onClick={()=>navigate('/orglogin')}className="cursor-pointer p-2 bg-red-400 rounded-full">Partner Login</button>
           </div>
           </div>
         </div>

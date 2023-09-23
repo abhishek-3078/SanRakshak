@@ -39,7 +39,7 @@ function App() {
           <Route path="/createAlert" element={<AdminCreateAlert />} />
           <Route path="/addShelter" element={<AddShelterPage />} />
           
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<HomePage />} />
           
           
 

@@ -84,10 +84,10 @@ const CommentLayout = (props) => {
         console.log("LIKE STATE",likeState);
     }
   return (
-    <div className="w-[95%] h-[auto] border-2 border-solid border-white m-3 bg-gradient-to-br from-slate-900 to-slate-800 text-white">
-        <div className="w-[100%] h-[50px] flex items-center border-2 border-solid border-black">   
+    <div className="w-[95%] h-[auto]  m-3 bg-gradient-to-br from-blue-300 to-blue-500 text-white">
+        <div className="w-[100%] h-[50px] flex items-center ">   
             <div className="w-[4%]">
-                <img className="w-full h-[100%] rounded-[25px] border-2 border-solid border-black" src={profilePhoto} alt="P"></img>
+                <img className="w-full h-[100%] rounded-[25px] " src={profilePhoto} alt="P"></img>
             </div>
 
             <div className="w-[30%] text-[15px] pl-5">

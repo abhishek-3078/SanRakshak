@@ -19,7 +19,6 @@ import AdminCreateAlert from './pages/AdminCreateAlert';
 import RescueAgencyDashBoard from './pages/RescueAgencyDashBoard';
 import CommunityForumPage from './pages/CommunityForumPage'
 import Footer from './components/Footer';
-import CommunityForumPage from './pages/CommunityForumPage';
 import CommunityList from './components/communityList';
 import HomePage from './pages/HomePage';
 

@@ -111,18 +111,18 @@ const CommunityForumPage = () => {
                         <NavSide />
                     </div>
                     <div className="w-full flex flex-col justify-center items-center pt-10">
-                        <div className="w-[98%] h-[auto] border-2 border-solid border-black flex flex-col items-center bg-gradient-to-br from-zinc-900 to-gray-900"> {/*For A Diaster */}
+                        <div className="w-[98%] h-[auto] border-2 border-solid border-black flex flex-col items-center bg-gradient-to-br from-blue-200 to-blue-400"> {/*For A Diaster */}
 
                             <div className="w-full h-[15%] flex justify-center items-center">
                                 <h1 className="mb-4 p-2 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-4xl dark:text-white">{forum.name} Community Discussion</h1>
                             </div>
-                            <div className="w-[95%] h-[auto] border-2 border-solid border-white p-3 bg-gradient-to-br from-slate-900 to-slate-800 text-white flex m-2">
+                            <div className="w-[95%] h-[auto] rounded-lg p-8 bg-gradient-to-br from-blue-400 to-blue-600 text-white flex m-2 ">
                                 <div className="w-[50px] h-[50px]">
                                 <img className="w-full h-full rounded-[30px]" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQZkZhjF_61mP8eGHBMIKaSKTwg2nmNx1k88updr0MBA&s" alt="P"></img>
                                 </div>
                                 <div className="w-[100%]">
 
-                                    <input id="title" className="w-[100%] m-2 p-1 text-black" type="text"></input>
+                                    <input id="title" className="w-[100%] m-2 p-1 text-black " type="text" ></input>
                                     <textarea id="content" className="m-2 h-[20vh] w-[100%] resize-none text-black"></textarea>
                                     <input className="m-2" type="file" accept="image"></input>
                                     <div className="w-full m-2">
@@ -131,7 +131,7 @@ const CommunityForumPage = () => {
                                 </div>
                             </div>
                             <div className="w-full flex flex-col items-center">
-                                {data.map((comment) => {return <CommentLayout profilePhoto={comment.profileUrl} heading={comment.title} content={comment.content} userName={comment.name} arrOfImages={[]} />})}
+                                {data.map((comment) => {return <CommentLayout profilePhoto={comment.profileUrl} heading={comment.title} content={comment.content} userName={comment.author } arrOfImages={[]} />})}
                             </div>
                         </div>
                     </div>

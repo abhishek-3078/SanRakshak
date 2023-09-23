@@ -44,7 +44,7 @@ router.post('/addshelter',adminAuth,async(req,res)=>{
             await admin.save()
             res.send({admin,shelter:data})
         }catch(e){
-            res.status(400).send({Error:e.message})
+            res.status(400).send({error:e.message})
         }
   
 })
@@ -54,7 +54,7 @@ router.get('/shelter',async(req,res)=>{
         console.log(data)
         return res.send({data})
     }catch(e){
-        res.status(400).send({Error:e.message})
+        res.status(400).send({error:e.message})
     }
 })
 router.get('/shelter/:id',async(req,res)=>{
@@ -64,7 +64,7 @@ router.get('/shelter/:id',async(req,res)=>{
             const data=await Shelter.find({disaster:id})
             res.send({data})
         }catch(e){
-            res.status(400).send({Error:e.message})
+            res.status(400).send({error:e.message})
         }
 })
 // router.post('/user/logout',(req,res)=>{
@@ -89,7 +89,7 @@ router.post('/user/logout',auth,(req,res)=>{
         console.log("hello");
         res.send({success:true,message:"successfully logout"})
     }catch(e){
-        res.status(403).send({message:e.message})
+        res.status(403).send({error:e.message})
     }
 })
 

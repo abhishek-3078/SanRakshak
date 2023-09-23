@@ -24,8 +24,12 @@ function AddShelterPage() {
     }
 
     const [sheleterData, SetShelterData] = useState({
+        phone : "",
         shelterType: "",
         coordinator: "",
+        address: {
+            street: ""
+        },
         capacity: "",
         description: "",
         coord: {
@@ -47,6 +51,7 @@ function AddShelterPage() {
         var tempData = sheleterData;
         tempData.coord.lat = lat;
         tempData.coord.lng = lng;
+        
         SetShelterData(tempData);
         console.log(sheleterData);
     }
@@ -55,7 +60,7 @@ function AddShelterPage() {
         console.log("Hello");
         try {
             console.log("Yaha pahuch gayaa");
-              setShowLoader(true)
+            setShowLoader(true)
             console.log("this is the data we are showing ", sheleterData)
             const idToken = localStorage.getItem('idToken')
             const response = await fetch(`${API}/disaster/addshelter`, {

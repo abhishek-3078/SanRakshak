@@ -50,7 +50,7 @@ const send = () => {
 
 function NewRow(props) {
   const { optionSelected, setOptionSelected } = useContext(MyContext);
-  const date = props.dateOfCreation;
+  const date = props.createdAt;
   const id = props.active;
   const isActive = {id}?"ACTIVE":"NOT ACTIVE";
   const area = props.area;
@@ -58,24 +58,36 @@ function NewRow(props) {
   const type = props.type;
   const number = props.number;
   const styling = "p-2"
+
+  function formatDateToDDMMYYYY(timestamp) {
+    const date = new Date(timestamp);
+  
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0'); // Month is zero-based
+    const year = date.getFullYear();
+  
+    return `${day}/${month}/${year}`;
+  }
+  
+  const timestamp = props.createdAt;
+  const formattedDate = formatDateToDDMMYYYY(timestamp);
+  console.log(formattedDate); // Output: "23/09/2023"
+
   return <>
 
     <tr className="hover:bg-[#C5C5C5] rounded-[10px] active:bg-[#c5c5c582]" onClick={() => {
       console.log(number);
       setOptionSelected(number);
     }}>
-      <NewRowComponent text={date} />
+      <NewRowComponent text={formattedDate} />
       <NewRowComponent text={isActive} />
-      <NewRowComponent text={area} />
+      <NewRowComponent text={`lat : ${props.latitude} lng : ${props.longitude}`}  />
       <NewRowComponent text={coordinator} />
       <NewRowComponent text={type} />
       <div className="w-[70px] h-full flex items-center justify-between m-3">
-        <div className="w-[25px] h-[25px] hover:bg-[white] flex justify-center items-center rounded-[10px]">
-          <img className="w-[20px] h-[20px]" src="https://cdn-icons-png.flaticon.com/128/1828/1828911.png" alt="E" />
-        </div>
+        
         <div className="w-[25px] h-[25px] hover:bg-[white] flex justify-center items-center rounded-[10px]">
 
-          <img className="w-[20px] h-[20px]" src="https://cdn-icons-png.flaticon.com/128/484/484662.png" alt="G" />
         </div>
       </div>
 
@@ -150,6 +162,10 @@ function ShelterDetailBox() {
     getAlert();
 }, [load])
 
+const [dataObj, setDataObj] = useState({});
+
+
+
 // const key = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${}`
   return (
     <>
@@ -202,40 +218,11 @@ function ShelterDetailBox() {
 
 
             {
-              shelter.map(async (shelter, index) => {
+              shelter.map((shelter, index) => {
                 console.log("SINGULAR SHELTER:", shelter, index);
                 const latitude = shelter.coord.lat;
                 const longitude = shelter.coord.lng;
-                console.log("COORDS: ", latitude, longitude);
-                try {
-                  console.log("Yaha pahuch gayaa");
-      
-                  // setShowLoader(true)
-                  const id_token = localStorage.getItem('idToken')
-                  const key = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${"AIzaSyDDAbFDKGmZpbRF_mBU0DjUG2kChD4ZGGw"}`
-                  const response = await fetch(key);
-                  console.log("vgv:", response)
-                  if (response.ok) {
-                      const data = await response.json()
-                      console.log(data);
-                      console.log("abhishek ye raha data ", data);
-                      // setShowLoader(false);
-                      SetLoad(1);
-                      SetShelter(data.data);
-                      console.log("This is our alerts",data);
-                  }
-                  else {
-                      const data = await response.json()
-                      console.log(data);
-                      throw new Error('Network response was not ok');
-                  }
-              }
-              catch (error) {
-                  // alert(error);
-                  console.log("This is the erroe", error);
-              }
-
-                return <NewRow number={index} dateOfCreation={shelter.dateOfCreation} id={shelter.id} area={shelter.area} coordinator={shelter.coordinator} type={shelter.shelterType} />
+                return <NewRow latitude = {latitude} longitude = {longitude} number={index} createdAt={shelter.createdAt} id={shelter.id} area={shelter.area} coordinator={shelter.coordinator} type={shelter.shelterType} />
 
               })
             }
@@ -270,7 +257,7 @@ function MainDisplayFunction() {
     <MyContext.Provider value={{ optionSelected, setOptionSelected }}>
 
       <ShelterDetailBox></ShelterDetailBox>
-      <ShelterDetailPopUpBox id={shelter.id} name={shelter.name} coordinator={shelter.coordinator} area={shelter.area} dateOfCreation={shelter.dateOfCreation} type={shelter.type} resources={shelter.resources} />
+      <ShelterDetailPopUpBox id={shelter.id} name={shelter.name} coordinator={shelter.coordinator} area={shelter.area} createdAt={shelter.createdAt} type={shelter.type} resources={shelter.resources} />
     </MyContext.Provider>
   </>
 }

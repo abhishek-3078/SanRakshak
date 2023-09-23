@@ -20,7 +20,11 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",
     "react-router-dom": "^6.16.0",
+<<<<<<< HEAD
+    "sweetalert": "^2.1.2"
+=======
     "react-slideshow-image": "^4.2.1"
+>>>>>>> 870ae342574e221f6215f7f38b571ca01d88d674
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

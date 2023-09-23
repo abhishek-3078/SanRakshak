@@ -1,5 +1,6 @@
 const express=require('express')
 const {Admin,Shelter}=require('../models/admin')
+const Alert=require('../models/alert')
 const {adminAuth}=require('../middleware/auth')
 const router=new express.Router()
 const jwt = require('jsonwebtoken');
@@ -79,4 +80,23 @@ router.post('/logout',adminAuth,(req,res)=>{
     }
 })
 
+
+router.post('/addalert',adminAuth,async(req,res)=>{
+    try{
+        const data=new Alert(req.body)
+        await data.save()
+        res.status(201).send(data)
+    }catch(e){
+        res.status(403).send({message:e.message})
+    }
+})
+router.get('/getalert',adminAuth,async(req,res)=>{
+    try{
+        const data=await Alert.find({})
+a
+        res.status(200).send(data)
+    }catch(e){
+        res.status(403).send({message:e.message})
+    }
+})
 module.exports=router

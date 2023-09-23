@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function AlertPage() {
   const expiry = [
@@ -13,12 +13,18 @@ export default function AlertPage() {
     { id: "district", title: "District", key: 3, value: "district" },
   ];
 
+  const [alertData,SetAlertData] = useState({
+    type : "",
+    title : "",
+    severity : "",
+    description : "",
+    target : "",
+
+  })
+
   return (
-    <div className="w-1/3">
+    <div className="w-[85%] px-8 py-3">
       <div>
-        <h1 className="text-2xl font-semibold text-blue-500 mx-4">
-          Create an alert
-        </h1>
         <div className="border-solid border-2 border-gray-500 py-4 px-4 rounded-md">
           <div className="mx-2">
             <h1 className="text-base font-medium">Alert Details</h1>

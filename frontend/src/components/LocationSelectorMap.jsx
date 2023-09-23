@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Loader } from "@googlemaps/js-api-loader";
 
-const Map = () => {
+
+
+const Map = ({mapInput}) => {
 
   const [location,setLocation] = useState({})
 
@@ -38,6 +40,9 @@ const Map = () => {
           // alert("hello")
           console.log("hllo",position,position.lat)
           setLocation(position);
+          console.log("gashdsfdg",position.lat,position.lng)
+
+          mapInput(position.lat,position.lng);
           // infoWindow.close();
           infoWindow.setContent(
             `
@@ -83,10 +88,6 @@ const Map = () => {
   return (
     <div className="w-[100%]">
       <div id="map" className="w-[400px] border-2 border-red-400 h-[275px]"></div>
-      <div>
-        <p>Latitude :  {location.lat}</p>
-        <p>Longitutde : {location.lng}</p>
-      </div>
     </div>
   );
 };

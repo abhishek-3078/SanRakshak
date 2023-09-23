@@ -46,7 +46,7 @@ function AdminAddress() {
             if (response.ok) {
                 const data = await response.json()
                 setShowLoader(false);
-                window.location.href = "/addShelter";
+                window.location.href = "/adminDashboard";
                 console.log("This is the",data);
             }
             else {

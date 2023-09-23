@@ -12,11 +12,11 @@ const GenerateField = (props) => {
 
     const title = props.title;
     const info = props.info;
-    return <div className="flex border-2 border-solid border-[#D9D9D9] w-[80%] rounded-[30px] h-[25px] m-1 bg-white"> {/*Field */}
-    <div className="flex justify-center w-[20%] items-center">
-        <h1 className="text-[15px] font-semibold">{title}</h1>
+    return <div className="flex w-[80%] h-[25px] m-1 bg-white"> {/*Field */}
+    <div className="flex justify-center  items-center">
+        <h1 className="text-[15px] font-semibold mr-3">{title}</h1>
     </div>
-    <div className="w-[80%] h-[auto] flex justify-start items-center">
+    <div className=" h-[auto] flex justify-start items-center">
         <h1 className="text-[15px] flex justify-center items-center">{info}</h1>
     </div>
 </div>
@@ -24,7 +24,7 @@ const GenerateField = (props) => {
 
 const GenerateHeading = (props) => {
     const text = props.text;
-    return <th className="border-2 border-solid border-[#D9D9D9] p-2">
+    return <th className="border-2 border-solid border-[#D9D9D9] px-4">
         {text}
     </th>
 }

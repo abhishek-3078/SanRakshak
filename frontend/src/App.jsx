@@ -16,7 +16,7 @@ import SignUp from './components/SignUp'
 import Home from './pages/Home'
 import AdminAddress from './components/AdminAddress';
 import AdminCreateAlert from './pages/AdminCreateAlert';
-
+import RescueAgencyDashBoard from './pages/RescueAgencyDashBoard';
 import Footer from './components/Footer';
 
 
@@ -29,25 +29,27 @@ function App() {
     <div>
       <Router>
         <Routes>
-          <Route path="/login" element={<Login />}></Route>
-          <Route path="/signup" element={<SignUp />}></Route>
+          <Route path="/userlogin" element={<Login />}></Route>
+          <Route path="/userdashboard" element={<RescueServicesPage />} />
+          <Route path="/usersignup" element={<SignUp />}></Route>
           <Route path="/alerts" element={<UserAlert />}></Route>
-          <Route path="/" element={<Home />} />
-          <Route path="/dashboard" element={<RescueServicesPage />} />
-          <Route path="/addShelter" element={<AddShelterPage />} />
+          <Route path="/publicforum" element={<CommunityForumPage />}></Route>
           <Route path="/OrgRegister" element={<OrgRegister />} />
           <Route path="/OrgLogin" element={<OrgLogin />} />
-          <Route path="/AdminAddress" element={<AdminAddress />} />
           <Route path="/createAlert" element={<AdminCreateAlert />} />
-          <Route path="/forum/:id" element={<CommunityForumPage />} />
+          <Route path="/addShelter" element={<AddShelterPage />} />
+          
+          <Route path="/" element={<HomePage />} />
+          
           
 
-    </Routes>
-    </Router>  
-    {/* <AdminAddress/> */}
-    {/* <SearchSelter></SearchSelter> */}
-    {/* <AlertPopup></AlertPopup> */}
-    {/* <DisasterForm></DisasterForm> */}
+          <Route path="/AdminAddress" element={<AdminAddress />} />
+          
+          <Route path="/adminDashboard" element={<RescueAgencyDashBoard />} />
+
+        </Routes>
+      </Router>
+      {/* <AdminAddress/> */}
     </div>
   )
 }

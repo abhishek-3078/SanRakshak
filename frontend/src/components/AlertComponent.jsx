@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { API } from '../constant.js';
 import Lottie from "lottie-react";
 import animationData from '../img/demo.json'
+import swal from "sweetalert";
 
 export default function AlertPage() {
 
@@ -39,7 +40,7 @@ const sendAlert = async () => {
   try {
     console.log("Yaha pahuch gayaa");
 
-    // setShowLoader(true)
+    setShowLoader(true)
     const id_token = localStorage.getItem('idToken')
     const response = await fetch(`${API}/admin/addalert`, {
       method: "POST",
@@ -55,6 +56,7 @@ const sendAlert = async () => {
       console.log(data);
       console.log("abhishek ye raha data ", data);
       setShowLoader(false);
+      swal("Alert Added","Alert has now been send ","success");
       
     }
     else {

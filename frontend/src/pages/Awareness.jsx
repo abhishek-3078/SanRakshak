@@ -6,7 +6,7 @@ import Footer from '../components/Footer'
 export default function Awareness() {
   return (
     <div>
-      {/* <MainNav/> */}
+      <MainNav/>
       <AwarenessCards/>
       <Footer/>
     </div>

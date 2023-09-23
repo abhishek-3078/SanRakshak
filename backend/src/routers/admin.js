@@ -34,7 +34,7 @@ router.post('/signup',async(req,res)=>{
 })
 
 router.post('/signup/address',adminAuth,async(req,res)=>{
-    const body=req.body;
+    const body=req.body
     const admin=req.user
     if(!admin) return res.status(400).send()
     try{

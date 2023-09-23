@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar'
 import HomeNavbar from '../components/HomeNavbar'
 import { API } from '../constant'
 import Map from '../components/LocationSelectorMap'
-import CountUp from 'react-countup';
+
 import AOS from "aos";
 import "aos/dist/aos.css";
 import {useNavigate} from "react-router-dom"

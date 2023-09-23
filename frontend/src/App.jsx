@@ -17,7 +17,7 @@ import Home from './pages/Home'
 // import {BrowserRouter as Router , Routes,Route} from 'react-router-dom';
 import AdminAddress from './components/AdminAddress';
 import AdminCreateAlert from './pages/AdminCreateAlert';
-
+import RescueAgencyDashBoard from './pages/RescueAgencyDashBoard';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 function App() {
@@ -36,8 +36,7 @@ function App() {
           <Route path="/OrgLogin" element={<OrgLogin />} />
           <Route path="/AdminAddress" element={<AdminAddress />} />
           <Route path="/createAlert" element={<AdminCreateAlert />} />
-          
-
+          <Route path="/adminDashboard" element={<RescueAgencyDashBoard />} />
         </Routes>
       </Router>
       {/* <AdminAddress/> */}

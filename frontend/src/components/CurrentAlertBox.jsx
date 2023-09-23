@@ -10,7 +10,7 @@ const CurrentAlertBox = (props) => {
     else if (props.level == '2') {
         yay = 'bg-green-500'
     }
-    else {
+    else if(props.level == '3'){
         yay = 'bg-yellow-500'
     }
 

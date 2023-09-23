@@ -6,11 +6,12 @@ import Navbar from "../components/Navbar"
 import UserMap from "../components/UserMap"
 import MissingPeopleDash from "../components/MissingPeopleDash";
 import BurgerContext from "../contexts/BurgerContext";
+import SearchSelter from "../components/SearchSelter";
 
 function RescueServices(){
     useEffect(()=>{
         async function getUser(){
-          const res=await fetch(`${API}/user/getUser`,{
+          const res=await fetch(`${API}/user`,{
             method:"GET",
             credentials:"include"
         })
@@ -32,7 +33,7 @@ function RescueServices(){
     return(
         <>
         <BurgerContext.Provider value={isBurgerOn}>
-          <section className="flex flex-col">
+          <section className="flex flex-col ">
                 <div>
                     <Navbar handleBurgerClick={handleBurgerClick} color="#F56868"></Navbar>
                 </div>
@@ -45,9 +46,9 @@ function RescueServices(){
                             <div className="w-full mt-3">
                                 <ImportantInfoBox />
                             </div>
-                            <div className="flex w-[80vw] mt-10 mx-auto justify-between space-x-5">
-                                    <UserMap></UserMap>
-                                    <MissingPeopleDash></MissingPeopleDash>
+                            <div className="flex w-[80vw] h-screen mt-10 mx-auto justify-between space-x-5">
+                                    <SearchSelter/>
+                                    <MissingPeopleDash/>
                             </div>
                         </div>
                     </div>

@@ -1,5 +1,6 @@
 const express=require('express')
 const {Admin,Shelter}=require('../models/admin')
+const Alert=require('../models/alert')
 const {adminAuth}=require('../middleware/auth')
 const router=new express.Router()
 const jwt = require('jsonwebtoken');
@@ -23,7 +24,7 @@ router.post('/signup',async(req,res)=>{
     console.log(user)
     await user.save()
     // sendWelcomeEmail(user.email,user.name)
-    let token = jwt.sign({_id:user._id.toString()},process.env.JWT_SECRET,{expiresIn:60*60})
+    let token = jwt.sign({_id:user._id.toString()},process.env.JWT_SECRET,{expiresIn:24*60*60})
     res.status(201).send({user,token})
     }catch(e){
         console.log(e.message)
@@ -79,4 +80,23 @@ router.post('/logout',adminAuth,(req,res)=>{
     }
 })
 
+
+router.post('/addalert',adminAuth,async(req,res)=>{
+    try{
+        const data=new Alert(req.body)
+        await data.save()
+        res.status(201).send(data)
+    }catch(e){
+        res.status(403).send({message:e.message})
+    }
+})
+router.get('/getalert',adminAuth,async(req,res)=>{
+    try{
+    
+        const data=await Alert.find({})
+        res.status(200).send(data)
+    }catch(e){
+        res.status(403).send({message:e.message})
+    }
+})
 module.exports=router

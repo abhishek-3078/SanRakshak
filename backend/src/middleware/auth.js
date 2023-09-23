@@ -11,6 +11,9 @@ const auth=async(req,res,next)=>{
       if(!user){
           throw new Error()
       }
+      if(!user.profileUrl){
+        user.profileUrl="https://img.freepik.com/premium-vector/man-avatar-profile-picture-vector-illustration_268834-538.jpg"
+      }
       req.user=user
       req.token=token
       next()
@@ -28,6 +31,7 @@ const adminAuth=async(req,res,next)=>{
       if(!user){
           throw new Error()
       }
+      
       req.user=user
       req.token=token
       next()

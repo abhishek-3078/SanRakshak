@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import RescueServicesPage from './pages/RescueServicesPage';
 import AddShelterPage from './pages/AddShelterPage';
-import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import OrgRegister from './components/OrgRegister';
 import OrgLogin from './components/OrgLogin';
 
@@ -14,33 +14,42 @@ import UserMap from './components/UserMap'
 import MissingPeopleDash from './components/MissingPeopleDash';
 import SignUp from './components/SignUp'
 import Home from './pages/Home'
-// import {BrowserRouter as Router , Routes,Route} from 'react-router-dom';
 import AdminAddress from './components/AdminAddress';
+import AdminCreateAlert from './pages/AdminCreateAlert';
+import RescueAgencyDashBoard from './pages/RescueAgencyDashBoard';
 import Footer from './components/Footer';
+import CommunityForumPage from './pages/CommunityForumPage';
+
 import HomePage from './pages/HomePage';
-import SearchSelter from './components/SearchSelter';
+
+
 function App() {
   const [count, setCount] = useState(0)
   return (
     <div>
-    {/* <Router>
-    <Routes> 
-      <Route path="/login" element={<Login/>}></Route>
-      <Route path="/signup" element={<SignUp/>}></Route>
-      <Route path="/alerts" element={<UserAlert/>}></Route>
-      <Route path="/" element={<Home/>}/>
-      <Route path="/dashboard" element={<RescueServicesPage/>}/>
-      <Route path="/addShelter" element={<AddShelterPage/>}/>
-      <Route path="/OrgRegister" element={<OrgRegister/>}/>
-      <Route path="/OrgLogin" element={<OrgLogin/>}/>
-      
+      <Router>
+        <Routes>
+          <Route path="/userlogin" element={<Login />}></Route>
+          <Route path="/userdashboard" element={<RescueServicesPage />} />
+          <Route path="/usersignup" element={<SignUp />}></Route>
+          <Route path="/alerts" element={<UserAlert />}></Route>
+          <Route path="/publicforum" element={<CommunityForumPage />}></Route>
+          <Route path="/OrgRegister" element={<OrgRegister />} />
+          <Route path="/OrgLogin" element={<OrgLogin />} />
+          <Route path="/createAlert" element={<AdminCreateAlert />} />
+          <Route path="/addShelter" element={<AddShelterPage />} />
+          
+          <Route path="/" element={<Home />} />
+          
+          
 
-    </Routes>
-    </Router>   */}
-    {/* <AdminAddress/> */}
-    <SearchSelter></SearchSelter>
-    {/* <AlertPopup></AlertPopup> */}
-    {/* <DisasterForm></DisasterForm> */}
+          <Route path="/AdminAddress" element={<AdminAddress />} />
+          
+          <Route path="/adminDashboard" element={<RescueAgencyDashBoard />} />
+
+        </Routes>
+      </Router>
+      {/* <AdminAddress/> */}
     </div>
   )
 }

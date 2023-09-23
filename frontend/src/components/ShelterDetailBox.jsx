@@ -43,6 +43,11 @@ function NewResourceComponent(props)
     </tr>
 }
 
+const send = () => {
+  console.log("hello");
+  window.location.href='/addShelter';
+}
+
 
 function NewRow(props) {
   const {optionSelected, setOptionSelected} = useContext(MyContext);
@@ -114,7 +119,7 @@ function ShelterDetailBox() {
 
           <div className='w-[30%] flex justify-end items-center'>
 
-            <button className="w-[100%] h-[90%] bg-blue-400 rounded-[10px] flex items-center justify-center p-3 hover:bg-blue-700 active:bg-blue-300">
+            <button className="w-[100%] h-[90%] bg-blue-400 rounded-[10px] flex items-center justify-center p-3 hover:bg-blue-700 active:bg-blue-300" onClick={send}>
 
 
               <div className="h-[70%] w-[20%] flex items-center justify-center">
@@ -122,8 +127,9 @@ function ShelterDetailBox() {
                 {/* <img className="h-[30px] w-[30px]" src="https://cdn-icons-png.flaticon.com/128/10337/10337471.png" alt='+' /> */}
                 <AiOutlinePlus color='white' size={30}/>
               </div>
-              <div className="w-[70%] text-[20px] font-[500] text-white">
-                Add New Shelter
+
+              <div className="w-[70%] text-[20px] font-[500] text-white" >
+                Add New Shelter 
               </div>
 
 

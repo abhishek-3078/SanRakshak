@@ -1,9 +1,64 @@
 import React, { useState } from "react";
 import { Loader } from "@googlemaps/js-api-loader";
-
+import Lottie from "lottie-react";
+import animationData from '../img/demo.json'
+import { API } from '../constant.js';
 function AdminAddress() {
 
     const [formMode, setFormMode] = useState(true);
+    const [showLoader, setShowLoader] = useState(false);
+    const [AddressData, SetAddressData] = useState({
+        address: {
+            street: "",
+            postalCode: "",
+            city: "",
+            state: "",
+            country: ""
+        },
+        coord: {
+            lat: 0,
+            lng: 0
+        }
+    })
+
+    const handleChange = (e) => {
+        var tempData = AddressData;
+        tempData.address[e.target.name] = e.target.value;
+        SetAddressData(tempData);
+        console.log(AddressData);
+    }
+
+    const LogAdmin = async () => {
+        console.log("Hello");
+        try {
+            console.log("Yaha pahuch gayaa");
+            const idToken = localStorage.getItem('idToken');
+            setShowLoader(true)
+            const response = await fetch(`${API}/signup/address`, {
+                method: "POST",
+                headers: {
+                    'Authorization': idToken,
+                    'Content-Type': "application/json"
+                },
+                body: JSON.stringify(AddressData)
+            });
+            console.log("vgv:", response)
+            if (response.ok) {
+                const data = await response.json()
+                setShowLoader(false);
+                window.location.href = "/adminDashboard";
+                console.log("This is the",data);
+            }
+            else {
+                throw new Error('Network response was not ok');
+            }
+        }
+        catch (error) {
+            alert(error);
+            console.log("This is the erroe", error);
+        }
+        console.log("We are posting this data", AdminData);
+    }
 
     function handleMarkLocation(e) {
 
@@ -20,7 +75,7 @@ function AdminAddress() {
         const country = formData[6].value;
 
         console.log("streetname: " + streetname);
-        const completeAddress = streetname + ',' + streetnumber + ',' + pincode + ',' + city + ',' + distict + ',' + state + ',' + country;
+        const completeAddress = streetname + ',' + streetnumber + ',' + pincode + ',' + city + ',' + state + ',' + country;
         console.log(completeAddress);
 
         const mapLocationKey = `https://maps.googleapis.com/maps/api/geocode/json?address=${completeAddress}&key=AIzaSyDDAbFDKGmZpbRF_mBU0DjUG2kChD4ZGGw`
@@ -68,16 +123,26 @@ function AdminAddress() {
                         draggableMarker.addListener("dragend", (event) => {
                             const position = draggableMarker.position;
                             // alert("hello")
-                            console.log("hllo", position, position.lat)
-                            // infoWindow.close();
+                            console.log("hllgtvgo", position, position.lat)
+                            let TempData = AddressData;
+                            TempData.coords.lat = position.lat;
+                            TempData.coords.lng = position.lng;
+                            SetAddressData(TempData);
+                            console.log(AddressData);
+
+
+                            infoWindow.close();
+
                             infoWindow.setContent(
                                 `
                         <div style="padding:10px">
                         Pin dropped at: ${position.lat} , ${position.lng}
                         </div>`
+
                             );
                             infoWindow.open(draggableMarker.map, draggableMarker);
                         });
+
 
 
 
@@ -98,9 +163,19 @@ function AdminAddress() {
     }
     return (
         <>
-        <div>
-            <p className="text-4xl font-semibold text-center mt-6">Register : 1 of 2</p>
-        </div>
+            <div className={`${showLoader ? 'block' : 'hidden'} flex justify-center items-center h-screen w-screen absolute z-30`}>
+                <div>
+                    <Lottie
+                        animationData={animationData}
+                        autoplay
+                        loop
+                        style={{ width: '200px', height: '200px' }}
+                    />
+                </div>
+            </div>
+            <div>
+                <p className="text-4xl font-semibold text-center mt-6">Register : 1 of 2</p>
+            </div>
             <div className="flex p-4 justify-evenly mt-4">
 
                 <section className="border-2 border-solid border-[#C5C5C5] w-[45%] rounded-xl h-screen px-10 py-10 overflow-auto">
@@ -114,15 +189,38 @@ function AdminAddress() {
                     </div>
                     <form onSubmit={handleMarkLocation} className="my-5 myForm" action="">
                         <div className="flex flex-col space-y-5 justify-center">
-                            <input required id="streetname" name="streetname" type="text" placeholder="Street name" className="border-2 data border-solid border-[#C5C5C5] px-3 rounded-lg" />
-                            <input required name="streetnumber" type="tel" placeholder="Street number" className="border-2 data border-solid border-[#C5C5C5] px-3 rounded-lg" />
+                            <input required id="streetname" name="street" type="text" placeholder="Street name" className="border-2 data border-solid border-[#C5C5C5] px-3 rounded-lg" onChange={(e) => handleChange(e)} />
+                            <input required
+                                name="streetnumber"
+                                type="tel"
+                                placeholder="Street number"
+                                className="border-2 data border-solid border-[#C5C5C5] px-3 rounded-lg"
+                            />
 
-                            <input required name="pincode" type="tel" placeholder="pincode" className="border-2 data border-solid border-[#C5C5C5] px-3 rounded-lg" />
-                            <input required name="city" type="text" placeholder="city" className="border-2 data border-solid border-[#C5C5C5] px-3 rounded-lg" />
-                            <input required name="distict" type="text" placeholder="distict" className="border-2 data border-solid border-[#C5C5C5] px-3 rounded-lg" />
+                            <input
+                                required
+                                name="postalCode"
+                                type="tel"
+                                placeholder="pincode"
+                                className="border-2 data border-solid border-[#C5C5C5] px-3 rounded-lg"
+                                onChange={(e) => handleChange(e)}
+                            />
 
-                            <input required name="state" type="text" placeholder="state" className="border-2 data border-solid border-[#C5C5C5] px-3 rounded-lg" />
-                            <input required name="country" type="text" placeholder="country" className="border-2  data border-solid border-[#C5C5C5] px-3 rounded-lg" />
+
+                            <input
+                                required
+                                name="city"
+                                type="text"
+                                placeholder="city"
+                                className="border-2 data border-solid border-[#C5C5C5] px-3 rounded-lg"
+                                onChange={(e) => handleChange(e)}
+                            />
+
+                            <input required onChange={(e) => handleChange(e)} name="district" type="text" placeholder="district" className="border-2 data border-solid border-[#C5C5C5] px-3 rounded-lg" />
+
+                            <input required name="state" onChange={(e) => handleChange(e)} type="text" placeholder="state" className="border-2 data border-solid border-[#C5C5C5] px-3 rounded-lg" />
+
+                            <input required name="country" onChange={(e) => handleChange(e)} type="text" placeholder="country" className="border-2  data border-solid border-[#C5C5C5] px-3 rounded-lg" />
                             <button className="border-2 border-solid border-[#C5C5C5] bg-[#6A8BFF] text-white py-1 rounded-md">Confirm Address</button>
                         </div>
 
@@ -133,16 +231,16 @@ function AdminAddress() {
                     <div className="font-bold text-[25px] my-5 ">
                         Try to Mark the exact location , if correct leave as is it
                     </div>
-                    {formMode?
-                    <div className="w-full h-[80vh] bg-[#c5c5c5]">
-                        <p className="text-4xl font-semibold text-center mt-16">Please Enter Your Address first</p>
-                        <p className="text-4xl font-semibold text-center mt-2">To Select exact Location</p>
-                    </div>
-                    :<div id="map" className="w-full h-[80vh]"></div>}
-                    
+                    {formMode ?
+                        <div className="w-full h-[80vh] bg-[#c5c5c5]">
+                            <p className="text-4xl font-semibold text-center mt-16">Please Enter Your Address first</p>
+                            <p className="text-4xl font-semibold text-center mt-2">To Select exact Location</p>
+                        </div>
+                        : <div id="map" className="w-full h-[80vh]"></div>}
+
                     <div className="w-full mx-auto my-5 flex justify-center space-x-[200px]">
                         <button onClick={() => setFormMode(true)} className="border-2 border-solid border-[#C5C5C5] px-10 rounded-lg text-white bg-[#6c6cbc]">Edit</button>
-                        <button className="border-2 border-solid border-[#C5C5C5] px-10 rounded-lg text-white bg-[#ab4545]" >Confirm</button>
+                        <button onClick={LogAdmin} className="border-2 border-solid border-[#C5C5C5] px-10 rounded-lg text-white bg-[#ab4545]" >Confirm</button>
                     </div>
                 </div>
             </div>

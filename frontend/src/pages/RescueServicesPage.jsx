@@ -22,6 +22,10 @@ function RescueServices(){
 
       const [isBurgerOn,setIsBurgerOn] = useState(true);
 
+      const [shelterData,SetShelterData] = useState({
+        
+      }) 
+
       function handleBurgerClick(isBur){
           setIsBurgerOn(isBur);
       }

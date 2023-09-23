@@ -48,7 +48,7 @@ const NewsItem = (props) => {
 
 const MissingPeopleDash = () => {
   return (<>
-    <div className="newsboxUser w-[50%] ">
+    <div className="newsboxUser w-full h-full">
         <div className="newsboxUserHeading">
             <h1>News/Missing People</h1>
         </div>

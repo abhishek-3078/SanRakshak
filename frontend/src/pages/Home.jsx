@@ -6,7 +6,8 @@ import Map from '../components/LocationSelectorMap'
 import AOS from "aos";
 import "aos/dist/aos.css";
 import {useNavigate} from "react-router-dom"
-import swal from 'sweetalert';
+import swal from 'sweetalert'; 
+import Slider from '../components/Slider'
 const Home = () => {
   const [forum,setForum]=useState([])
   const navigate = useNavigate();
@@ -34,7 +35,7 @@ const Home = () => {
     <div  className=''>
       <HomeNavbar color={'blue-400'}/>
        <div className='h-[400px] flex justify-center items-center w-screen bg-slate-400'>
-     
+     <Slider/>
       <button  onClick={()=>navigate('/search')} className='px-7 py-4 text-xl font-normal rounded-full text-white bg-green-700/60'>Get Started</button>
  
       </div>

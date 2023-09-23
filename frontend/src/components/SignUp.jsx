@@ -2,14 +2,16 @@ import { FcGoogle } from 'react-icons/fc';
 import img from "../assets/main_bg3.jpg";
 import { API } from '../constant.js';
 import { useState } from 'react';
-
+import Lottie from 'lottie-react';
+import animationData from '../img/demo.json'
 function App() {
 
   console.log("This is my ", API);
-
+  const [showLoader, setShowLoader] = useState(false);
   const [SignUpData, SetSignUpData] = useState({
     email: "",
     password: "",
+    name:""
   })
 
   const handleInput = (e) => {
@@ -20,16 +22,25 @@ function App() {
     console.log(SignUpData);
   }
 
-  const LogUser = async () => {
+  const handleSubmit = async () => {
     console.log("Hello");
     try {
       console.log("Yaha pahuch gayaa");
-      const response = await fetch(`${API}/user/login`, {
+      const data={
+        name:document.getElementById('firstName').value+" "+document.getElementById('lastName').value,
+        email:document.getElementById('email').value,
+        password:document.getElementById('password').value,
+      }
+      console.log(data)
+
+
+      setShowLoader(true)
+      const response = await fetch(`${API}/user/signup`, {
         method: "POST",
         headers: {
           'Content-Type': "application/json"
         },
-        body: JSON.stringify(SignUpData)
+        body: JSON.stringify(data)
       });
       console.log("vgv:", response)
       if (response.ok) {
@@ -37,22 +48,34 @@ function App() {
         localStorage.setItem("idToken", data.token);
         console.log(data.token);
         console.log(data);
-        // window.location.href = '/Home';
+        window.location.href = '/userDashboard';
       }
       else {
-        throw new Error('Network response was not ok');
+        const data = await response.json()
+        console.log(data)
+
       }
     }
     catch (error) {
-      alert(error);
-      console.log("This is the erroe", error);
+      console.log("This is the erroe", error.message);
     }
+    setShowLoader(false)
   }
 
 
 
   return (
     <div className="flex bg-gradient-to-r from-red-500 to-red-400 rounded-2xl items-center h-full md:h-screen md:w-screen  m-auto">
+      <div className={`${showLoader ? 'block' : 'hidden'} flex justify-center items-center h-screen w-screen absolute z-30`}>
+        <div>
+          <Lottie
+            animationData={animationData}
+            autoplay
+            loop
+            style={{ width: '200px', height: '200px' }}
+          />
+        </div>
+      </div>
         <div className="w-11/12 md:w-9/12 py-0 px-0 md:py-10 md:px-8 bg-white rounded-xl mx-auto flex shadow-lg flex-col my-5 md:my-auto items-center relative md:flex-row">
           <div className="relative w-auto p-4 md:w-1/2">
             <img src={img} className="rounded-2xl h-auto w-auto" alt="Error" />
@@ -78,7 +101,7 @@ function App() {
                     className="w-full py-3 px-2 outline-0"
                     type="text"
                     placeholder="First Name"
-                    name="firstName"
+                  id="firstName"
                   ></input>
                 </div>
                 <div className="border-solid border-2 border-black rounded-sm">
@@ -86,7 +109,7 @@ function App() {
                     className="w-full py-3 px-2 outline-0"
                     type="text"
                     placeholder="Last Name"
-                    name="lastName"
+                  id="lastName"
                   ></input>
                 </div>
                 <div className="border-solid border-2 border-black col-span-2 rounded-sm">
@@ -94,7 +117,7 @@ function App() {
                     className="w-full py-3 px-2 outline-0"
                     type="email"
                     placeholder="Email"
-                    name="email"
+                  id="email"
                   ></input>
                 </div>
                 <div className="border-solid border-2 border-black col-span-2 rounded-sm">
@@ -102,7 +125,7 @@ function App() {
                     className="w-full py-3 px-2 outline-0"
                     type="password"
                     placeholder="Password"
-                    name="password"
+                  id="password"
                   ></input>
                 </div>
                 <div className="border-solid border-2 border-black col-span-2 rounded-sm">
@@ -110,7 +133,7 @@ function App() {
                     className="w-full py-3 px-2 outline-0"
                     type="password"
                     placeholder="Confirm Password"
-                    name="confirmPassword"
+                  id="confirmPassword"
                   ></input>
                 </div>
               </div>
@@ -118,7 +141,7 @@ function App() {
                 <input type="checkbox"></input>
                 <span className="ml-1">I accept the Terms of Use & Privacy Policy</span>
               </div>
-              <button className="bg-red-400 mx-auto block md:left-0 md:inline-block rounded-md py-2 px-2 text-white mt-3  mb-3 hover:bg-red-500 duration-200">
+              <button className="bg-red-400 mx-auto block md:left-0 md:inline-block rounded-md py-2 px-2 text-white mt-3  mb-3 hover:bg-red-500 duration-200" onClick={handleSubmit}>
                 Register Now
               </button>
             </div>

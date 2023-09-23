@@ -34,7 +34,7 @@ function AdminAddress() {
             console.log("Yaha pahuch gayaa");
             const idToken = localStorage.getItem('idToken');
             setShowLoader(true)
-            const response = await fetch(`${API}/signup/address`, {
+            const response = await fetch(`${API}/admin/signup/address`, {
                 method: "POST",
                 headers: {
                     'Authorization': idToken,
@@ -50,6 +50,8 @@ function AdminAddress() {
                 console.log("This is the",data);
             }
             else {
+                const data = await response.json()
+                console.log("This is the",data);
                 throw new Error('Network response was not ok');
             }
         }
@@ -57,7 +59,7 @@ function AdminAddress() {
             alert(error);
             console.log("This is the erroe", error);
         }
-        console.log("We are posting this data", AdminData);
+        console.log("We are posting this data", AddressData);
     }
 
     function handleMarkLocation(e) {
@@ -124,8 +126,8 @@ function AdminAddress() {
                             // alert("hello")
                             console.log("hllgtvgo", position, position.lat)
                             let TempData = AddressData;
-                            TempData.coords.lat = position.lat;
-                            TempData.coords.lng = position.lng;
+                            TempData.coord.lat = position.lat;
+                            TempData.coord.lng = position.lng;
                             SetAddressData(TempData);
                             console.log(AddressData);
 
@@ -168,7 +170,7 @@ function AdminAddress() {
                         animationData={animationData}
                         autoplay
                         loop
-                        style={{ width: '200px', height: '200px' }}
+                        style={{ width: '400px', height: '400px' }}
                     />
                 </div>
             </div>
@@ -188,20 +190,15 @@ function AdminAddress() {
                     </div>
                     <form onSubmit={handleMarkLocation} className="my-5 myForm" action="">
                         <div className="flex flex-col space-y-5 justify-center">
-                            <input required id="streetname" name="street" type="text" placeholder="Street name" className="border-2 data border-solid border-[#C5C5C5] px-3 rounded-lg" onChange={(e) => handleChange(e)} />
-                            <input required
-                                name="streetnumber"
-                                type="tel"
-                                placeholder="Street number"
-                                className="border-2 data border-solid border-[#C5C5C5] px-3 rounded-lg"
-                            />
+                            <input required id="streetname" name="street" type="text" placeholder="Street name" className="border-2 data border-solid border-b-[#C5C5C5] px-1" onChange={(e) => handleChange(e)} />
+
 
                             <input
                                 required
                                 name="postalCode"
                                 type="tel"
                                 placeholder="pincode"
-                                className="border-2 data border-solid border-[#C5C5C5] px-3 rounded-lg"
+                                className="border-2 data border-solid border-[#C5C5C5] px-3 "
                                 onChange={(e) => handleChange(e)}
                             />
 
@@ -211,15 +208,15 @@ function AdminAddress() {
                                 name="city"
                                 type="text"
                                 placeholder="city"
-                                className="border-2 data border-solid border-[#C5C5C5] px-3 rounded-lg"
+                                className="border-2 data border-solid border-[#C5C5C5] px-3 "
                                 onChange={(e) => handleChange(e)}
                             />
 
-                            <input required onChange={(e) => handleChange(e)} name="district" type="text" placeholder="district" className="border-2 data border-solid border-[#C5C5C5] px-3 rounded-lg" />
+                            <input required onChange={(e) => handleChange(e)} name="district" type="text" placeholder="district" className="border-2 data border-solid border-[#C5C5C5] px-3 " />
 
-                            <input required name="state" onChange={(e) => handleChange(e)} type="text" placeholder="state" className="border-2 data border-solid border-[#C5C5C5] px-3 rounded-lg" />
+                            <input required name="state" onChange={(e) => handleChange(e)} type="text" placeholder="state" className="border-2 data border-solid border-[#C5C5C5] px-3 " />
 
-                            <input required name="country" onChange={(e) => handleChange(e)} type="text" placeholder="country" className="border-2  data border-solid border-[#C5C5C5] px-3 rounded-lg" />
+                            <input required name="country" onChange={(e) => handleChange(e)} type="text" placeholder="country" className="border-2  data border-solid border-[#C5C5C5] px-3 " />
                             <button className="border-2 border-solid border-[#C5C5C5] bg-[#6A8BFF] text-white py-1 rounded-md">Confirm Address</button>
                         </div>
 

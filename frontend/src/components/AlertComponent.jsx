@@ -216,9 +216,13 @@ const sendAlert = async () => {
                 id="file_input"
                 type="file"
                 />
-                <button onClick={sendAlert}>Send Alert</button>
               <script src="https://unpkg.com/flowbite@1.4.0/dist/flowbite.js"></script>
             </div>
+            
+          </div>
+          <div className="flex justify-center mt-3 font-semibold">
+
+          <button onClick={sendAlert} className="mt-4 text-white bg-blue-500 py-3 px-6 rounded-lg">Send Alert</button>
           </div>
         </div>
       </div>

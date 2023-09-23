@@ -24,7 +24,7 @@ function AddShelterPage() {
     }
 
     const [sheleterData, SetShelterData] = useState({
-        phone : "",
+        phone : "", 
         shelterType: "",
         coordinator: "",
         address: {

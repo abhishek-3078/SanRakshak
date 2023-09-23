@@ -71,7 +71,7 @@ export default function AwarenessCards() {
           </h1>
         </div>
         <div className="grid grid-cols-6 mx-auto px-20">
-          <div className="card1 border-solid col-span-2 my-4 border-2 border-gray-500 shadow-lg rounded-sm shadow-gray-500 w-3/5 mx-auto hover:scale-105 duration-200"  onClick={()=>{setIndex(0);}}>
+          <div className="card1 border-solid col-span-2 my-4 border-2 border-gray-500 shadow-lg rounded-sm shadow-gray-500 w-[80%] mx-auto hover:-translate-y-5 duration-200"  onClick={()=>{setIndex(0);}}>
             <div className="w-full">
               <img
                 className="w-full h-48"
@@ -89,7 +89,7 @@ export default function AwarenessCards() {
               </p>
             </div>
           </div>
-          <div className="card2 border-solid col-span-2 my-4 border-2 border-gray-500 shadow-lg rounded-sm shadow-gray-500 w-3/5 mx-auto hover:scale-105 duration-200"   onClick={()=>{setIndex(1);}}>
+          <div className="card2 border-solid col-span-2 my-4 border-2 border-gray-500 shadow-lg rounded-sm shadow-gray-500 w-[80%] mx-auto hover:-translate-y-5 duration-200"   onClick={()=>{setIndex(1);}}>
             <div className="w-full">
               <img
                 className="w-full h-48"
@@ -107,7 +107,7 @@ export default function AwarenessCards() {
               </p>
             </div>
           </div>
-          <div className="card3 border-solid col-span-2 my-4 border-2 border-gray-500 shadow-lg rounded-sm shadow-gray-500 w-3/5 mx-auto hover:scale-105 duration-200"   onClick={()=>{setIndex(2);}}>
+          <div className="card3 border-solid col-span-2 my-4 border-2 border-gray-500 shadow-lg rounded-sm shadow-gray-500 w-[80%] mx-auto hover:-translate-y-5 duration-200"   onClick={()=>{setIndex(2);}}>
             <div className="w-full">
               <img
                 className="w-full h-48"
@@ -125,7 +125,7 @@ export default function AwarenessCards() {
               </p>
             </div>
           </div>
-          <div className="card4 border-solid col-span-2 my-4 col-start-2 border-2 border-gray-500 shadow-lg rounded-sm shadow-gray-500 w-3/5 mx-auto hover:scale-105 duration-200"   onClick={()=>{setIndex(3);}}>
+          <div className="card4 border-solid col-span-2 my-4 col-start-2 border-2 border-gray-500 shadow-lg rounded-sm shadow-gray-500 w-[80%] mx-auto hover:-translate-y-5 duration-200"   onClick={()=>{setIndex(3);}}>
             <div className="w-full">
               <img
                 className="w-full h-48"
@@ -143,7 +143,7 @@ export default function AwarenessCards() {
               </p>
             </div>
           </div>
-          <div className="card5 border-solid col-span-2 my-4 col-start-4 border-2 border-gray-500 shadow-lg rounded-sm shadow-gray-500 w-3/5 mx-auto hover:scale-105 duration-200"   onClick={()=>{setIndex(4);}}>
+          <div className="card5 border-solid col-span-2 my-4 col-start-4 border-2 border-gray-500 shadow-lg rounded-sm shadow-gray-500 w-[80%] mx-auto hover:-translate-y-5 duration-200"   onClick={()=>{setIndex(4);}}>
             <div className="w-full">
               <img
                 className="w-full h-48"

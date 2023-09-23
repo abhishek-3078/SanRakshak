@@ -18,6 +18,7 @@ import Home from './pages/Home'
 import AdminAddress from './components/AdminAddress';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
+import SearchSelter from './components/SearchSelter';
 function App() {
   const [count, setCount] = useState(0)
   return (
@@ -37,9 +38,9 @@ function App() {
     </Routes>
     </Router>   */}
     {/* <AdminAddress/> */}
-    {/* <SearchSelter></SearchSelter> */}
+    <SearchSelter></SearchSelter>
     {/* <AlertPopup></AlertPopup> */}
-    <DisasterForm></DisasterForm>
+    {/* <DisasterForm></DisasterForm> */}
     </div>
   )
 }

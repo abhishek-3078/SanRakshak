@@ -24,7 +24,7 @@ router.post('/signup',async(req,res)=>{
     console.log(user)
     await user.save()
     // sendWelcomeEmail(user.email,user.name)
-    let token = jwt.sign({_id:user._id.toString()},process.env.JWT_SECRET,{expiresIn:60*60})
+    let token = jwt.sign({_id:user._id.toString()},process.env.JWT_SECRET,{expiresIn:24*60*60})
     res.status(201).send({user,token})
     }catch(e){
         console.log(e.message)
@@ -92,8 +92,8 @@ router.post('/addalert',adminAuth,async(req,res)=>{
 })
 router.get('/getalert',adminAuth,async(req,res)=>{
     try{
+    
         const data=await Alert.find({})
-a
         res.status(200).send(data)
     }catch(e){
         res.status(403).send({message:e.message})

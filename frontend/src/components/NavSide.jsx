@@ -9,6 +9,9 @@ function NavSide() {
 
     function handleLogout(){
         localStorage.removeItem('idToken');
+        localStorage.removeItem('name');
+        localStorage.removeItem('email');
+        localStorage.removeItem('profileUrl');
         window.location.href = '/';
     }
 

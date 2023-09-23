@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import logo from '../assets/SanRakshak_logo.jpg'
+import { useNavigate } from "react-router-dom";
 
 export default function MainNav() {
   const [display, setDisplay] = useState(false);
+  const navigate = useNavigate();
   const dropDownHandler = () => {
     setDisplay((display) => {
       console.log(display);
@@ -108,11 +110,12 @@ export default function MainNav() {
               </svg>
             </button>
           </div>
+          <div className="flex justify-end">
           <div
-            className="items-center justify-between hidden w-full mr-8 md:flex md:w-auto md:order-1"
+            className="items-center  hidden w-full mr-8 md:flex md:w-auto "
             id="navbar-user"
           >
-            <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white">
+            <ul className="flex  font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white">
               <li>
                 <a
                   href="#"
@@ -125,7 +128,7 @@ export default function MainNav() {
               <li>
                 <a
                   href="#"
-                  className="text-lg block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white"
+                  className="text-lg block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 "
                 >
                   Alerts
                 </a>
@@ -133,7 +136,7 @@ export default function MainNav() {
               <li>
                 <a
                   href="#"
-                  className="text-lg block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white"
+                  className="text-lg block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 "
                 >
                   Partners
                 </a>
@@ -155,6 +158,11 @@ export default function MainNav() {
                 </a>
               </li> */}
             </ul>
+          </div>
+          <div className="flex gap-4">
+            <button onClick={()=>navigate('/userlogin')}className="cursor-pointer p-2 bg-green-400 rounded-full">User Login</button>
+            <button onClick={()=>navigate('/orglogin')}className="cursor-pointer p-2 bg-red-400 rounded-full">Partner Login</button>
+          </div>
           </div>
         </div>
       </nav>

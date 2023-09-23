@@ -14,12 +14,15 @@ import UserMap from './components/UserMap'
 import MissingPeopleDash from './components/MissingPeopleDash';
 import SignUp from './components/SignUp'
 import Home from './pages/Home'
-// import {BrowserRouter as Router , Routes,Route} from 'react-router-dom';
 import AdminAddress from './components/AdminAddress';
 import AdminCreateAlert from './pages/AdminCreateAlert';
 import RescueAgencyDashBoard from './pages/RescueAgencyDashBoard';
 import Footer from './components/Footer';
+import CommunityForumPage from './pages/CommunityForumPage';
+
 import HomePage from './pages/HomePage';
+
+
 function App() {
   const [count, setCount] = useState(0)
   return (

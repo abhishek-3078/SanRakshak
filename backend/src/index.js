@@ -17,7 +17,7 @@ const cors=require('cors')
 // const { findByIdAndUpdate, findByIdAndDelete } = require('./models/user')
 
 const app=express() 
-const allowedOrigins=["http://localhost:5173","https://sanrakshak.onrender.com/"]
+const allowedOrigins=["http://localhost:5173","https://sanrakshak.onrender.com/",""]
 app.use(cors({
     origin: allowedOrigins,
     methods: "GET,POST,PUT,DELETE",

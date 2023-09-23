@@ -54,6 +54,10 @@ const shelterSchema = new mongoose.Schema({
     },
     capacity:{
       type:Number
+    },
+    createdAt:{
+      type:Date,
+      default:Date.now
     }
   });
 const Shelter=mongoose.model('shelter',shelterSchema)
@@ -234,5 +238,5 @@ const data=new Admin({
   password:"123445"
 })
 
-console.log(data)
+// console.log(data)
 module.exports={Admin,Shelter}

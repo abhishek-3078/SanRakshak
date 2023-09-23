@@ -2,13 +2,23 @@ const mongoose=require('mongoose')
 const validator=require('validator')
 const bcrypt=require('bcryptjs')
 const jwt=require('jsonwebtoken')
-
 const shelterSchema = new mongoose.Schema({
     coordinator:{
       type:String
     },
     description:{
         type:String
+    },
+    contact:{
+      email:{type:String,
+        validate(value){
+          if(!validator.isEmail(value)){
+              throw new Error('Email is invalid')
+          }}
+        },
+      phone:{
+        type:String
+      }
     },
     address: {
       street: {
@@ -54,6 +64,10 @@ const shelterSchema = new mongoose.Schema({
     },
     capacity:{
       type:Number
+    },
+    createdAt:{
+      type:Date,
+      default:Date.now
     }
   });
 const Shelter=mongoose.model('shelter',shelterSchema)
@@ -78,7 +92,8 @@ const adminSchema=new mongoose.Schema({
     password:{
         type:String,
         trim:true,
-        minLength:6
+        minLength:6,
+        required:true
     },
     location:{
         main: {
@@ -234,5 +249,5 @@ const data=new Admin({
   password:"123445"
 })
 
-console.log(data)
+// console.log(data)
 module.exports={Admin,Shelter}

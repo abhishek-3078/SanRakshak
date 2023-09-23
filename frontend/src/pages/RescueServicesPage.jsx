@@ -6,10 +6,11 @@ import Navbar from "../components/Navbar"
 import UserMap from "../components/UserMap"
 import MissingPeopleDash from "../components/MissingPeopleDash";
 import BurgerContext from "../contexts/BurgerContext";
+import SearchSelter from "../components/SearchSelter";
 import swal from "sweetalert";
 
 function RescueServices(){
-    const [data,setData]=useState('')
+    const [data,setData] = useState("");
     useEffect(()=>{
         async function getUser(){
             try{
@@ -19,7 +20,6 @@ function RescueServices(){
                     headers:{
                         "Authorization":token
                     }
-                   
                     
                 })
                 
@@ -30,7 +30,7 @@ function RescueServices(){
                     return swal("Error in fetching")
 
                 }
-                const data=await res.json();
+                const data = await res.json();
                 setData(data)
                 localStorage.setItem('name',data.name)
                 localStorage.setItem('email',data.email)
@@ -58,7 +58,7 @@ function RescueServices(){
     return(
         <>
         <BurgerContext.Provider value={isBurgerOn}>
-          <section className="flex flex-col">
+          <section className="flex flex-col ">
                 <div>
                     <Navbar handleBurgerClick={handleBurgerClick} color="#F56868"></Navbar>
                 </div>
@@ -71,9 +71,9 @@ function RescueServices(){
                             <div className="w-full mt-3">
                                 <ImportantInfoBox name={data.name} />
                             </div>
-                            <div className="flex w-[80vw] mt-10 mx-auto justify-between space-x-5">
-                                    <UserMap></UserMap>
-                                    <MissingPeopleDash></MissingPeopleDash>
+                            <div className="flex flex-col w-[80vw] h-[1000px] mt-10 mx-auto items-center space-y-5"> 
+                                <SearchSelter/>
+                                <MissingPeopleDash/>
                             </div>
                         </div>
                     </div>

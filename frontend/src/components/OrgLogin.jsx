@@ -42,15 +42,11 @@ function App() {
         console.log("abhishek ye raha data ", data.completed);
         localStorage.setItem('username', data.user.name)
         setShowLoader(false);
-        if (data.comleted === 1) {
-
-          window.location.href = "/AdminAddress"
-        }
-        else {
           window.location.href = "/adminDashboard"
-        }
       }
       else {
+        const data = await response.json();
+        console.log(data);
         throw new Error('Network response was not ok');
       }
     }

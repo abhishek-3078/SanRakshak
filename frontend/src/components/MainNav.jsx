@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import logo from '../assets/SanRakshak_logo.jpg'
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 export default function MainNav() {
   const [display, setDisplay] = useState(false);
-  const navigate = useNavigate();
+//   const navigate = useNavigate();
   const dropDownHandler = () => {
     setDisplay((display) => {
       console.log(display);

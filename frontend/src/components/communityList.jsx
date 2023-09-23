@@ -50,13 +50,19 @@ const communityList = () => {
                     <div>
                         <NavSide />
                     </div>
+
+                    <div className='border-2 w-full py-3'>
+                    <h2 className='text-xl text-gray-500 font-bold mb-2 px-4'>Active Forums</h2>
                     <div className="w-full bg-[#f5f5f5]">
                     {forum.map((data=>{
             return <div key={data._id}  onClick={()=>navigate(`/publicforum/${data._id}`)} className='border-b-2 cursor-pointer'>
+                <div className='p-4'>
               <p className='font-bold text-xl'>{data.name}</p>
               <p>{data.description}</p>
               </div>
+              </div>
           }))}
+                    </div>
                     </div>
                 </div>
             </section>

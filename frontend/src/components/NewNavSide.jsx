@@ -20,14 +20,16 @@ function NewNavSide(){
                         {!isBurgerOn && <ButtonTransparent>Dashboard</ButtonTransparent>}
                     </li>
                 </Link>
-                <li className="flex ml-2 space-x-5 my-5">
-                    <img className="w-6 h-6 invert-[1] m-2" src="https://cdn-icons-png.flaticon.com/128/11445/11445224.png" alt="" />
-                    {!isBurgerOn && <ButtonTransparent>Partners</ButtonTransparent>}
-                </li>
                 <Link to="/createAlert">
                     <li className="flex ml-2 space-x-5 my-5">
                         <img className="w-6 h-6 invert-[1] m-2" src="https://cdn-icons-png.flaticon.com/128/497/497789.png" alt="" />
                         {!isBurgerOn && <ButtonTransparent>Alerts</ButtonTransparent>}
+                    </li>
+                </Link>
+                <Link to="/addDisaster">
+                    <li className="flex ml-2 space-x-5 my-5">
+                        <img className="w-6 h-6 invert-[1] m-2" src="https://cdn-icons-png.flaticon.com/128/6013/6013909.png" alt="" />
+                        {!isBurgerOn && <ButtonTransparent>Disaster Details</ButtonTransparent>}
                     </li>
                 </Link>
                 <li className="flex ml-2 space-x-5 my-5">

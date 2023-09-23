@@ -116,7 +116,7 @@ const Login = () => {
           </a>
           <div className="flex w-[100%] justify-center">
             <p>No Account?</p>
-            <a href="/signup" className="text-blue-600 ml-2">
+            <a href="/usersignup" className="text-blue-600 ml-2">
               Create One!
             </a>
           </div>

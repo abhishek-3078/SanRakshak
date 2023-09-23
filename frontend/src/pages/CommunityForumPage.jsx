@@ -82,11 +82,11 @@ const CommunityForumPage = () => {
     <BurgerContext.Provider value={isBurgerOn}>
             <section className="flex flex-col">
                 <div>
-                    <Navbar handleBurgerClick={handleBurgerClick} color="#6A8BFF" />
+                    <Navbar handleBurgerClick={handleBurgerClick} color="#F56868" />
                 </div>
                 <div className="flex">
                     <div>
-                        <NewNavSide />
+                        <NavSide />
                     </div>
                     <div className="w-full flex flex-col justify-center items-center pt-10">
                         <div className="w-[98%] h-[auto] border-2 border-solid border-black flex flex-col items-center bg-gradient-to-br from-zinc-900 to-gray-900"> {/*For A Diaster */}

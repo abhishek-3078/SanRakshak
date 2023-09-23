@@ -47,7 +47,7 @@ function App() {
           window.location.href = "/AdminAddress"
         }
         else {
-          window.location.href = "/addShelter"
+          window.location.href = "/adminDashboard"
         }
       }
       else {

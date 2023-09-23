@@ -42,11 +42,11 @@ function App() {
           
 
     </Routes>
-    </Router>   */}
+    </Router>  
     {/* <AdminAddress/> */}
     {/* <SearchSelter></SearchSelter> */}
     {/* <AlertPopup></AlertPopup> */}
-    <DisasterForm></DisasterForm>
+    {/* <DisasterForm></DisasterForm> */}
     </div>
   )
 }

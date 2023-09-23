@@ -9,6 +9,9 @@ function NavSide() {
 
     function handleLogout(){
         localStorage.removeItem('idToken');
+        localStorage.removeItem('name');
+        localStorage.removeItem('email');
+        localStorage.removeItem('profileUrl');
         window.location.href = '/';
     }
 
@@ -31,10 +34,10 @@ function NavSide() {
                         {isBurgerOn && <ButtonTransparent>Alerts</ButtonTransparent>}
                     </li>
                 </Link>
-                <li className="flex ml-2 space-x-5 my-5">
+                <Link to ="/publicforumlist"><li className="flex ml-2 space-x-5 my-5">
                     <img className="w-6 h-6 invert-[1] m-3" src="https://cdn-icons-png.flaticon.com/128/1542/1542858.png" alt="" />
                     {isBurgerOn && <ButtonTransparent>Public Forum</ButtonTransparent>}
-                </li>
+                </li></Link>
                 <li className="flex ml-2 space-x-5 my-5">
                     <img className="w-6 h-6 invert-[1] m-3" src="https://cdn-icons-png.flaticon.com/128/9975/9975755.png" alt="" />
                     {isBurgerOn && <ButtonTransparent>What to do ?</ButtonTransparent>}

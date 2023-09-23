@@ -2,7 +2,7 @@ import ImportantMsg from "./ImportantMsg";
 import importantMsgData from "../data/ImportInfo";
 import { useState } from "react";
 
-function ImportantInfoBox(){
+function ImportantInfoBox({name}){
     const [msgIndex,setMsgIndex] = useState(0);
     const messageObj = importantMsgData[msgIndex];
     console.log(messageObj);
@@ -24,8 +24,8 @@ function ImportantInfoBox(){
            {msgIndex > 0 && <button onClick={()=>setMsgIndex(msgIndex-1)}  className={` flex justify-center items-center rounded-full absolute bg-transparent opacity-80 h-12 w-12 top-[35%] border-red-500 border-2 text-[30px] left-[20px] hover:bg-white`} >
                 <img className="w-5 h-5" src="https://cdn-icons-png.flaticon.com/128/81/81037.png" alt="imgerror" />
             </button>}
-
-            <ImportantMsg id={messageObj.id} msg={messageObj.msg}></ImportantMsg>
+            
+            <ImportantMsg id={messageObj.id} msg={`hello ${name}!!`}></ImportantMsg>
 
            {msgIndex < importantMsgData.length - 1 && <button onClick={()=>setMsgIndex(msgIndex+1)} className={` flex justify-center items-center rounded-full absolute bg-transparent opacity-80 h-12 w-12 top-[35%] border-red-500 border-2 text-[30px] left-[960px] hover:bg-white`} >
                 <img className="w-5 h-5" src="https://cdn-icons-png.flaticon.com/128/5343/5343102.png" alt="imgerror" />

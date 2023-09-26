@@ -12,7 +12,7 @@ const RescueAgencyDashBoard = () => {
         setIsBurgerOn(isBur);
     }
   return (
-    <BurgerContext.Provider value={isBurgerOn}>
+    // <BurgerContext.Provider value={isBurgerOn}>
             <section className="flex flex-col">
                 <div>
                     <Navbar handleBurgerClick={handleBurgerClick} color="#6A8BFF" />
@@ -31,7 +31,7 @@ const RescueAgencyDashBoard = () => {
                     </div>
                 </div>
             </section>
-        </BurgerContext.Provider>
+        // </BurgerContext.Provider>
   )
 }
 

@@ -4,6 +4,7 @@ import { API } from '../constant.js';
 import { useState } from 'react';
 import Lottie from 'lottie-react';
 import animationData from '../img/demo.json'
+import swal from 'sweetalert';
 function App() {
 
   console.log("This is my ", API);
@@ -52,7 +53,7 @@ function App() {
       }
       else {
         const data = await response.json()
-        console.log(data)
+        swal("Login Failed",data.message,"error")
 
       }
     }

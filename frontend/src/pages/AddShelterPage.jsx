@@ -19,7 +19,8 @@ function AddShelterPage() {
     const [showLoader, setShowLoader] = useState(false);
 
 
-    function handleBurgerClick(isBur) {
+    function handleBurgerClick(isBur)
+    {
         setIsBurgerOn(isBur);
     }
 

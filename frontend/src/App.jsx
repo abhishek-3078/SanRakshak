@@ -17,8 +17,8 @@ import Home from './pages/Home'
 import AdminAddress from './components/AdminAddress';
 import AdminCreateAlert from './pages/AdminCreateAlert';
 import RescueAgencyDashBoard from './pages/RescueAgencyDashBoard';
+import CommunityForumPage from './pages/CommunityForumPage'
 import Footer from './components/Footer';
-import CommunityForumPage from './pages/CommunityForumPage';
 import CommunityList from './components/communityList';
 import HomePage from './pages/HomePage';
 // import Awareness from './pages/Awareness';
@@ -54,6 +54,10 @@ function App() {
           <Route path="/adminDashboard" element={<RescueAgencyDashBoard />} />
 
         </Routes>
+
+
+
+        {/* <CommunityForumPage/> */}
       </Router>
       {/* <AdminAddress/> */}
     </div>

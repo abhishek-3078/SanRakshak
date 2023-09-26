@@ -110,10 +110,10 @@ export default function MainNav() {
               </svg>
             </button>
           </div>
-          <div className="flex justify-end">
+          <div className="flex justify-between w-[70%]">
           <div
             className="items-center  hidden w-full mr-8 md:flex md:w-auto "
-            id="navbar-user"
+            id="navbar-user w-[70%]"
           >
             <ul className="flex  font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white">
               <li>

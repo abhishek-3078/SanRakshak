@@ -47,11 +47,14 @@ const Login = () => {
         console.log(data)
         return swal("error", "Network connection error", "error");
       }
-      const data = await res.json();
-      console.log(data);
-      localStorage.setItem('idToken',data.token)
-      window.location.href="/userdashboard"
-    } catch (e) {
+      else{
+        
+        const data = await res.json();
+        console.log(data);
+        localStorage.setItem('idToken',data.token)
+        window.location.href="/userdashboard"
+      }
+      } catch (e) {
       console.log(data);
     }
   }

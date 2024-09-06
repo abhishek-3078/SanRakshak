@@ -17,12 +17,22 @@ const cors=require('cors')
 // const { findByIdAndUpdate, findByIdAndDelete } = require('./models/user')
 
 const app=express() 
-const allowedOrigins=["http://localhost:5173","https://sanrakshak.onrender.com/",""]
+const allowedOrigins = ["http://localhost:5173", "https://sanrakshak.onrender.com"];
+
 app.use(cors({
-    origin: allowedOrigins,
+    origin: function (origin, callback) {
+        if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
     methods: "GET,POST,PUT,DELETE",
     credentials: true,
-}))
+}));
+
+// Preflight request handler
+app.options('*', cors());
 // app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(
 // 	cookieSession({

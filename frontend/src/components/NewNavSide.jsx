@@ -12,7 +12,7 @@ function NewNavSide(){
         window.location.href = '/';
     }
     return(
-        <div className={`bg-[#6A8BFF] ${isBurgerOn? 'w-[5vw]':'w-[15vw]'} h-full`}>
+        <div className={`bg-[#6A8BFF] ${isBurgerOn? 'w-[5vw]':'w-[15vw]'} min-h-screen h-full`}>
             <ul className="flex flex-col w-full pt-5">
                 <Link to="/adminDashboard">
                     <li className="flex ml-2 space-x-5 my-5">

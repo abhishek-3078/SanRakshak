@@ -5,7 +5,7 @@ const replySchema = new mongoose.Schema({
     content: { type: String, required: true },
     createdAt: { type: Date, default: Date.now },
     media:[String],
-    replies: [this], // Array of nested replies, referencing the same schema
+    replies: [this], // Array of nested replies, referencing the same schemac
 });
 
 const communityForumSchema = new mongoose.Schema({

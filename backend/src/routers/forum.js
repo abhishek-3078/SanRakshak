@@ -41,7 +41,65 @@ router.get('/post/:id',async(req,res)=>{
         res.status(400).send(e)
     }
 })
-
+router.post('/post/:postId/replies', async (req, res) => {
+    try {
+      const { author, content, media } = req.body;
+      const postId = req.params.postId;
+  
+      const post = await Post.findById(postId);
+  
+      if (!post) {
+        return res.status(404).json({ error: 'Post not found' });
+      }
+  
+      const newReply = {
+        author,
+        content,
+        media,
+      };
+  
+      post.replies.push(newReply);
+      await post.save();
+  
+      res.status(201).json(post);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  });
+  router.post('/post/:postId/replies/:replyId', async (req, res) => {
+    try {
+      const { author, content, media } = req.body;
+      const postId = req.params.postId;
+      const replyId = req.params.replyId;
+  
+      const post = await Post.findById(postId);
+  
+      if (!post) {
+        return res.status(404).json({ error: 'Post not found' });
+      }
+  
+      const reply = post.replies.id(replyId);
+  
+      if (!reply) {
+        return res.status(404).json({ error: 'Reply not found' });
+      }
+  
+      const newReply = {
+        author,
+        content,
+        media,
+      };
+  
+      reply.replies.push(newReply);
+      await post.save();
+  
+      res.status(201).json(post);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  });
 router.post('/signup/address',adminAuth,async(req,res)=>{
     const body=req.body;
     const admin=req.user
